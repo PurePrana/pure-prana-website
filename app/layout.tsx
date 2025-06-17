@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Playfair_Display, Crimson_Text } from 'next/font/google'
+import Navigation from '@/components/Navigation'
 import './globals.css'
 
 const inter = Inter({ 
@@ -10,6 +11,12 @@ const inter = Inter({
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
   variable: '--font-playfair',
+})
+
+const crimson = Crimson_Text({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-crimson',
 })
 
 export const metadata: Metadata = {
@@ -23,8 +30,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${crimson.variable}`}>
+      <body className={inter.className}>
+        <Navigation />
+        {children}
+      </body>
     </html>
   )
 }

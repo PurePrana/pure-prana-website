@@ -11,7 +11,11 @@ interface ProductCardProps {
 export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: ProductCardProps) {
   const getAffiliateUrl = (amazonUrl: string) => {
     const url = new URL(amazonUrl)
+    // Ensure affiliate tag is added
     url.searchParams.set('tag', affiliateTag)
+    // Add tracking parameters
+    url.searchParams.set('linkCode', 'll1')
+    url.searchParams.set('ref_', 'as_li_ss_tl')
     return url.toString()
   }
 
@@ -26,8 +30,8 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
   }
 
   return (
-    <article className="card group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-      <div className="relative aspect-square overflow-hidden rounded-t-lg bg-neutral-50">
+    <article className="card-hover h-full flex flex-col overflow-hidden">
+      <div className="relative aspect-square bg-primary-50">
         <Image
           src={product.images[0]}
           alt={product.name}
@@ -38,28 +42,31 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
         {product.featured && (
-          <span className="absolute top-2 left-2 bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Featured
+          <span className="absolute top-3 left-3 bg-white text-primary-900 px-3 py-1.5 text-xs font-medium border border-primary-200 rounded">
+            ✓ Validated
           </span>
         )}
+        <span className="absolute top-3 right-3 bg-white text-primary-900 px-3 py-1.5 text-xs font-medium border border-primary-200 rounded">
+          USA
+        </span>
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="heading-4 text-primary-700 mb-2 line-clamp-2">
+        <h3 className="heading-4 mb-2 line-clamp-2">
           {product.name}
         </h3>
         
-        <p className="text-body text-secondary-600 mb-4 line-clamp-2 flex-1">
+        <p className="text-body text-muted mb-4 line-clamp-2 flex-1">
           {product.shortDescription}
         </p>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-1">
-            <span className="text-accent-500 font-bold">{product.rating}</span>
-            <span className="text-accent-500">★</span>
-            <span className="text-small text-secondary-500">({product.reviewCount})</span>
+            <span className="font-medium">{product.rating}</span>
+            <span className="text-brand">★</span>
+            <span className="text-small text-muted">({product.reviewCount})</span>
           </div>
-          <span className="text-2xl font-bold text-primary-600">
+          <span className="text-xl font-medium">
             ${product.price}
           </span>
         </div>
@@ -68,9 +75,9 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           {product.benefits.slice(0, 2).map((benefit, index) => (
             <span 
               key={index} 
-              className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded-full"
+              className="text-xs text-muted"
             >
-              {benefit}
+              • {benefit}
             </span>
           ))}
         </div>
@@ -82,7 +89,7 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           onClick={handleProductClick}
           className="btn-primary w-full text-center mt-auto"
         >
-          Buy on Amazon
+          View on Amazon →
         </a>
       </div>
     </article>

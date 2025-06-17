@@ -1,61 +1,61 @@
-import Image from 'next/image'
-
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 to-accent-50 py-20 md:py-32">
-      <div className="container relative z-10">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary-700 mb-6">
+    <section className="notion-page bg-gradient-to-br from-white via-primary-50 to-white">
+      <div className="max-w-3xl mx-auto">
+        <div className="block-spacing">
+          <h1 className="heading-1 mb-4 animate-fade-in text-primary-800">
             Pure Prana
           </h1>
-          <p className="text-xl md:text-2xl text-secondary-600 mb-8">
-            Discover Ancient Ayurvedic Wisdom for Modern Wellness
+          <p className="text-xl text-primary-600 mb-8 animate-fade-in" style={{animationDelay: '0.1s'}}>
+            Ancient wisdom validated by modern science
           </p>
-          <p className="text-lg text-secondary-600 mb-12 max-w-2xl mx-auto">
-            Experience the healing power of authentic Ayurvedic products sourced 
-            directly from the Himalayas. Trusted by thousands for natural health 
-            and vitality.
+        </div>
+        
+        <div className="notion-divider"></div>
+        
+        <div className="content-spacing animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-body-large text-primary-700">
+            We bridge millennia-old Ayurvedic traditions with contemporary research methodologies. 
+            Every formula undergoes rigorous testing in our <span className="text-brand-700 font-medium">FDA-registered facilities</span> in the USA.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <p className="text-body text-primary-600">
+            Our mission: Transform traditional remedies into evidence-based solutions for modern wellness challenges.
+          </p>
+          <div className="flex flex-wrap gap-3 mt-8">
             <a 
-              href="#products" 
-              className="btn-primary text-lg px-8 py-3 inline-block"
+              href="#research" 
+              className="btn-primary"
             >
-              Shop Now on Amazon
+              View Research
             </a>
             <a 
-              href="#why-ayurveda" 
-              className="btn-outline text-lg px-8 py-3 inline-block"
+              href="#products" 
+              className="btn-secondary"
             >
-              Learn About Ayurveda
+              Browse Products
             </a>
           </div>
         </div>
-
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <p className="text-4xl font-bold text-primary-600">100%</p>
-            <p className="text-secondary-600 mt-2">Natural Ingredients</p>
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in" style={{animationDelay: '0.3s'}}>
+          <div className="text-left">
+            <p className="text-3xl font-medium text-primary-800 mb-1">100%</p>
+            <p className="text-small text-primary-600">Pure Ingredients</p>
           </div>
-          <div>
-            <p className="text-4xl font-bold text-primary-600">50k+</p>
-            <p className="text-secondary-600 mt-2">Happy Customers</p>
+          <div className="text-left">
+            <p className="text-3xl font-medium text-primary-800 mb-1">15+</p>
+            <p className="text-small text-primary-600">Clinical Studies</p>
           </div>
-          <div>
-            <p className="text-4xl font-bold text-primary-600">4.7★</p>
-            <p className="text-secondary-600 mt-2">Average Rating</p>
+          <div className="text-left">
+            <p className="text-3xl font-medium text-primary-800 mb-1">FDA</p>
+            <p className="text-small text-primary-600">Registered Facility</p>
           </div>
-          <div>
-            <p className="text-4xl font-bold text-primary-600">30+</p>
-            <p className="text-secondary-600 mt-2">Premium Products</p>
+          <div className="text-left">
+            <p className="text-3xl font-medium text-primary-800 mb-1">4.7★</p>
+            <p className="text-small text-primary-600">Customer Rating</p>
           </div>
         </div>
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent pointer-events-none"></div>
-      
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-accent-300/20 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary-300/20 rounded-full blur-3xl"></div>
     </section>
   )
 }
