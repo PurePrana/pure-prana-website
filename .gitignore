@@ -5,6 +5,10 @@
 
 # testing
 /coverage
+__tests__/e2e/screenshots/*.png
+jest-puppeteer-coverage/
+.jest-test-results.json
+lighthouse-report.json
 
 # next.js
 /.next/
