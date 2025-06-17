@@ -1,73 +1,72 @@
 # Pure Prana Website
 
-Premium Ayurvedic brand website showcasing products and educational content.
+Official website for Pure Prana - Ayurvedic Wellness & Natural Living
 
-## 🚀 Project Status
+## Tech Stack
 
-View our project board: [Pure Prana Website Development](https://github.com/PurePrana/pure-prana-website/projects)
-
-## 📋 Sprint Overview
-
-### Sprint 0 - Foundation (Week 1)
-- Project setup and configuration
-- Design system implementation
-- Base components
-
-### Sprint 1 - Core Pages (Week 2)  
-- Homepage with hero section
-- Product showcase pages
-- Amazon integration
-
-### Sprint 2 - Content System (Week 3)
-- Blog infrastructure
-- Educational content
-- Search functionality
-
-### Sprint 3 - Polish & Launch (Week 4)
-- Performance optimization
-- Legal pages
-- Final testing
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 with TypeScript
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Content**: MDX for blog posts
-- **Hosting**: Vercel
-- **Analytics**: Google Analytics 4
+- **Fonts**: Inter & Playfair Display
+- **Deployment**: Vercel
 
-## 🏃‍♂️ Getting Started
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/PurePrana/pure-prana-website.git
+cd pure-prana-website
+
 # Install dependencies
 npm install
 
 # Run development server
 npm run dev
-
-# Build for production
-npm run build
 ```
 
-## 📊 Project Management
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-All tasks are tracked as GitHub Issues organized by sprint labels:
-- `sprint-0`: Foundation tasks
-- `sprint-1`: Core pages
-- `sprint-2`: Content system
-- `sprint-3`: Polish & launch
+## Scripts
 
-Priority labels:
-- `priority-high`: Critical path items
-- `priority-medium`: Important but not blocking
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
 
-## 🤝 Contributing
+## Design System
 
-1. Pick an issue from the "Ready for Pickup" column
-2. Create a feature branch
-3. Make your changes
-4. Submit a PR with reference to the issue
+See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for design tokens and component documentation.
 
----
+## Project Structure
 
-Generated with Claude Code 🤖
+```
+pure-prana-website/
+├── app/              # Next.js App Router pages
+├── components/       # React components
+├── lib/             # Utility functions and libraries
+├── public/          # Static assets
+└── styles/          # Global styles
+```
+
+## Development Workflow
+
+1. Pick an issue from the [project board](https://github.com/users/PurePrana/projects/2)
+2. Create a feature branch: `git checkout -b feature/issue-number-description`
+3. Make changes and commit: `git commit -m "feat: implement #issue-number"`
+4. Push and create a pull request
+
+## Deployment
+
+The site is automatically deployed to Vercel on push to the `main` branch.
+
+## License
+
+© 2024 Pure Prana. All rights reserved.
