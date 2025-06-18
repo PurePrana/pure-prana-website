@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import { Product } from '@/lib/types'
 
@@ -19,27 +17,17 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
     return url.toString()
   }
 
-  const handleProductClick = () => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'click', {
-        event_category: 'affiliate',
-        event_label: product.name,
-        value: product.price
-      })
-    }
-  }
 
   return (
     <article className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden border border-primary-100">
-      <div className="relative aspect-[4/5] bg-gradient-to-br from-primary-50 to-white overflow-hidden">
+      <div className="relative aspect-square bg-gradient-to-br from-primary-50 to-primary-100/50 overflow-hidden">
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out p-4"
+          priority={product.featured}
         />
         
         {/* Premium badges */}
@@ -113,7 +101,6 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           href={getAffiliateUrl(product.amazonUrl)}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          onClick={handleProductClick}
           className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-all duration-300 transform group-hover:scale-[1.02] mt-auto"
         >
           View on Amazon

@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import ProductCard from '@/components/ProductCard'
 import { getFeaturedProducts } from '@/lib/products'
 
-export default function Home() {
+export default async function Home() {
   const featuredProducts = getFeaturedProducts()
 
   return (
@@ -129,11 +129,10 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
-            {featuredProducts.map((product, index) => (
+            {featuredProducts.map((product) => (
               <div 
                 key={product.id} 
-                className="animate-slide-up"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className="animate-fade-in"
               >
                 <ProductCard product={product} />
               </div>
