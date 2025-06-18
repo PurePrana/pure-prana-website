@@ -30,29 +30,42 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
   }
 
   return (
-    <article className="card-hover h-full flex flex-col overflow-hidden">
-      <div className="relative aspect-square bg-primary-50">
+    <article className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden border border-primary-100">
+      <div className="relative aspect-[4/5] bg-gradient-to-br from-primary-50 to-white overflow-hidden">
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
-        {product.featured && (
-          <span className="absolute top-3 left-3 bg-white text-primary-900 px-3 py-1.5 text-xs font-medium border border-primary-200 rounded">
-            ✓ Validated
+        
+        {/* Premium badges */}
+        <div className="absolute top-4 left-4 flex flex-col gap-2">
+          {product.featured && (
+            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-primary-800 px-3 py-1.5 text-xs font-medium rounded-full shadow-sm">
+              <svg className="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>Clinically Validated</span>
+            </span>
+          )}
+        </div>
+        
+        <div className="absolute top-4 right-4">
+          <span className="inline-flex items-center bg-primary-800/90 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-medium rounded-full">
+            Made in USA
           </span>
-        )}
-        <span className="absolute top-3 right-3 bg-white text-primary-900 px-3 py-1.5 text-xs font-medium border border-primary-200 rounded">
-          USA
-        </span>
+        </div>
+
+        {/* Gradient overlay at bottom */}
+        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-white/80 to-transparent pointer-events-none" />
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="heading-4 mb-2 line-clamp-2">
+        <h3 className="text-xl font-medium text-primary-900 mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
           {product.name}
         </h3>
         
@@ -60,26 +73,40 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           {product.shortDescription}
         </p>
 
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-1">
-            <span className="font-medium">{product.rating}</span>
-            <span className="text-brand">★</span>
-            <span className="text-small text-muted">({product.reviewCount})</span>
-          </div>
-          <span className="text-xl font-medium">
-            ${product.price}
-          </span>
+        {/* Benefits with icons */}
+        <div className="space-y-2 mb-6">
+          {product.benefits.slice(0, 2).map((benefit, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-primary-600">{benefit}</span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {product.benefits.slice(0, 2).map((benefit, index) => (
-            <span 
-              key={index} 
-              className="text-xs text-muted"
-            >
-              • {benefit}
+        {/* Rating and price */}
+        <div className="flex items-center justify-between mb-6 pb-6 border-b border-primary-100">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center">
+              {[...Array(5)].map((_, i) => (
+                <svg 
+                  key={i} 
+                  className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-500' : 'text-gray-300'}`} 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-sm text-muted">({product.reviewCount})</span>
+          </div>
+          <div className="text-right">
+            <span className="text-2xl font-light text-primary-900">
+              ${product.price}
             </span>
-          ))}
+          </div>
         </div>
 
         <a
@@ -87,9 +114,12 @@ export default function ProductCard({ product, affiliateTag = 'pureprana-20' }: 
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           onClick={handleProductClick}
-          className="btn-primary w-full text-center mt-auto"
+          className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-all duration-300 transform group-hover:scale-[1.02] mt-auto"
         >
-          View on Amazon →
+          View on Amazon
+          <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </a>
       </div>
     </article>
