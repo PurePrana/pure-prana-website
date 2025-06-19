@@ -12,6 +12,16 @@ import {
 jest.mock('fs')
 const fs = require('fs')
 
+// Mock reading-time module
+jest.mock('reading-time', () => {
+  return jest.fn(() => ({
+    text: '5 min read',
+    minutes: 5,
+    time: 300000,
+    words: 1000
+  }))
+})
+
 describe('Blog Utilities', () => {
   const mockPostContent = `---
 title: Test Post
@@ -47,6 +57,8 @@ This is the post content.`
       expect(post?.slug).toBe('test-post')
       expect(post?.description).toBe('This is a test post')
       expect(post?.featured).toBe(true)
+      expect(post?.readingTime).toBeDefined()
+      expect(post?.readingTime.text).toBe('5 min read')
     })
 
     it('should handle .mdx extension in slug', () => {

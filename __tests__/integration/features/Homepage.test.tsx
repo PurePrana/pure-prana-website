@@ -23,7 +23,7 @@ describe('Homepage Integration', () => {
 
   it('renders featured products section with correct heading', () => {
     render(<Home />)
-    const heading = screen.getByRole('heading', { name: /Featured Products/i })
+    const heading = screen.getByRole('heading', { name: /Formulas That Transform Lives/i })
     expect(heading).toBeInTheDocument()
   })
 
@@ -37,29 +37,26 @@ describe('Homepage Integration', () => {
     })
   })
 
-  it('renders View All Products link with correct attributes', () => {
+  it('renders Shop Premium Products link', () => {
     render(<Home />)
-    const viewAllLink = screen.getByRole('link', { name: /View All Products on Amazon/i })
+    const shopLink = screen.getByRole('link', { name: /Shop Premium Products/i })
     
-    expect(viewAllLink).toBeInTheDocument()
-    expect(viewAllLink).toHaveAttribute('href', 'https://www.amazon.com/s?k=pure+prana+ayurveda&tag=pureprana-20')
-    expect(viewAllLink).toHaveAttribute('target', '_blank')
-    expect(viewAllLink).toHaveAttribute('rel', 'noopener noreferrer sponsored nofollow')
+    expect(shopLink).toBeInTheDocument()
+    expect(shopLink).toHaveAttribute('href', '#products')
   })
 
-  it('renders Why Choose Ayurveda section', () => {
+  it('renders Why Ayurveda Works section', () => {
     render(<Home />)
-    const whyAyurvedaHeading = screen.getByRole('heading', { name: /Why Choose Ayurveda\?/i })
+    const whyAyurvedaHeading = screen.getByRole('heading', { name: /Why Ayurveda Works/i })
     expect(whyAyurvedaHeading).toBeInTheDocument()
   })
 
   it('renders all Ayurveda benefit cards', () => {
     render(<Home />)
     const benefits = [
-      '5000 Years of Wisdom',
-      'Natural & Holistic',
-      'Personalized Approach',
-      'Proven Results'
+      'Scientific Research',
+      'Bioactive Compounds',
+      'Personalized Medicine'
     ]
     
     benefits.forEach(benefit => {
@@ -69,8 +66,8 @@ describe('Homepage Integration', () => {
 
   it('renders CTA section', () => {
     render(<Home />)
-    const ctaHeading = screen.getByRole('heading', { name: /Start Your Wellness Journey Today/i })
-    const ctaButton = screen.getByRole('link', { name: /Shop Our Products/i })
+    const ctaHeading = screen.getByRole('heading', { name: /Begin Your Transformation/i })
+    const ctaButton = screen.getByRole('link', { name: /Shop Premium Products/i })
     
     expect(ctaHeading).toBeInTheDocument()
     expect(ctaButton).toBeInTheDocument()
@@ -82,6 +79,8 @@ describe('Homepage Integration', () => {
     
     expect(container.querySelector('#products')).toBeInTheDocument()
     expect(container.querySelector('#why-ayurveda')).toBeInTheDocument()
+    expect(container.querySelector('#research')).toBeInTheDocument()
+    expect(container.querySelector('#testimonials')).toBeInTheDocument()
   })
 
   it('has proper semantic structure', () => {
