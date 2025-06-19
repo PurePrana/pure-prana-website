@@ -6,11 +6,10 @@ export const products: Product[] = [
     name: 'Hormone Balance',
     slug: 'hormone-balance',
     price: 24.95,
-    description: 'Premium Ayurvedic formula designed to support hormonal balance and overall wellness. Made with carefully selected herbs following traditional Ayurvedic principles.',
+    description:
+      'Premium Ayurvedic formula designed to support hormonal balance and overall wellness. Made with carefully selected herbs following traditional Ayurvedic principles.',
     shortDescription: 'Natural support for hormonal wellness',
-    images: [
-      '/images/products/hormone-balance.jpg',
-    ],
+    images: ['/images/products/hormone-balance.jpg'],
     amazonUrl: 'https://www.amazon.com/dp/B0DZ23LJGJ',
     rating: 4.5,
     reviewCount: 489,
@@ -31,16 +30,23 @@ export const products: Product[] = [
     name: 'Power Blend - Vitality Formula',
     slug: 'power-blend-vitality',
     price: 24.95,
-    description: 'Powerful combination of Shilajit, Ashwagandha, and Gokshura. This traditional Ayurvedic blend is designed to enhance vitality, energy, and overall performance.',
+    description:
+      'Powerful combination of Shilajit, Ashwagandha, and Gokshura. This traditional Ayurvedic blend is designed to enhance vitality, energy, and overall performance.',
     shortDescription: 'Premium vitality and energy supplement',
-    images: [
-      '/images/products/dynamic-vitality.webp',
-    ],
-    amazonUrl: 'https://www.amazon.com/Vitality-Shilajit-Ashwagandha-Gokshura-Supplement/dp/B0CWS4NCCF',
+    images: ['/images/products/dynamic-vitality.webp'],
+    amazonUrl:
+      'https://www.amazon.com/Vitality-Shilajit-Ashwagandha-Gokshura-Supplement/dp/B0CWS4NCCF',
     rating: 4.5,
     reviewCount: 129,
     category: 'Energy & Vitality',
-    tags: ['shilajit', 'ashwagandha', 'gokshura', 'energy', 'vitality', 'mens-health'],
+    tags: [
+      'shilajit',
+      'ashwagandha',
+      'gokshura',
+      'energy',
+      'vitality',
+      'mens-health',
+    ],
     benefits: [
       'Boosts energy and stamina',
       'Enhances vitality',
@@ -54,13 +60,13 @@ export const products: Product[] = [
 ]
 
 export function getFeaturedProducts() {
-  return products.filter(product => product.featured)
+  return products.filter((product) => product.featured)
 }
 
 export function getProductsByCategory(category: string) {
-  return products.filter(product => product.category === category)
+  return products.filter((product) => product.category === category)
 }
 
 export function getProductBySlug(slug: string) {
-  return products.find(product => product.slug === slug)
+  return products.find((product) => product.slug === slug)
 }

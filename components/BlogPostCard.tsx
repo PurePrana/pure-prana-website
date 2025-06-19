@@ -7,7 +7,10 @@ interface BlogPostCardProps {
   featured?: boolean
 }
 
-export default function BlogPostCard({ post, featured = false }: BlogPostCardProps) {
+export default function BlogPostCard({
+  post,
+  featured = false,
+}: BlogPostCardProps) {
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -16,18 +19,21 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
 
   // Get author display name based on our new personas
   const getAuthorInfo = (author: string) => {
-    switch(author) {
+    switch (author) {
       case 'Dr. Kamila Desai-Chen':
         return { name: 'Kamila Desai-Chen', credentials: 'Wellness Researcher' }
       case 'Aria Blackwood':
         return { name: 'Aria Blackwood', credentials: 'Wellness Practitioner' }
       case 'Marcus Rivera-Gonzalez':
-        return { name: 'Marcus Rivera-Gonzalez', credentials: 'Herbal Researcher' }
+        return {
+          name: 'Marcus Rivera-Gonzalez',
+          credentials: 'Herbal Researcher',
+        }
       default:
         return { name: 'Pure Prana Team', credentials: 'Wellness Experts' }
     }
   }
-  
+
   const authorInfo = getAuthorInfo(post.author)
   const authorName = authorInfo.name
   const authorCredentials = authorInfo.credentials
@@ -37,7 +43,10 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
       <article className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-primary-100">
         <div className="grid md:grid-cols-2 gap-0">
           {post.image && (
-            <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden">
+            <Link
+              href={`/blog/${post.slug}`}
+              className="block relative aspect-[16/10] overflow-hidden"
+            >
               <Image
                 src={post.image}
                 alt={post.title}
@@ -47,13 +56,17 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
               />
             </Link>
           )}
-          
+
           <div className="p-8 md:p-12 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center px-3 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full">
-                {post.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                {post.category
+                  .replace('-', ' ')
+                  .replace(/\b\w/g, (l) => l.toUpperCase())}
               </span>
-              <span className="text-sm text-primary-600">{post.readingTime.text}</span>
+              <span className="text-sm text-primary-600">
+                {post.readingTime.text}
+              </span>
             </div>
 
             <Link href={`/blog/${post.slug}`} className="group">
@@ -70,22 +83,39 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
                   <span className="text-primary-800 font-semibold text-sm">
-                    {authorName.split(' ').map(n => n[0]).join('')}
+                    {authorName
+                      .split(' ')
+                      .map((n) => n[0])
+                      .join('')}
                   </span>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-primary-900">{authorName}</p>
-                  <p className="text-xs text-primary-600">{authorCredentials}</p>
+                  <p className="text-sm font-medium text-primary-900">
+                    {authorName}
+                  </p>
+                  <p className="text-xs text-primary-600">
+                    {authorCredentials}
+                  </p>
                 </div>
               </div>
-              
-              <Link 
+
+              <Link
                 href={`/blog/${post.slug}`}
                 className="inline-flex items-center text-primary-700 font-medium hover:text-primary-900 transition-colors"
               >
                 Read article
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
             </div>
@@ -98,7 +128,10 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
   return (
     <article className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col border border-primary-100">
       {post.image && (
-        <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="block relative aspect-[16/10] overflow-hidden"
+        >
           <Image
             src={post.image}
             alt={post.title}
@@ -107,11 +140,20 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
             className="object-cover group-hover:scale-105 transition-transform duration-700"
           />
           {/* Evidence badge for certain categories */}
-          {(post.category === 'clinical-studies' || post.category === 'research-reviews') && (
+          {(post.category === 'clinical-studies' ||
+            post.category === 'research-reviews') && (
             <div className="absolute top-4 left-4">
               <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-green-700 px-3 py-1.5 text-xs font-medium rounded-full shadow-sm">
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 Evidence-Based
               </span>
@@ -119,11 +161,13 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
           )}
         </Link>
       )}
-      
+
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-center gap-3 mb-4 text-sm">
           <span className="text-primary-600">
-            {post.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+            {post.category
+              .replace('-', ' ')
+              .replace(/\b\w/g, (l) => l.toUpperCase())}
           </span>
           <span className="text-primary-300">•</span>
           <span className="text-primary-600">{post.readingTime.text}</span>
@@ -143,16 +187,21 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
               <span className="text-primary-800 font-semibold text-xs">
-                {authorName.split(' ').map(n => n[0]).join('')}
+                {authorName
+                  .split(' ')
+                  .map((n) => n[0])
+                  .join('')}
               </span>
             </div>
             <div>
-              <p className="text-sm font-medium text-primary-900">{authorName}</p>
+              <p className="text-sm font-medium text-primary-900">
+                {authorName}
+              </p>
               <p className="text-xs text-primary-600">{formattedDate}</p>
             </div>
           </div>
-          
-          <Link 
+
+          <Link
             href={`/blog/${post.slug}`}
             className="text-sm font-medium text-primary-700 hover:text-primary-900 transition-colors"
           >

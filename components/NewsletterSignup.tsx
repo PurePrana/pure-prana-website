@@ -5,7 +5,10 @@ import { useState } from 'react'
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [message, setMessage] = useState<{
+    type: 'success' | 'error'
+    text: string
+  } | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,21 +23,30 @@ export default function NewsletterSignup() {
         },
         body: JSON.stringify({
           email,
-          source: 'blog-article'
-        })
+          source: 'blog-article',
+        }),
       })
 
       const data = await response.json()
 
       if (response.ok) {
-        setMessage({ type: 'success', text: 'Successfully subscribed! Check your email for exclusive content.' })
+        setMessage({
+          type: 'success',
+          text: 'Successfully subscribed! Check your email for exclusive content.',
+        })
         setEmail('')
       } else {
-        setMessage({ type: 'error', text: data.error || 'Failed to subscribe. Please try again.' })
+        setMessage({
+          type: 'error',
+          text: data.error || 'Failed to subscribe. Please try again.',
+        })
       }
     } catch (error) {
       console.error('Subscription error:', error)
-      setMessage({ type: 'error', text: 'Network error. Please check your connection and try again.' })
+      setMessage({
+        type: 'error',
+        text: 'Network error. Please check your connection and try again.',
+      })
     } finally {
       setIsLoading(false)
     }
@@ -47,10 +59,11 @@ export default function NewsletterSignup() {
           Get Exclusive Ayurvedic Insights
         </h3>
         <p className="text-lg text-primary-700 mb-8 leading-relaxed">
-          Join 5,000+ wellness seekers who receive our weekly newsletter with ancient wisdom, 
-          modern research, and practical protocols you won&apos;t find anywhere else.
+          Join 5,000+ wellness seekers who receive our weekly newsletter with
+          ancient wisdom, modern research, and practical protocols you
+          won&apos;t find anywhere else.
         </p>
-        
+
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
           <div className="flex flex-col sm:flex-row gap-4">
             <input
@@ -76,31 +89,57 @@ export default function NewsletterSignup() {
         </form>
 
         {message && (
-          <div className={`mt-6 p-4 rounded-lg text-sm ${
-            message.type === 'success' 
-              ? 'bg-green-100 text-green-800 border border-green-200' 
-              : 'bg-red-100 text-red-800 border border-red-200'
-          }`}>
+          <div
+            className={`mt-6 p-4 rounded-lg text-sm ${
+              message.type === 'success'
+                ? 'bg-green-100 text-green-800 border border-green-200'
+                : 'bg-red-100 text-red-800 border border-red-200'
+            }`}
+          >
             {message.text}
           </div>
         )}
-        
+
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-primary-700">
           <span className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-green-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
             </svg>
             Weekly insights
           </span>
           <span className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-green-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
             </svg>
             Exclusive content
           </span>
           <span className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-green-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
             </svg>
             Free guides
           </span>

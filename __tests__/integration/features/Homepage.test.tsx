@@ -23,15 +23,17 @@ describe('Homepage Integration', () => {
 
   it('renders featured products section with correct heading', () => {
     render(<Home />)
-    const heading = screen.getByRole('heading', { name: /Formulas That Transform Lives/i })
+    const heading = screen.getByRole('heading', {
+      name: /Formulas That Transform Lives/i,
+    })
     expect(heading).toBeInTheDocument()
   })
 
   it('renders all featured products', () => {
     render(<Home />)
     const featuredProducts = getFeaturedProducts()
-    
-    featuredProducts.forEach(product => {
+
+    featuredProducts.forEach((product) => {
       expect(screen.getByTestId(`product-${product.id}`)).toBeInTheDocument()
       expect(screen.getByText(product.name)).toBeInTheDocument()
     })
@@ -39,15 +41,19 @@ describe('Homepage Integration', () => {
 
   it('renders Shop Premium Products link', () => {
     render(<Home />)
-    const shopLink = screen.getByRole('link', { name: /Shop Premium Products/i })
-    
+    const shopLink = screen.getByRole('link', {
+      name: /Shop Premium Products/i,
+    })
+
     expect(shopLink).toBeInTheDocument()
     expect(shopLink).toHaveAttribute('href', '#products')
   })
 
   it('renders Why Ayurveda Works section', () => {
     render(<Home />)
-    const whyAyurvedaHeading = screen.getByRole('heading', { name: /Why Ayurveda Works/i })
+    const whyAyurvedaHeading = screen.getByRole('heading', {
+      name: /Why Ayurveda Works/i,
+    })
     expect(whyAyurvedaHeading).toBeInTheDocument()
   })
 
@@ -56,19 +62,23 @@ describe('Homepage Integration', () => {
     const benefits = [
       'Scientific Research',
       'Bioactive Compounds',
-      'Personalized Medicine'
+      'Personalized Medicine',
     ]
-    
-    benefits.forEach(benefit => {
+
+    benefits.forEach((benefit) => {
       expect(screen.getByRole('heading', { name: benefit })).toBeInTheDocument()
     })
   })
 
   it('renders CTA section', () => {
     render(<Home />)
-    const ctaHeading = screen.getByRole('heading', { name: /Begin Your Transformation/i })
-    const ctaButton = screen.getByRole('link', { name: /Shop Premium Products/i })
-    
+    const ctaHeading = screen.getByRole('heading', {
+      name: /Begin Your Transformation/i,
+    })
+    const ctaButton = screen.getByRole('link', {
+      name: /Shop Premium Products/i,
+    })
+
     expect(ctaHeading).toBeInTheDocument()
     expect(ctaButton).toBeInTheDocument()
     expect(ctaButton).toHaveAttribute('href', '#products')
@@ -76,7 +86,7 @@ describe('Homepage Integration', () => {
 
   it('has proper section IDs for navigation', () => {
     const { container } = render(<Home />)
-    
+
     expect(container.querySelector('#products')).toBeInTheDocument()
     expect(container.querySelector('#why-ayurveda')).toBeInTheDocument()
     expect(container.querySelector('#research')).toBeInTheDocument()
@@ -85,11 +95,11 @@ describe('Homepage Integration', () => {
 
   it('has proper semantic structure', () => {
     const { container } = render(<Home />)
-    
+
     const main = container.querySelector('main')
     expect(main).toBeInTheDocument()
     expect(main).toHaveClass('min-h-screen')
-    
+
     const sections = container.querySelectorAll('section')
     expect(sections.length).toBeGreaterThan(0)
   })

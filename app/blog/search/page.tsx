@@ -26,9 +26,13 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-secondary-500 mb-6">
-              <Link href="/" className="hover:text-primary-600">Home</Link>
+              <Link href="/" className="hover:text-primary-600">
+                Home
+              </Link>
               <span>/</span>
-              <Link href="/blog" className="hover:text-primary-600">Blog</Link>
+              <Link href="/blog" className="hover:text-primary-600">
+                Blog
+              </Link>
               <span>/</span>
               <span className="text-primary-600">Search</span>
             </nav>
@@ -36,10 +40,11 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
             <h1 className="heading-1 font-display text-primary-700 mb-4">
               Search Results
             </h1>
-            
+
             {query && (
               <p className="text-lg text-secondary-600">
-                {results.length} {results.length === 1 ? 'result' : 'results'} for &ldquo;{query}&rdquo;
+                {results.length} {results.length === 1 ? 'result' : 'results'}{' '}
+                for &ldquo;{query}&rdquo;
               </p>
             )}
           </div>
@@ -61,8 +66,9 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                   No results found
                 </h2>
                 <p className="text-body text-secondary-500 mb-8 max-w-md mx-auto">
-                  We couldn&apos;t find any articles matching &ldquo;{query}&rdquo;. 
-                  Try searching with different keywords or browse our categories.
+                  We couldn&apos;t find any articles matching &ldquo;{query}
+                  &rdquo;. Try searching with different keywords or browse our
+                  categories.
                 </p>
                 <div className="flex gap-4 justify-center">
                   <Link href="/blog" className="btn-primary">
@@ -80,7 +86,8 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                 Enter a search query
               </h2>
               <p className="text-body text-secondary-500 mb-8">
-                Use the search bar to find articles about Ayurveda, wellness tips, and more.
+                Use the search bar to find articles about Ayurveda, wellness
+                tips, and more.
               </p>
               <Link href="/blog" className="btn-primary">
                 Browse All Articles

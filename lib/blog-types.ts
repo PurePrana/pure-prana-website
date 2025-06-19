@@ -61,13 +61,15 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
   {
     name: 'Product Guides',
     slug: 'product-guides',
-    description: 'In-depth guides about our Ayurvedic products and their benefits',
+    description:
+      'In-depth guides about our Ayurvedic products and their benefits',
     count: 0,
   },
   {
     name: 'Wellness Tips',
     slug: 'wellness-tips',
-    description: 'Practical tips for incorporating Ayurveda into your daily life',
+    description:
+      'Practical tips for incorporating Ayurveda into your daily life',
     count: 0,
   },
   {

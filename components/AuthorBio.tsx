@@ -8,7 +8,7 @@ interface AuthorBioProps {
 
 export default function AuthorBio({ authorId, date }: AuthorBioProps) {
   const author = AUTHORS[authorId] || AUTHORS.shagun
-  
+
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -27,11 +27,14 @@ export default function AuthorBio({ authorId, date }: AuthorBioProps) {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-primary-600 font-bold text-xl">
-            {author.name.split(' ').map(n => n[0]).join('')}
+            {author.name
+              .split(' ')
+              .map((n) => n[0])
+              .join('')}
           </div>
         )}
       </div>
-      
+
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
           <h3 className="font-medium text-primary-700">{author.name}</h3>

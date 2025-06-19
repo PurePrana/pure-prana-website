@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 // Simple SVG placeholder generator
 function generatePlaceholderSVG(productName, color = '#de4915') {
@@ -14,7 +14,7 @@ function generatePlaceholderSVG(productName, color = '#de4915') {
   </text>
   <circle cx="400" cy="280" r="60" fill="${color}" opacity="0.2"/>
   <path d="M380 260 L400 300 L420 260" stroke="${color}" stroke-width="4" fill="none" opacity="0.4"/>
-</svg>`;
+</svg>`
 }
 
 // Product images to generate
@@ -25,26 +25,26 @@ const products = [
   { name: 'brahmi', displayName: 'Brahmi Brain Tonic', color: '#4169e1' },
   { name: 'turmeric', displayName: 'Turmeric Curcumin', color: '#ff8c00' },
   { name: 'neem', displayName: 'Neem Leaf Powder', color: '#2e8b57' },
-];
+]
 
 // Create images directory if it doesn't exist
-const imagesDir = path.join(__dirname, '..', 'public', 'images');
+const imagesDir = path.join(__dirname, '..', 'public', 'images')
 if (!fs.existsSync(imagesDir)) {
-  fs.mkdirSync(imagesDir, { recursive: true });
+  fs.mkdirSync(imagesDir, { recursive: true })
 }
 
 // Generate placeholder images
-products.forEach(product => {
+products.forEach((product) => {
   // Generate 2 variants for each product
   for (let i = 1; i <= 2; i++) {
-    const svg = generatePlaceholderSVG(product.displayName, product.color);
-    const filename = `${product.name}-${i}.svg`;
-    const filepath = path.join(imagesDir, filename);
-    
-    fs.writeFileSync(filepath, svg);
-    console.log(`Created: ${filename}`);
+    const svg = generatePlaceholderSVG(product.displayName, product.color)
+    const filename = `${product.name}-${i}.svg`
+    const filepath = path.join(imagesDir, filename)
+
+    fs.writeFileSync(filepath, svg)
+    console.log(`Created: ${filename}`)
   }
-});
+})
 
 // Also create a .jpg version by creating a simple script
 const convertScript = `#!/bin/bash
@@ -55,10 +55,12 @@ for file in *.svg; do
   # In production, you would use a proper image
   cp "$file" "\${file%.svg}.jpg"
 done
-`;
+`
 
-fs.writeFileSync(path.join(__dirname, 'convert-images.sh'), convertScript);
-fs.chmodSync(path.join(__dirname, 'convert-images.sh'), '755');
+fs.writeFileSync(path.join(__dirname, 'convert-images.sh'), convertScript)
+fs.chmodSync(path.join(__dirname, 'convert-images.sh'), '755')
 
-console.log('\\nPlaceholder images generated successfully!');
-console.log('Note: These are SVG placeholders. Replace with actual product images for production.');
+console.log('\\nPlaceholder images generated successfully!')
+console.log(
+  'Note: These are SVG placeholders. Replace with actual product images for production.'
+)

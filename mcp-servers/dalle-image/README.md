@@ -92,11 +92,13 @@ OPENAI_API_KEY=your-api-key-here
 ## Troubleshooting
 
 ### Server not responding
+
 1. Check if the server is listed: `claude mcp list`
 2. Verify the OpenAI API key is set correctly in `.env`
 3. Check the build output exists in `build/index.js`
 
 ### Image generation fails
+
 1. Ensure your OpenAI API key has access to DALL-E 3
 2. Check if you have sufficient API credits
 3. Verify the prompt doesn't violate OpenAI's content policy

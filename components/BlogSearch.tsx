@@ -20,7 +20,7 @@ export default function BlogSearch({ posts }: BlogSearchProps) {
   useEffect(() => {
     if (query.trim()) {
       const searchResults = searchPosts(posts, query)
-      setResults(searchResults.map(r => r.item).slice(0, 5))
+      setResults(searchResults.map((r) => r.item).slice(0, 5))
       setIsOpen(true)
     } else {
       setResults([])
@@ -30,7 +30,10 @@ export default function BlogSearch({ posts }: BlogSearchProps) {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false)
       }
     }

@@ -11,7 +11,8 @@ export default function EmailCaptureBar() {
   useEffect(() => {
     // Show bar after user scrolls 30% of the page
     const handleScroll = () => {
-      const scrollPercentage = (window.scrollY / document.documentElement.scrollHeight) * 100
+      const scrollPercentage =
+        (window.scrollY / document.documentElement.scrollHeight) * 100
       if (scrollPercentage > 30 && !isSubmitted) {
         setIsVisible(true)
       }
@@ -30,7 +31,7 @@ export default function EmailCaptureBar() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
+
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
@@ -39,12 +40,12 @@ export default function EmailCaptureBar() {
         },
         body: JSON.stringify({
           email,
-          source: 'email-capture-bar'
-        })
+          source: 'email-capture-bar',
+        }),
       })
-      
+
       const data = await response.json()
-      
+
       if (response.ok) {
         setIsSubmitted(true)
         localStorage.setItem('newsletter_subscribed', 'true')
@@ -67,10 +68,17 @@ export default function EmailCaptureBar() {
     <div className="fixed bottom-0 left-0 right-0 bg-primary-900 text-white p-4 shadow-2xl transform transition-transform duration-500 z-50">
       <div className="max-w-6xl mx-auto">
         {!isSubmitted ? (
-          <form onSubmit={handleSubmit} className="flex flex-col md:flex-row items-center gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col md:flex-row items-center gap-4"
+          >
             <div className="flex-1 text-center md:text-left">
-              <p className="text-lg font-medium">Get premium Ayurvedic insights worth $100/month - Free</p>
-              <p className="text-sm text-primary-200">Join 5,000+ readers. No spam. Unsubscribe anytime.</p>
+              <p className="text-lg font-medium">
+                Get premium Ayurvedic insights worth $100/month - Free
+              </p>
+              <p className="text-sm text-primary-200">
+                Join 5,000+ readers. No spam. Unsubscribe anytime.
+              </p>
             </div>
             <div className="flex gap-3 w-full md:w-auto">
               <input
@@ -94,15 +102,29 @@ export default function EmailCaptureBar() {
               onClick={() => setIsVisible(false)}
               className="absolute top-2 right-2 text-primary-300 hover:text-white"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </form>
         ) : (
           <div className="text-center py-2">
-            <p className="text-lg font-medium">✓ Welcome to the Pure Prana community!</p>
-            <p className="text-sm text-primary-200">Check your email for exclusive content.</p>
+            <p className="text-lg font-medium">
+              ✓ Welcome to the Pure Prana community!
+            </p>
+            <p className="text-sm text-primary-200">
+              Check your email for exclusive content.
+            </p>
           </div>
         )}
       </div>

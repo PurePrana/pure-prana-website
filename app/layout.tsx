@@ -4,12 +4,12 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import './globals.css'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
 })
@@ -22,7 +22,8 @@ const crimson = Crimson_Text({
 
 export const metadata: Metadata = {
   title: 'Pure Prana - Ayurvedic Wellness',
-  description: 'Pure Prana offers authentic Ayurvedic products for holistic wellness',
+  description:
+    'Pure Prana offers authentic Ayurvedic products for holistic wellness',
 }
 
 export default function RootLayout({
@@ -31,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${crimson.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${crimson.variable}`}
+    >
       <body className={inter.className}>
         <Navigation />
         {children}

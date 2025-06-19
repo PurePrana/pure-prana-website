@@ -14,7 +14,7 @@ export function createPostsDirectory() {
 
 export function getPostSlugs() {
   createPostsDirectory()
-  return fs.readdirSync(postsDirectory).filter(file => file.endsWith('.mdx'))
+  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith('.mdx'))
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
@@ -53,59 +53,59 @@ export function getAllPosts(): BlogPost[] {
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
     .filter((post): post is BlogPost => post !== null)
-    .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()))
-  
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
   return posts
 }
 
 export function getFeaturedPosts(): BlogPost[] {
-  return getAllPosts().filter(post => post.featured)
+  return getAllPosts().filter((post) => post.featured)
 }
 
 export function getPostsByCategory(category: string): BlogPost[] {
-  return getAllPosts().filter(post => post.category === category)
+  return getAllPosts().filter((post) => post.category === category)
 }
 
 export function getPostsByTag(tag: string): BlogPost[] {
-  return getAllPosts().filter(post => post.tags.includes(tag))
+  return getAllPosts().filter((post) => post.tags.includes(tag))
 }
 
 export function getRelatedPosts(slug: string, limit: number = 3): BlogPost[] {
   const currentPost = getPostBySlug(slug)
   if (!currentPost) return []
 
-  const allPosts = getAllPosts().filter(post => post.slug !== slug)
-  
+  const allPosts = getAllPosts().filter((post) => post.slug !== slug)
+
   // Score posts based on shared tags and category
-  const scoredPosts = allPosts.map(post => {
+  const scoredPosts = allPosts.map((post) => {
     let score = 0
-    
+
     // Same category = 3 points
     if (post.category === currentPost.category) score += 3
-    
+
     // Each shared tag = 1 point
-    currentPost.tags.forEach(tag => {
+    currentPost.tags.forEach((tag) => {
       if (post.tags.includes(tag)) score += 1
     })
-    
+
     return { post, score }
   })
-  
+
   // Sort by score and return top matches
   return scoredPosts
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map(item => item.post)
+    .map((item) => item.post)
 }
 
 export function getAllTags(): string[] {
   const posts = getAllPosts()
   const tagSet = new Set<string>()
-  
-  posts.forEach(post => {
-    post.tags.forEach(tag => tagSet.add(tag))
+
+  posts.forEach((post) => {
+    post.tags.forEach((tag) => tagSet.add(tag))
   })
-  
+
   return Array.from(tagSet).sort()
 }
 
@@ -114,12 +114,12 @@ export function getPaginatedPosts(page: number = 1, postsPerPage: number = 10) {
   const allPosts = getAllPosts()
   const totalPosts = allPosts.length
   const totalPages = Math.ceil(totalPosts / postsPerPage)
-  
+
   const startIndex = (page - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
-  
+
   const posts = allPosts.slice(startIndex, endIndex)
-  
+
   return {
     posts,
     currentPage: page,

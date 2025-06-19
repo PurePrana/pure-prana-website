@@ -6,10 +6,10 @@ interface BlogPaginationProps {
   basePath?: string
 }
 
-export default function BlogPagination({ 
-  currentPage, 
-  totalPages, 
-  basePath = '/blog' 
+export default function BlogPagination({
+  currentPage,
+  totalPages,
+  basePath = '/blog',
 }: BlogPaginationProps) {
   const getPageUrl = (page: number) => {
     return page === 1 ? basePath : `${basePath}?page=${page}`
@@ -18,10 +18,10 @@ export default function BlogPagination({
   const renderPageNumbers = () => {
     const pages = []
     const maxVisible = 5
-    
+
     let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2))
     let endPage = Math.min(totalPages, startPage + maxVisible - 1)
-    
+
     if (endPage - startPage + 1 < maxVisible) {
       startPage = Math.max(1, endPage - maxVisible + 1)
     }
@@ -39,7 +39,9 @@ export default function BlogPagination({
       )
       if (startPage > 2) {
         pages.push(
-          <span key="dots1" className="px-2">...</span>
+          <span key="dots1" className="px-2">
+            ...
+          </span>
         )
       }
     }
@@ -65,7 +67,9 @@ export default function BlogPagination({
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         pages.push(
-          <span key="dots2" className="px-2">...</span>
+          <span key="dots2" className="px-2">
+            ...
+          </span>
         )
       }
       pages.push(
@@ -92,24 +96,42 @@ export default function BlogPagination({
           href={getPageUrl(currentPage - 1)}
           className="px-4 py-2 text-sm rounded-lg hover:bg-primary-50 transition-colors flex items-center gap-1"
         >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous
         </Link>
       ) : (
         <span className="px-4 py-2 text-sm text-neutral-400 flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous
         </span>
       )}
 
       {/* Page numbers */}
-      <div className="flex items-center gap-1">
-        {renderPageNumbers()}
-      </div>
+      <div className="flex items-center gap-1">{renderPageNumbers()}</div>
 
       {/* Next button */}
       {currentPage < totalPages ? (
@@ -118,15 +140,35 @@ export default function BlogPagination({
           className="px-4 py-2 text-sm rounded-lg hover:bg-primary-50 transition-colors flex items-center gap-1"
         >
           Next
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </Link>
       ) : (
         <span className="px-4 py-2 text-sm text-neutral-400 flex items-center gap-1">
           Next
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </span>
       )}

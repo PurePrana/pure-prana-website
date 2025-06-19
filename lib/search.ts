@@ -23,11 +23,11 @@ export function createSearchIndex(posts: BlogPost[]) {
 
 export function searchPosts(posts: BlogPost[], query: string): SearchResult[] {
   if (!query || query.trim() === '') return []
-  
+
   const fuse = createSearchIndex(posts)
   const results = fuse.search(query)
-  
-  return results.map(result => ({
+
+  return results.map((result) => ({
     item: result.item,
     score: result.score || 0,
   }))

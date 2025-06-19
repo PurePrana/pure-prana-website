@@ -25,25 +25,39 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => {
       const id = createSlug(children)
       return (
-        <h1 id={id} className="heading-1 font-display text-primary-700 mb-6 mt-8">{children}</h1>
+        <h1
+          id={id}
+          className="heading-1 font-display text-primary-700 mb-6 mt-8"
+        >
+          {children}
+        </h1>
       )
     },
     h2: ({ children }) => {
       const id = createSlug(children)
       return (
-        <h2 id={id} className="heading-2 font-display text-primary-700 mb-4 mt-8">{children}</h2>
+        <h2
+          id={id}
+          className="heading-2 font-display text-primary-700 mb-4 mt-8"
+        >
+          {children}
+        </h2>
       )
     },
     h3: ({ children }) => {
       const id = createSlug(children)
       return (
-        <h3 id={id} className="heading-3 text-primary-600 mb-3 mt-6">{children}</h3>
+        <h3 id={id} className="heading-3 text-primary-600 mb-3 mt-6">
+          {children}
+        </h3>
       )
     },
     h4: ({ children }) => {
       const id = createSlug(children)
       return (
-        <h4 id={id} className="heading-4 text-primary-600 mb-2 mt-4">{children}</h4>
+        <h4 id={id} className="heading-4 text-primary-600 mb-2 mt-4">
+          {children}
+        </h4>
       )
     },
     p: ({ children }) => (
@@ -55,9 +69,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ol: ({ children }) => (
       <ol className="list-decimal pl-6 mb-4 text-secondary-600">{children}</ol>
     ),
-    li: ({ children }) => (
-      <li className="mb-2">{children}</li>
-    ),
+    li: ({ children }) => <li className="mb-2">{children}</li>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-primary-300 pl-4 italic text-secondary-600 my-6">
         {children}
@@ -67,7 +79,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       const isInternal = href && (href.startsWith('/') || href.startsWith('#'))
       if (isInternal) {
         return (
-          <Link href={href} className="text-primary-600 hover:text-primary-700 underline">
+          <Link
+            href={href}
+            className="text-primary-600 hover:text-primary-700 underline"
+          >
             {children}
           </Link>
         )
@@ -107,31 +122,37 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </code>
     ),
-    
+
     // Custom components
     ProductCard: ({ productId }: { productId: string }) => {
-      const product = products.find(p => p.id === productId)
+      const product = products.find((p) => p.id === productId)
       if (!product) return null
       return <ProductCard product={product} />
     },
-    
+
     // Newsletter signup component
     NewsletterSignup,
-    
+
     // Premium teaser - removed functionality, returns null
     PremiumTeaser: () => null,
-    
+
     // Email capture bar
     EmailCaptureBar,
-    
+
     // Share buttons
     ShareButtons,
-    
+
     // FDA Disclaimer
     FDADisclaimer,
-    
+
     // Callout box
-    Callout: ({ type = 'info', children }: { type?: 'info' | 'warning' | 'tip', children: React.ReactNode }) => {
+    Callout: ({
+      type = 'info',
+      children,
+    }: {
+      type?: 'info' | 'warning' | 'tip'
+      children: React.ReactNode
+    }) => {
       const styles = {
         info: 'bg-blue-50 border-blue-200 text-blue-800',
         warning: 'bg-amber-50 border-amber-200 text-amber-800',

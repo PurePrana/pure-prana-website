@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
     secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
   }
   const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : ''
-  
+
   return (
     <button
       onClick={onClick}
@@ -60,10 +60,10 @@ describe('Button Component', () => {
   it('handles click events', () => {
     const handleClick = jest.fn()
     render(<Button onClick={handleClick}>Click me</Button>)
-    
+
     const button = screen.getByRole('button')
     fireEvent.click(button)
-    
+
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
@@ -75,11 +75,11 @@ describe('Button Component', () => {
         Disabled Button
       </Button>
     )
-    
+
     const button = screen.getByRole('button')
     expect(button).toBeDisabled()
     expect(button).toHaveClass('opacity-50')
-    
+
     fireEvent.click(button)
     expect(handleClick).not.toHaveBeenCalled()
   })
@@ -95,10 +95,10 @@ describe('Button Component', () => {
   it('meets accessibility requirements', () => {
     render(<Button>Accessible Button</Button>)
     const button = screen.getByRole('button')
-    
+
     // Button should be keyboard accessible
     expect(button).toHaveAttribute('type', 'button')
-    
+
     // Button should have accessible text
     expect(button).toHaveAccessibleName('Accessible Button')
   })

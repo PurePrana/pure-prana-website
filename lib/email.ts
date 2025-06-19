@@ -54,7 +54,7 @@ Best regards,
 The Pure Prana Team
 
 ---
-You're receiving this because you signed up at pureprana.com.`
+You're receiving this because you signed up at pureprana.com.`,
   }),
 
   contactFormNotification: (data: ContactEmailData) => ({
@@ -99,7 +99,7 @@ Subject: ${data.subject}
 Message:
 ${data.message}
 
-Reply to: ${data.email}`
+Reply to: ${data.email}`,
   }),
 
   contactFormAutoReply: (data: ContactEmailData) => ({
@@ -143,14 +143,21 @@ Best regards,
 The Pure Prana Team
 
 ---
-This is an automated response to confirm we received your message.`
-  })
+This is an automated response to confirm we received your message.`,
+  }),
 }
 
 // Placeholder email sending function
 // In production, replace with actual email service integration
 export async function sendEmail(options: EmailOptions): Promise<boolean> {
-  const { to, subject, html, text, from = 'noreply@pureprana.com', replyTo } = options
+  const {
+    to,
+    subject,
+    html,
+    text,
+    from = 'noreply@pureprana.com',
+    replyTo,
+  } = options
 
   // Log email for development
   if (process.env.NODE_ENV === 'development') {
@@ -159,7 +166,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       to,
       replyTo,
       subject,
-      preview: text?.substring(0, 100) || html.substring(0, 100)
+      preview: text?.substring(0, 100) || html.substring(0, 100),
     })
   }
 
@@ -198,30 +205,34 @@ export async function sendNewsletterWelcome(email: string): Promise<boolean> {
     to: email,
     subject: template.subject,
     html: template.html,
-    text: template.text
+    text: template.text,
   })
 }
 
-export async function sendContactNotification(data: ContactEmailData): Promise<boolean> {
+export async function sendContactNotification(
+  data: ContactEmailData
+): Promise<boolean> {
   const template = emailTemplates.contactFormNotification(data)
   const adminEmail = process.env.ADMIN_EMAIL || 'purchase.himalayas@gmail.com'
-  
+
   return sendEmail({
     to: adminEmail,
     subject: template.subject,
     html: template.html,
     text: template.text,
-    replyTo: data.email
+    replyTo: data.email,
   })
 }
 
-export async function sendContactAutoReply(data: ContactEmailData): Promise<boolean> {
+export async function sendContactAutoReply(
+  data: ContactEmailData
+): Promise<boolean> {
   const template = emailTemplates.contactFormAutoReply(data)
   return sendEmail({
     to: data.email,
     subject: template.subject,
     html: template.html,
-    text: template.text
+    text: template.text,
   })
 }
 

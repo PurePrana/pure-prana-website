@@ -5,7 +5,8 @@ import { BlogPost } from '@/lib/blog-types'
 const mockPost: BlogPost = {
   slug: 'test-post',
   title: 'Test Blog Post',
-  description: 'This is a test blog post description that should be displayed in the card',
+  description:
+    'This is a test blog post description that should be displayed in the card',
   date: '2024-01-15',
   author: 'shagun',
   category: 'wellness-tips',
@@ -16,15 +17,17 @@ const mockPost: BlogPost = {
     text: '5 min read',
     minutes: 5,
     time: 300000,
-    words: 1000
+    words: 1000,
   },
-  content: 'Post content goes here'
+  content: 'Post content goes here',
 }
 
 describe('BlogPostCard Component', () => {
   it('renders post title', () => {
     render(<BlogPostCard post={mockPost} />)
-    expect(screen.getByRole('heading', { name: mockPost.title })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: mockPost.title })
+    ).toBeInTheDocument()
   })
 
   it('renders post description', () => {
@@ -54,7 +57,10 @@ describe('BlogPostCard Component', () => {
     render(<BlogPostCard post={mockPost} />)
     const image = screen.getByAltText(mockPost.title)
     expect(image).toBeInTheDocument()
-    expect(image).toHaveAttribute('src', expect.stringContaining('test-post.jpg'))
+    expect(image).toHaveAttribute(
+      'src',
+      expect.stringContaining('test-post.jpg')
+    )
   })
 
   it('renders without image when not provided', () => {
@@ -66,8 +72,8 @@ describe('BlogPostCard Component', () => {
   it('renders correct links to blog post', () => {
     render(<BlogPostCard post={mockPost} />)
     const links = screen.getAllByRole('link')
-    
-    links.forEach(link => {
+
+    links.forEach((link) => {
       expect(link).toHaveAttribute('href', `/blog/${mockPost.slug}`)
     })
   })
@@ -84,13 +90,17 @@ describe('BlogPostCard Component', () => {
   })
 
   it('truncates long descriptions', () => {
-    const longDescription = 'This is a very long description that should be truncated. '.repeat(10)
+    const longDescription =
+      'This is a very long description that should be truncated. '.repeat(10)
     const postWithLongDesc = { ...mockPost, description: longDescription }
-    
+
     render(<BlogPostCard post={postWithLongDesc} />)
     // Find the description element by partial content
     const description = screen.getByText((content, element) => {
-      return element?.textContent === longDescription && element?.classList.contains('line-clamp-3')
+      return (
+        element?.textContent === longDescription &&
+        element?.classList.contains('line-clamp-3')
+      )
     })
     expect(description).toBeInTheDocument()
   })
@@ -103,7 +113,9 @@ describe('BlogPostCard Component', () => {
     ]
 
     testCases.forEach(({ category, expected }) => {
-      const { unmount } = render(<BlogPostCard post={{ ...mockPost, category }} />)
+      const { unmount } = render(
+        <BlogPostCard post={{ ...mockPost, category }} />
+      )
       expect(screen.getByText(expected)).toBeInTheDocument()
       // Clean up for next iteration
       unmount()

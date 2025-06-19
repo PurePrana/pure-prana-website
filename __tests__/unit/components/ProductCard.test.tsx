@@ -33,7 +33,9 @@ describe('ProductCard Component', () => {
 
   it('renders product name', () => {
     render(<ProductCard product={mockProduct} />)
-    expect(screen.getByRole('heading', { name: mockProduct.name })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: mockProduct.name })
+    ).toBeInTheDocument()
   })
 
   it('renders product short description', () => {
@@ -60,7 +62,9 @@ describe('ProductCard Component', () => {
   it('does not render Research-Backed Ingredients badge when product is not featured', () => {
     const nonFeaturedProduct = { ...mockProduct, featured: false }
     render(<ProductCard product={nonFeaturedProduct} />)
-    expect(screen.queryByText('Research-Backed Ingredients')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('Research-Backed Ingredients')
+    ).not.toBeInTheDocument()
   })
 
   it('renders first two benefits', () => {
@@ -73,28 +77,37 @@ describe('ProductCard Component', () => {
   it('generates correct affiliate URL with default tag', () => {
     render(<ProductCard product={mockProduct} />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
-    expect(buyButton).toHaveAttribute('href', expect.stringContaining('tag=pureprana-20'))
+    expect(buyButton).toHaveAttribute(
+      'href',
+      expect.stringContaining('tag=pureprana-20')
+    )
   })
 
   it('generates correct affiliate URL with custom tag', () => {
     render(<ProductCard product={mockProduct} affiliateTag="customtag-21" />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
-    expect(buyButton).toHaveAttribute('href', expect.stringContaining('tag=customtag-21'))
+    expect(buyButton).toHaveAttribute(
+      'href',
+      expect.stringContaining('tag=customtag-21')
+    )
   })
 
   it('has correct link attributes for SEO and security', () => {
     render(<ProductCard product={mockProduct} />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
     expect(buyButton).toHaveAttribute('target', '_blank')
-    expect(buyButton).toHaveAttribute('rel', 'noopener noreferrer sponsored nofollow')
+    expect(buyButton).toHaveAttribute(
+      'rel',
+      'noopener noreferrer sponsored nofollow'
+    )
   })
 
   it('does not track click events (gtag not implemented)', () => {
     render(<ProductCard product={mockProduct} />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
-    
+
     fireEvent.click(buyButton)
-    
+
     // The current implementation doesn't track clicks
     expect(mockGtag).not.toHaveBeenCalled()
   })
@@ -103,7 +116,7 @@ describe('ProductCard Component', () => {
     delete window.gtag
     render(<ProductCard product={mockProduct} />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
-    
+
     // Should not throw error
     expect(() => fireEvent.click(buyButton)).not.toThrow()
   })

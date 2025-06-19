@@ -9,7 +9,7 @@ describe('Server Running Check - Manual', () => {
         port: 3000,
         path: '/',
         method: 'GET',
-        timeout: 5000
+        timeout: 5000,
       }
 
       const req = http.request(options, (res) => {
@@ -23,7 +23,11 @@ describe('Server Running Check - Manual', () => {
 
       req.on('error', (error) => {
         console.error('✗ Server is not running on port 3000')
-        reject(new Error('Server is not running. Please start the server with "npm run dev"'))
+        reject(
+          new Error(
+            'Server is not running. Please start the server with "npm run dev"'
+          )
+        )
       })
 
       req.on('timeout', () => {

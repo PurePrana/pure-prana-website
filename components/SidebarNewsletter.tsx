@@ -5,7 +5,10 @@ import { useState } from 'react'
 export default function SidebarNewsletter() {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [message, setMessage] = useState<{
+    type: 'success' | 'error'
+    text: string
+  } | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,8 +23,8 @@ export default function SidebarNewsletter() {
         },
         body: JSON.stringify({
           email,
-          source: 'blog-sidebar'
-        })
+          source: 'blog-sidebar',
+        }),
       })
 
       const data = await response.json()
@@ -30,7 +33,10 @@ export default function SidebarNewsletter() {
         setMessage({ type: 'success', text: 'Successfully subscribed!' })
         setEmail('')
       } else {
-        setMessage({ type: 'error', text: data.error || 'Failed to subscribe. Please try again.' })
+        setMessage({
+          type: 'error',
+          text: data.error || 'Failed to subscribe. Please try again.',
+        })
       }
     } catch (error) {
       console.error('Subscription error:', error)
@@ -66,18 +72,22 @@ export default function SidebarNewsletter() {
           {isLoading ? 'Subscribing...' : 'Subscribe'}
         </button>
       </form>
-      
+
       {message && (
-        <div className={`mt-3 p-2 rounded text-xs text-center ${
-          message.type === 'success' 
-            ? 'bg-green-100 text-green-800' 
-            : 'bg-red-100 text-red-800'
-        }`}>
+        <div
+          className={`mt-3 p-2 rounded text-xs text-center ${
+            message.type === 'success'
+              ? 'bg-green-100 text-green-800'
+              : 'bg-red-100 text-red-800'
+          }`}
+        >
           {message.text}
         </div>
       )}
-      
-      <p className="text-xs text-primary-600 mt-3">Join 10,000+ readers. No spam.</p>
+
+      <p className="text-xs text-primary-600 mt-3">
+        Join 10,000+ readers. No spam.
+      </p>
     </div>
   )
 }

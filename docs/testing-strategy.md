@@ -14,16 +14,19 @@ This document outlines a practical and simple testing approach for the Pure Pran
 ## Testing Types
 
 ### 1. Unit Tests (Jest + React Testing Library)
+
 - Test individual components in isolation
 - Focus on component behavior and user interactions
 - Mock external dependencies
 
 ### 2. Integration Tests (Jest + React Testing Library)
+
 - Test component interactions
 - Test data flow between components
 - Test API integration points
 
 ### 3. E2E Tests (Puppeteer)
+
 - Test critical user journeys
 - Test full page flows
 - Validate production-like behavior
@@ -52,27 +55,33 @@ This document outlines a practical and simple testing approach for the Pure Pran
 ### Sprint 0 - Foundation Tests
 
 #### Issue: Project Setup & Design System
+
 ```bash
 npm run test:unit -- __tests__/unit/design-system
 ```
+
 - Test theme provider functionality
 - Test CSS variable injection
 - Test responsive utilities
 
 #### Issue: Component Architecture
+
 ```bash
 npm run test:unit -- __tests__/unit/components/layout
 ```
+
 - Test Header component rendering
 - Test Footer component rendering
 - Test responsive grid behavior
 - Test mobile menu functionality
 
 #### Issue: Development Tooling
+
 ```bash
 npm run test:lint
 npm run test:format
 ```
+
 - Validate ESLint configuration
 - Validate Prettier formatting
 - Test pre-commit hooks
@@ -80,36 +89,44 @@ npm run test:format
 ### Sprint 1 - Core Pages Tests
 
 #### Issue: Homepage Development
+
 ```bash
 npm run test:integration -- __tests__/integration/pages/home
 npm run test:e2e -- __tests__/e2e/user-flows/homepage
 ```
+
 - Test hero section rendering
 - Test CTA interactions
 - Test page performance metrics
 
 #### Issue: Product Display System
+
 ```bash
 npm run test:unit -- __tests__/unit/components/product
 npm run test:integration -- __tests__/integration/features/product-display
 ```
+
 - Test Product Card component
 - Test product detail page
 - Test image gallery functionality
 - Test zoom feature
 
 #### Issue: Amazon Integration
+
 ```bash
 npm run test:integration -- __tests__/integration/features/amazon
 ```
+
 - Test affiliate link generation
 - Test click tracking
 - Test link validation
 
 #### Issue: SEO Implementation
+
 ```bash
 npm run test:unit -- __tests__/unit/components/seo
 ```
+
 - Test meta tag generation
 - Test structured data output
 - Test Open Graph tags
@@ -117,26 +134,32 @@ npm run test:unit -- __tests__/unit/components/seo
 ### Sprint 2 - Content System Tests
 
 #### Issue: Blog Core Infrastructure
+
 ```bash
 npm run test:unit -- __tests__/unit/components/blog
 npm run test:integration -- __tests__/integration/features/blog
 ```
+
 - Test MDX rendering
 - Test blog listing pagination
 - Test TOC generation
 
 #### Issue: Blog Search
+
 ```bash
 npm run test:integration -- __tests__/integration/features/search
 ```
+
 - Test search functionality
 - Test search results accuracy
 - Test search performance
 
 #### Issue: Blog Enhancement Features
+
 ```bash
 npm run test:unit -- __tests__/unit/components/blog-features
 ```
+
 - Test reading time calculation
 - Test related posts algorithm
 - Test share button functionality
@@ -145,25 +168,31 @@ npm run test:unit -- __tests__/unit/components/blog-features
 ### Sprint 3 - Polish & Launch Tests
 
 #### Issue: Static Pages Bundle
+
 ```bash
 npm run test:e2e -- __tests__/e2e/smoke-tests/static-pages
 ```
+
 - Test 404 page
 - Test error boundary
 - Test legal pages rendering
 
 #### Issue: Performance Optimization
+
 ```bash
 npm run test:performance
 ```
+
 - Test page load times
 - Test bundle sizes
 - Test image optimization
 
 #### Issue: Technical SEO Bundle
+
 ```bash
 npm run test:seo
 ```
+
 - Test sitemap generation
 - Test robots.txt
 - Test schema markup
@@ -171,6 +200,7 @@ npm run test:seo
 ## Test Scripts
 
 Add to package.json:
+
 ```json
 {
   "scripts": {
@@ -192,6 +222,7 @@ Add to package.json:
 ## Simple Test Examples
 
 ### Unit Test Pattern
+
 ```typescript
 // Always test:
 // 1. Component renders without crashing
@@ -201,6 +232,7 @@ Add to package.json:
 ```
 
 ### Integration Test Pattern
+
 ```typescript
 // Always test:
 // 1. Components work together
@@ -210,6 +242,7 @@ Add to package.json:
 ```
 
 ### E2E Test Pattern
+
 ```typescript
 // Always test:
 // 1. User can complete the journey
@@ -221,6 +254,7 @@ Add to package.json:
 ## CI/CD Integration
 
 ### GitHub Actions Workflow
+
 ```yaml
 name: Test Suite
 on: [push, pull_request]
@@ -253,17 +287,21 @@ Before marking an issue as complete:
 ## Common Test Utilities
 
 ### Test Data Factories
+
 Create reusable test data in `__tests__/fixtures/`
 
 ### Custom Render Functions
+
 Create custom render functions in `__tests__/utils/`
 
 ### Mock Providers
+
 Create mock providers for context/theme in `__tests__/mocks/`
 
 ## Debugging Tests
 
 ### Local Debugging
+
 ```bash
 # Run specific test file
 npm test -- Button.test.tsx
@@ -276,6 +314,7 @@ npm run test:watch
 ```
 
 ### E2E Debugging
+
 ```bash
 # Run Puppeteer in headful mode
 HEADLESS=false npm run test:e2e
@@ -287,18 +326,22 @@ PUPPETEER_SCREENSHOTS=true npm run test:e2e
 ## Best Practices
 
 1. **Test Behavior, Not Implementation**
+
    - Focus on what users see and do
    - Don't test internal state or methods
 
 2. **Keep Tests Simple**
+
    - One concept per test
    - Clear test names that describe the scenario
 
 3. **Use Realistic Data**
+
    - Avoid "test1", "test2" naming
    - Use data that resembles production
 
 4. **Test Accessibility**
+
    - Include keyboard navigation tests
    - Test with screen reader announcements
 

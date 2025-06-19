@@ -12,9 +12,9 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
   const { posts, totalPages, totalPosts } = getPaginatedPosts(currentPage, 6)
   const allPosts = getAllPosts()
   const featuredPosts = posts.slice(0, 3)
-  
+
   return (
-    <BlogClient 
+    <BlogClient
       posts={posts}
       allPosts={allPosts}
       featuredPosts={featuredPosts}

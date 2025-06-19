@@ -1,5 +1,9 @@
 import React from 'react'
-import { render as rtlRender, screen, waitForElementToBeRemoved } from '@testing-library/react'
+import {
+  render as rtlRender,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
 // Custom render function that includes providers
@@ -7,10 +11,7 @@ interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
   // Add any provider props here
 }
 
-function customRender(
-  ui: React.ReactElement,
-  options?: CustomRenderOptions
-) {
+function customRender(ui: React.ReactElement, options?: CustomRenderOptions) {
   function Wrapper({ children }: { children: React.ReactNode }) {
     return (
       <>
@@ -37,9 +38,9 @@ export { customRender as render }
  * Wait for async operations to complete
  */
 export const waitForLoadingToFinish = () =>
-  screen.findByText(/loading/i, {}, { timeout: 3000 }).then(() =>
-    waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
-  )
+  screen
+    .findByText(/loading/i, {}, { timeout: 3000 })
+    .then(() => waitForElementToBeRemoved(() => screen.queryByText(/loading/i)))
 
 /**
  * Mock fetch for API calls
@@ -108,11 +109,8 @@ export const assertAriaAttributes = (
 /**
  * Get elements by data-testid
  */
-export const getByTestId = (testId: string) =>
-  screen.getByTestId(testId)
+export const getByTestId = (testId: string) => screen.getByTestId(testId)
 
-export const queryByTestId = (testId: string) =>
-  screen.queryByTestId(testId)
+export const queryByTestId = (testId: string) => screen.queryByTestId(testId)
 
-export const getAllByTestId = (testId: string) =>
-  screen.getAllByTestId(testId)
+export const getAllByTestId = (testId: string) => screen.getAllByTestId(testId)

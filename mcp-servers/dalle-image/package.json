@@ -12,7 +12,12 @@
     "dev": "tsx src/index.ts",
     "start": "node build/index.js"
   },
-  "keywords": ["mcp", "dalle", "openai", "image-generation"],
+  "keywords": [
+    "mcp",
+    "dalle",
+    "openai",
+    "image-generation"
+  ],
   "author": "Shivam Dixit",
   "license": "MIT",
   "dependencies": {
