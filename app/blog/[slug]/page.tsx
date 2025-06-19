@@ -5,6 +5,9 @@ import { useMDXComponents } from '@/mdx-components'
 import TableOfContents from '@/components/TableOfContents'
 import AuthorBio from '@/components/AuthorBio'
 import RelatedPosts from '@/components/RelatedPosts'
+import ShareButtons from '@/components/ShareButtons'
+import EmailCaptureBar from '@/components/EmailCaptureBar'
+import SidebarNewsletter from '@/components/SidebarNewsletter'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -48,12 +51,44 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const relatedPosts = getRelatedPosts(post.slug)
   const components = useMDXComponents({})
 
-  // Get author details
-  const authorName = post.author === 'shagun' ? 'Shagun Pandey' : 'Dr. Patel'
-  const authorCredentials = post.author === 'shagun' ? 'Certified Ayurveda Practitioner' : 'MD, Clinical Research'
-  const authorBio = post.author === 'shagun' 
-    ? 'Shagun is a certified Ayurveda practitioner with over 10 years of experience in holistic wellness and traditional medicine.'
-    : 'Dr. Patel is a medical doctor specializing in integrative medicine, combining modern clinical research with traditional Ayurvedic practices.'
+  // Get author details based on our new personas
+  const getAuthorDetails = (author: string) => {
+    switch(author) {
+      case 'Dr. Kamila Desai-Chen':
+        return {
+          name: 'Kamila Desai-Chen',
+          credentials: 'Ayurvedic Wellness Researcher',
+          bio: 'Kamila is a dedicated wellness expert who integrates traditional Ayurvedic wisdom with modern wellness practices to help people achieve optimal health.',
+          avatar: '/images/authors/kamila-desai-chen.png'
+        }
+      case 'Aria Blackwood':
+        return {
+          name: 'Aria Blackwood',
+          credentials: 'Wellness Practitioner',
+          bio: 'Aria specializes in making Ayurveda accessible for busy professionals, with a focus on practical implementation and modern lifestyle integration.',
+          avatar: '/images/authors/aria-blackwood.png'
+        }
+      case 'Marcus Rivera-Gonzalez':
+        return {
+          name: 'Marcus Rivera-Gonzalez',
+          credentials: 'Herbal Wellness Researcher',
+          bio: 'Marcus brings extensive experience in natural wellness and herbal traditions, helping people make informed choices about their health journey.',
+          avatar: '/images/authors/marcus-rivera-gonzalez.png'
+        }
+      default:
+        return {
+          name: 'Pure Prana Team',
+          credentials: 'Wellness Experts',
+          bio: 'Our team of certified practitioners brings you evidence-based Ayurvedic wisdom for modern life.',
+          avatar: null
+        }
+    }
+  }
+  
+  const authorDetails = getAuthorDetails(post.author)
+  const authorName = authorDetails.name
+  const authorCredentials = authorDetails.credentials
+  const authorBio = authorDetails.bio
 
   return (
     <main className="min-h-screen bg-white">
@@ -104,11 +139,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             {/* Author & Date */}
             <div className="flex items-center justify-between flex-wrap gap-4 pb-8 border-b border-primary-200">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
-                  <span className="text-primary-800 font-semibold">
-                    {authorName.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
+                {authorDetails.avatar ? (
+                  <Image
+                    src={authorDetails.avatar}
+                    alt={authorName}
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
+                    <span className="text-primary-800 font-semibold">
+                      {authorName.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                )}
                 <div>
                   <p className="font-medium text-primary-900">{authorName}</p>
                   <p className="text-sm text-primary-600">{authorCredentials}</p>
@@ -181,7 +226,17 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                       {post.references.map((ref, index) => (
                         <li key={index} className="flex gap-3">
                           <span className="text-primary-400">[{index + 1}]</span>
-                          <span>{ref}</span>
+                          <div>
+                            <a 
+                              href={ref.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="hover:text-primary-800 underline"
+                            >
+                              {ref.title}
+                            </a>
+                            <span className="text-primary-500 ml-2">({ref.source})</span>
+                          </div>
                         </li>
                       ))}
                     </ol>
@@ -208,11 +263,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <div className="mt-12 p-8 bg-gradient-to-br from-primary-50 to-white rounded-xl border border-primary-200">
                   <h3 className="text-lg font-medium text-primary-900 mb-4">About the Author</h3>
                   <div className="flex gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-primary-800 font-semibold text-xl">
-                        {authorName.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
+                    {authorDetails.avatar ? (
+                      <Image
+                        src={authorDetails.avatar}
+                        alt={authorName}
+                        width={64}
+                        height={64}
+                        className="rounded-full object-cover flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-primary-800 font-semibold text-xl">
+                          {authorName.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
                     <div>
                       <p className="font-medium text-primary-900">{authorName}</p>
                       <p className="text-sm text-primary-600 mb-3">{authorCredentials}</p>
@@ -224,37 +289,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 {/* Share Section */}
                 <div className="flex items-center justify-between gap-4 mt-8 pt-8 border-t border-primary-200">
                   <p className="text-sm text-primary-600">Found this helpful? Share with others:</p>
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://pureprana.com/blog/${post.slug}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-primary-100 hover:bg-primary-200 rounded-full flex items-center justify-center text-primary-600 hover:text-primary-800 transition-all"
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
-                      </svg>
-                    </a>
-                    <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://pureprana.com/blog/${post.slug}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-primary-100 hover:bg-primary-200 rounded-full flex items-center justify-center text-primary-600 hover:text-primary-800 transition-all"
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      </svg>
-                    </a>
-                    <button
-                      onClick={() => navigator.clipboard.writeText(`https://pureprana.com/blog/${post.slug}`)}
-                      className="w-10 h-10 bg-primary-100 hover:bg-primary-200 rounded-full flex items-center justify-center text-primary-600 hover:text-primary-800 transition-all"
-                      title="Copy link"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                    </button>
-                  </div>
+                  <ShareButtons title={post.title} slug={post.slug} />
                 </div>
               </div>
 
@@ -303,29 +338,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   </div>
                   
                   {/* Newsletter CTA */}
-                  <div className="bg-gradient-to-br from-primary-100 to-primary-50 rounded-xl p-6">
-                    <h3 className="text-lg font-medium text-primary-900 mb-3">
-                      Get Research Updates
-                    </h3>
-                    <p className="text-sm text-primary-700 mb-4">
-                      Monthly digest of evidence-based Ayurvedic insights.
-                    </p>
-                    <form className="space-y-3">
-                      <input
-                        type="email"
-                        placeholder="Your email"
-                        className="w-full px-4 py-2.5 bg-white border border-primary-300 rounded-lg text-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
-                        required
-                      />
-                      <button
-                        type="submit"
-                        className="w-full px-4 py-2.5 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-colors text-sm"
-                      >
-                        Subscribe
-                      </button>
-                    </form>
-                    <p className="text-xs text-primary-600 mt-3">Join 10,000+ readers. No spam.</p>
-                  </div>
+                  <SidebarNewsletter />
                 </div>
               </aside>
             </div>
@@ -339,6 +352,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </article>
+      
+      {/* Email Capture Bar */}
+      <EmailCaptureBar />
     </main>
   )
 }

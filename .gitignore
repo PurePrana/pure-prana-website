@@ -38,3 +38,6 @@ next-env.d.ts
 
 # backup
 .backup/
+
+# form data storage
+/data/

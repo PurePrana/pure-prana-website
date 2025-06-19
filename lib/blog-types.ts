@@ -15,6 +15,13 @@ export interface BlogPost {
     words: number
   }
   content: string
+  excerpt?: string
+  updatedAt?: string
+  references?: Array<{
+    title: string
+    url: string
+    source: string
+  }>
 }
 
 export interface BlogCategory {

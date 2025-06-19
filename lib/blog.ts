@@ -38,6 +38,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
       featured: data.featured || false,
       readingTime: reading,
       content,
+      excerpt: data.description || '',
+      updatedAt: data.updatedAt,
+      references: data.references,
     }
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error)

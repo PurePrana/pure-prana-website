@@ -40,7 +40,7 @@ export default async function Home() {
                   <div className="mt-4 flex items-center gap-4">
                     <span className="text-sm text-brand-600 font-medium">5,000+ texts reviewed</span>
                     <span className="w-1 h-1 bg-primary-300 rounded-full"></span>
-                    <span className="text-sm text-brand-600 font-medium">150+ clinical papers</span>
+                    <span className="text-sm text-brand-600 font-medium">150+ research papers</span>
                   </div>
                 </div>
               </div>
@@ -80,13 +80,13 @@ export default async function Home() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="heading-4 mb-3 text-primary-900">Clinical Validation</h3>
+                  <h3 className="heading-4 mb-3 text-primary-900">Scientific Research</h3>
                   <p className="text-body text-muted leading-relaxed">
-                    We partner with leading research institutions to conduct and review clinical studies. 
+                    We review scientific research on traditional herbs and their modern applications. 
                     All health claims are substantiated with peer-reviewed scientific evidence.
                   </p>
                   <div className="mt-4 flex items-center gap-4">
-                    <span className="text-sm text-brand-600 font-medium">15+ clinical trials</span>
+                    <span className="text-sm text-brand-600 font-medium">Research-based formulas</span>
                     <span className="w-1 h-1 bg-primary-300 rounded-full"></span>
                     <span className="text-sm text-brand-600 font-medium">IRB approved studies</span>
                   </div>
@@ -137,20 +137,6 @@ export default async function Home() {
                 <ProductCard product={product} />
               </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <a 
-              href="https://www.amazon.com/s?k=pure+prana+ayurveda&tag=pureprana-20"
-              target="_blank"
-              rel="noopener noreferrer sponsored nofollow"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
-            >
-              Explore Full Collection
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>
@@ -283,9 +269,9 @@ export default async function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="heading-4 mb-4 text-primary-900">Clinical Evidence</h3>
+              <h3 className="heading-4 mb-4 text-primary-900">Scientific Research</h3>
               <p className="text-body text-muted mb-4">
-                Over 150 clinical trials validate Ayurvedic medicine's effectiveness. 
+                Extensive research explores the traditional uses of Ayurvedic herbs. 
                 The WHO recognizes Ayurveda as a complete system of natural healthcare.
               </p>
               <a href="#" className="text-sm text-brand-600 font-medium hover:text-brand-700 inline-flex items-center group">
@@ -416,6 +402,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
     </main>
   )
 }

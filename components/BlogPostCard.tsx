@@ -14,9 +14,23 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
     day: 'numeric',
   })
 
-  // Get author display name
-  const authorName = post.author === 'shagun' ? 'Shagun Pandey' : 'Dr. Patel'
-  const authorCredentials = post.author === 'shagun' ? 'Ayurveda Practitioner' : 'MD, Clinical Research'
+  // Get author display name based on our new personas
+  const getAuthorInfo = (author: string) => {
+    switch(author) {
+      case 'Dr. Kamila Desai-Chen':
+        return { name: 'Kamila Desai-Chen', credentials: 'Wellness Researcher' }
+      case 'Aria Blackwood':
+        return { name: 'Aria Blackwood', credentials: 'Wellness Practitioner' }
+      case 'Marcus Rivera-Gonzalez':
+        return { name: 'Marcus Rivera-Gonzalez', credentials: 'Herbal Researcher' }
+      default:
+        return { name: 'Pure Prana Team', credentials: 'Wellness Experts' }
+    }
+  }
+  
+  const authorInfo = getAuthorInfo(post.author)
+  const authorName = authorInfo.name
+  const authorCredentials = authorInfo.credentials
 
   if (featured) {
     return (

@@ -3,23 +3,49 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ProductCard from '@/components/ProductCard'
 import { products } from '@/lib/products'
+import NewsletterSignup from '@/components/NewsletterSignup'
+import EmailCaptureBar from '@/components/EmailCaptureBar'
+import ShareButtons from '@/components/ShareButtons'
+import FDADisclaimer from '@/components/FDADisclaimer'
+
+// Helper function to create slug from text
+function createSlug(text: any): string {
+  return String(text)
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim()
+}
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
     // Override default elements
-    h1: ({ children }) => (
-      <h1 className="heading-1 font-display text-primary-700 mb-6 mt-8">{children}</h1>
-    ),
-    h2: ({ children }) => (
-      <h2 className="heading-2 font-display text-primary-700 mb-4 mt-8">{children}</h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="heading-3 text-primary-600 mb-3 mt-6">{children}</h3>
-    ),
-    h4: ({ children }) => (
-      <h4 className="heading-4 text-primary-600 mb-2 mt-4">{children}</h4>
-    ),
+    h1: ({ children }) => {
+      const id = createSlug(children)
+      return (
+        <h1 id={id} className="heading-1 font-display text-primary-700 mb-6 mt-8">{children}</h1>
+      )
+    },
+    h2: ({ children }) => {
+      const id = createSlug(children)
+      return (
+        <h2 id={id} className="heading-2 font-display text-primary-700 mb-4 mt-8">{children}</h2>
+      )
+    },
+    h3: ({ children }) => {
+      const id = createSlug(children)
+      return (
+        <h3 id={id} className="heading-3 text-primary-600 mb-3 mt-6">{children}</h3>
+      )
+    },
+    h4: ({ children }) => {
+      const id = createSlug(children)
+      return (
+        <h4 id={id} className="heading-4 text-primary-600 mb-2 mt-4">{children}</h4>
+      )
+    },
     p: ({ children }) => (
       <p className="text-body text-secondary-600 mb-4">{children}</p>
     ),
@@ -58,16 +84,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       )
     },
     img: ({ src, alt }) => (
-      <div className="my-8">
-        <Image
-          src={src || ''}
-          alt={alt || ''}
-          width={800}
-          height={400}
-          className="rounded-lg"
-          sizes="(max-width: 768px) 100vw, 800px"
-        />
-      </div>
+      <img
+        src={src || ''}
+        alt={alt || ''}
+        className="rounded-lg my-8 w-full max-w-4xl mx-auto block"
+        loading="lazy"
+      />
+    ),
+    em: ({ children }) => (
+      <em className="italic text-secondary-500">{children}</em>
+    ),
+    strong: ({ children }) => (
+      <strong className="font-semibold text-secondary-700">{children}</strong>
     ),
     pre: ({ children }) => (
       <pre className="bg-neutral-100 rounded-lg p-4 overflow-x-auto mb-4">
@@ -88,30 +116,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     
     // Newsletter signup component
-    NewsletterSignup: () => (
-      <div className="bg-primary-50 rounded-lg p-8 my-8 text-center">
-        <h3 className="heading-3 text-primary-700 mb-4">
-          Get Ayurvedic Wellness Tips
-        </h3>
-        <p className="text-body mb-6">
-          Join our newsletter for exclusive content and special offers
-        </p>
-        <form className="max-w-md mx-auto flex gap-4">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-1 px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:border-primary-500"
-            required
-          />
-          <button
-            type="submit"
-            className="btn-primary"
-          >
-            Subscribe
-          </button>
-        </form>
-      </div>
-    ),
+    NewsletterSignup,
+    
+    // Premium teaser - removed functionality, returns null
+    PremiumTeaser: () => null,
+    
+    // Email capture bar
+    EmailCaptureBar,
+    
+    // Share buttons
+    ShareButtons,
+    
+    // FDA Disclaimer
+    FDADisclaimer,
     
     // Callout box
     Callout: ({ type = 'info', children }: { type?: 'info' | 'warning' | 'tip', children: React.ReactNode }) => {
