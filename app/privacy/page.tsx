@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-light text-primary-800 mb-4">Third-Party Services</h2>
             <p>
               We use Amazon affiliate links. When you click these links, Amazon may collect 
-              information according to their privacy policy. We recommend reviewing Amazon's 
+              information according to their privacy policy. We recommend reviewing Amazon&apos;s 
               privacy practices.
             </p>
           </section>

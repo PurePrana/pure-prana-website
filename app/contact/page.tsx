@@ -127,7 +127,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-xl text-primary-700 mb-8">
               Have questions about our products or Ayurvedic wellness? 
-              We're here to help guide your journey to optimal health.
+              We&apos;re here to help guide your journey to optimal health.
             </p>
           </div>
         </div>
@@ -140,11 +140,11 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-light text-primary-900 mb-6">
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h2>
               <p className="text-lg text-primary-700 mb-8">
-                Whether you're curious about Ayurveda, need product recommendations, 
-                or have feedback, we'd love to hear from you.
+                Whether you&apos;re curious about Ayurveda, need product recommendations, 
+                or have feedback, we&apos;d love to hear from you.
               </p>
               
               <div className="space-y-6">

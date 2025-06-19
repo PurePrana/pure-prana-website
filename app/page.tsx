@@ -165,8 +165,8 @@ export default async function Home() {
                 ))}
               </div>
               <p className="text-body text-primary-700 mb-6 italic">
-                "After struggling with stress for years, Pure Prana's Ashwagandha has been life-changing. 
-                I feel more balanced and focused than I have in a decade. The quality is exceptional."
+                &quot;After struggling with stress for years, Pure Prana&apos;s Ashwagandha has been life-changing. 
+                I feel more balanced and focused than I have in a decade. The quality is exceptional.&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
@@ -189,8 +189,8 @@ export default async function Home() {
                 ))}
               </div>
               <p className="text-body text-primary-700 mb-6 italic">
-                "The Turmeric Complex has significantly reduced my joint discomfort. I appreciate the 
-                transparency about their testing and manufacturing process. This is Ayurveda done right."
+                &quot;The Turmeric Complex has significantly reduced my joint discomfort. I appreciate the 
+                transparency about their testing and manufacturing process. This is Ayurveda done right.&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
@@ -213,8 +213,8 @@ export default async function Home() {
                 ))}
               </div>
               <p className="text-body text-primary-700 mb-6 italic">
-                "As a healthcare practitioner, I'm impressed by Pure Prana's commitment to research. 
-                Their products deliver consistent results for my patients. The quality is pharmaceutical-grade."
+                &quot;As a healthcare practitioner, I&apos;m impressed by Pure Prana&apos;s commitment to research. 
+                Their products deliver consistent results for my patients. The quality is pharmaceutical-grade.&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center">
@@ -309,7 +309,7 @@ export default async function Home() {
               </div>
               <h3 className="heading-4 mb-4 text-primary-900">Personalized Medicine</h3>
               <p className="text-body text-muted mb-4">
-                Ayurveda's constitutional approach (Prakriti) pioneered personalized medicine. 
+                Ayurveda&apos;s constitutional approach (Prakriti) pioneered personalized medicine. 
                 Genomic studies confirm correlations between doshas and genetic variations.
               </p>
               <a href="#" className="text-sm text-brand-600 font-medium hover:text-brand-700 inline-flex items-center group">

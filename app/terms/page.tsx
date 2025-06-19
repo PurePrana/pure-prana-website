@@ -12,7 +12,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-light text-primary-800 mb-4">Agreement to Terms</h2>
             <p>
-              By accessing Pure Prana's website, you agree to these Terms of Service. 
+              By accessing Pure Prana&apos;s website, you agree to these Terms of Service. 
               If you disagree with any part, please do not use our website.
             </p>
           </section>
@@ -58,7 +58,7 @@ export default function TermsOfService() {
             <p>
               Pure Prana is not liable for any damages arising from your use of this 
               website or products purchased through our affiliate links. We provide 
-              information "as is" without warranties of any kind.
+              information &quot;as is&quot; without warranties of any kind.
             </p>
           </section>
 
@@ -87,7 +87,7 @@ export default function TermsOfService() {
 
           <section className="mt-12 p-6 bg-primary-50 rounded-lg">
             <p className="text-sm text-primary-600">
-              By using Pure Prana's website, you acknowledge that you have read, understood, 
+              By using Pure Prana&apos;s website, you acknowledge that you have read, understood, 
               and agree to be bound by these Terms of Service.
             </p>
           </section>

@@ -48,7 +48,7 @@ export default function NewsletterSignup() {
         </h3>
         <p className="text-lg text-primary-700 mb-8 leading-relaxed">
           Join 5,000+ wellness seekers who receive our weekly newsletter with ancient wisdom, 
-          modern research, and practical protocols you won't find anywhere else.
+          modern research, and practical protocols you won&apos;t find anywhere else.
         </p>
         
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
