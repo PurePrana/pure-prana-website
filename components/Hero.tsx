@@ -26,7 +26,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span className="text-sm text-white/90 font-medium">
-              FDA-Registered • GMP-Certified • Made in USA
+              GMP-Certified • Third-Party Tested • Premium Quality
             </span>
           </div>
 

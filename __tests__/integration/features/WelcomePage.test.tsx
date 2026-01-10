@@ -111,7 +111,7 @@ describe('Welcome Page', () => {
   it('should render trust badges', () => {
     render(<WelcomePage />)
 
-    expect(screen.getByText('Made in USA')).toBeInTheDocument()
+    expect(screen.getByText('GMP Certified')).toBeInTheDocument()
     expect(screen.getByText('100% Plant-Based')).toBeInTheDocument()
     expect(screen.getByText('Third-Party Tested')).toBeInTheDocument()
     expect(screen.getByText('5000+ Years')).toBeInTheDocument()

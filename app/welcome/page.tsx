@@ -457,9 +457,9 @@ export default function WelcomePage() {
                 </svg>
               </div>
               <p className="text-sm font-medium text-primary-900">
-                Made in USA
+                GMP Certified
               </p>
-              <p className="text-xs text-primary-600">FDA Registered Facility</p>
+              <p className="text-xs text-primary-600">Third-Party Tested</p>
             </div>
 
             <div>

@@ -165,7 +165,7 @@ export default function ProductPage({ params }: Props) {
                       </div>
                       <div className="absolute top-4 right-4">
                         <span className="inline-flex items-center bg-primary-800/90 text-white px-3 py-1.5 text-sm font-medium rounded-full">
-                          Made in USA
+                          GMP Certified
                         </span>
                       </div>
                     </>
@@ -275,8 +275,8 @@ export default function ProductPage({ params }: Props) {
                   <div className="text-xs text-muted">100% Natural</div>
                 </div>
                 <div className="text-center p-3 bg-white rounded-lg border border-primary-100">
-                  <div className="text-2xl mb-1">🇺🇸</div>
-                  <div className="text-xs text-muted">Made in USA</div>
+                  <div className="text-2xl mb-1">🔬</div>
+                  <div className="text-xs text-muted">Lab Tested</div>
                 </div>
                 <div className="text-center p-3 bg-white rounded-lg border border-primary-100">
                   <div className="text-2xl mb-1">✓</div>

@@ -9,7 +9,7 @@ import { BlogPost } from './blog-types'
 export const SITE_URL = 'https://gopureprana.com'
 export const SITE_NAME = 'Pure Prana'
 export const SITE_DESCRIPTION =
-  'Premium plant-based Ayurvedic supplements made in the USA. Authentic formulations backed by traditional wisdom and modern science for holistic wellness.'
+  'Premium plant-based Ayurvedic supplements. Authentic formulations backed by traditional wisdom and modern science for holistic wellness.'
 
 export interface OrganizationSchema {
   '@context': 'https://schema.org'

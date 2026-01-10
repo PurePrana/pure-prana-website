@@ -7,7 +7,7 @@ import { getAllConcerns } from '@/lib/concerns'
 export const metadata: Metadata = {
   title: 'Shop Ayurvedic Supplements | Pure Prana',
   description:
-    'Browse our collection of premium Ayurvedic supplements. Research-backed formulas for energy, immunity, hormonal balance, and more. Made in USA.',
+    'Browse our collection of premium Ayurvedic supplements. Research-backed formulas for energy, immunity, hormonal balance, and more. GMP certified.',
 }
 
 export default function ShopPage() {

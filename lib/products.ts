@@ -21,7 +21,7 @@ export const products: Product[] = [
       'Supports hormonal balance',
       'PMS relief & menstrual support',
       'Promotes stress resilience',
-      'Made in USA - FDA registered facility',
+      'Third-party tested for purity',
     ],
     usage: 'Take 1 capsule daily with food or as directed by your healthcare provider',
     featured: true,
@@ -45,7 +45,7 @@ export const products: Product[] = [
     description:
       'Powerful combination of Shilajit, Ashwagandha, and Gokshura. This traditional Ayurvedic blend is designed to enhance vitality, energy, brain function, and overall performance with extra strength 12000mg equivalent formula.',
     shortDescription: 'Premium vitality and energy supplement',
-    images: ['/images/products/power-blend.png'],
+    images: ['/images/products/power-blend.jpg'],
     amazonUrl:
       'https://www.amazon.com/dp/B0CWS4NCCF?maas=maas_adg_5A8C87AD130CE1AA2FA46560E3E26154_afap_abs&ref_=aa_maas&tag=maas',
     rating: 4.5,
@@ -57,7 +57,7 @@ export const products: Product[] = [
       'Boosts energy and stamina',
       'Enhances vitality & libido',
       'Supports brain function',
-      'Made in USA facility',
+      'GMP certified facility',
     ],
     usage: 'Take 1 capsule daily with food or as directed by your healthcare provider',
     featured: true,

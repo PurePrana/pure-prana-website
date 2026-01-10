@@ -59,7 +59,7 @@ export default function ProductCard({
         {!isComingSoon && (
           <div className="absolute top-4 right-4">
             <span className="inline-flex items-center bg-primary-800/90 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-medium rounded-full">
-              Made in USA
+              GMP Certified
             </span>
           </div>
         )}

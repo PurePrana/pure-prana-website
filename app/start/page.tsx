@@ -930,8 +930,8 @@ export default function StartPage() {
                 </svg>
               </div>
               <div>
-                <p className="font-semibold text-primary-900 text-sm">Made in USA</p>
-                <p className="text-xs text-muted">California facility</p>
+                <p className="font-semibold text-primary-900 text-sm">GMP Certified</p>
+                <p className="text-xs text-muted">Premium Quality</p>
               </div>
             </div>
 

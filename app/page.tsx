@@ -168,13 +168,13 @@ export default async function Home() {
               </div>
               <div className="flex-1">
                 <h4 className="text-lg font-semibold text-primary-900 mb-2">
-                  Made in USA
+                  Premium Quality
                 </h4>
                 <p className="text-body text-primary-700">
-                  All Pure Prana products are manufactured in our GMP-certified,
-                  FDA-registered facility in California, ensuring
-                  pharmaceutical-grade quality standards and complete supply
-                  chain transparency.
+                  All Pure Prana products are manufactured in GMP-certified
+                  facilities, ensuring pharmaceutical-grade quality standards
+                  and complete supply chain transparency. Third-party tested
+                  for purity and potency.
                 </p>
               </div>
             </div>
