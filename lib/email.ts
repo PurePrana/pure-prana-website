@@ -35,7 +35,7 @@ export const emailTemplates = {
         <p>Best regards,<br>The Pure Prana Team</p>
         <hr style="border: 1px solid #eee; margin: 20px 0;">
         <p style="font-size: 12px; color: #666;">
-          You're receiving this because you signed up at pureprana.com. 
+          You're receiving this because you signed up at gopureprana.com. 
           <a href="#">Unsubscribe</a>
         </p>
       </div>
@@ -54,7 +54,7 @@ Best regards,
 The Pure Prana Team
 
 ---
-You're receiving this because you signed up at pureprana.com.`,
+You're receiving this because you signed up at gopureprana.com.`,
   }),
 
   contactFormNotification: (data: ContactEmailData) => ({
@@ -116,9 +116,9 @@ Reply to: ${data.email}`,
         </div>
         <p>In the meantime, you might find these resources helpful:</p>
         <ul>
-          <li><a href="https://pureprana.com/blog">Our Research Blog</a></li>
-          <li><a href="https://pureprana.com/products">Product Catalog</a></li>
-          <li><a href="https://pureprana.com/about">About Pure Prana</a></li>
+          <li><a href="https://gopureprana.com/blog">Our Research Blog</a></li>
+          <li><a href="https://gopureprana.com/shop">Product Catalog</a></li>
+          <li><a href="https://gopureprana.com/about">About Pure Prana</a></li>
         </ul>
         <p>Best regards,<br>The Pure Prana Team</p>
         <hr style="border: 1px solid #eee; margin: 20px 0;">

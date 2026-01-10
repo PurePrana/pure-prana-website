@@ -9,7 +9,7 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
-  const url = `https://pureprana.com/blog/${slug}`
+  const url = `https://gopureprana.com/blog/${slug}`
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(url)

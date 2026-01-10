@@ -1,3 +1,14 @@
+export interface SupplementIngredient {
+  name: string
+  amount: string
+}
+
+export interface SupplementFacts {
+  servingSize: string
+  servingsPerContainer: number
+  ingredients: SupplementIngredient[]
+}
+
 export interface Product {
   id: string
   name: string
@@ -10,11 +21,14 @@ export interface Product {
   rating: number
   reviewCount: number
   category: string
+  concerns: string[]
   tags: string[]
   benefits: string[]
   usage: string
   featured: boolean
   inStock: boolean
+  comingSoon?: boolean
+  supplementFacts?: SupplementFacts
 }
 
 export interface ProductCategory {

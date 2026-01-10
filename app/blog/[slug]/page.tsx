@@ -10,6 +10,11 @@ import EmailCaptureBar from '@/components/EmailCaptureBar'
 import SidebarNewsletter from '@/components/SidebarNewsletter'
 import Link from 'next/link'
 import Image from 'next/image'
+import {
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+  SITE_URL,
+} from '@/lib/seo'
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -31,16 +36,43 @@ export async function generateMetadata({
     }
   }
 
+  const imageUrl = post.image
+    ? post.image.startsWith('http')
+      ? post.image
+      : `${SITE_URL}${post.image}`
+    : `${SITE_URL}/images/og-default.jpg`
+
   return {
-    title: `${post.title} - Pure Prana Blog`,
+    title: post.title,
     description: post.description,
+    keywords: post.tags.join(', '),
+    authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.updatedAt || post.date,
       authors: [post.author],
-      images: post.image ? [post.image] : [],
+      section: post.category,
+      tags: post.tags,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: `${SITE_URL}/blog/${post.slug}`,
     },
   }
 }
@@ -94,8 +126,29 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const authorCredentials = authorDetails.credentials
   const authorBio = authorDetails.bio
 
+  // Generate structured data for SEO/AEO
+  const articleSchema = generateArticleSchema(post)
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ])
+
   return (
     <main className="min-h-screen bg-white">
+      {/* JSON-LD Structured Data for SEO/AEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <article>
         {/* Hero Section */}
         <section className="relative pt-20 pb-16 bg-gradient-to-b from-primary-50 to-white overflow-hidden">

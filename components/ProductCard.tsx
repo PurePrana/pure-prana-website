@@ -1,24 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Product } from '@/lib/types'
 
 interface ProductCardProps {
   product: Product
-  affiliateTag?: string
+  showViewDetails?: boolean
 }
 
 export default function ProductCard({
   product,
-  affiliateTag = 'pureprana-20',
+  showViewDetails = true,
 }: ProductCardProps) {
-  const getAffiliateUrl = (amazonUrl: string) => {
-    const url = new URL(amazonUrl)
-    // Ensure affiliate tag is added
-    url.searchParams.set('tag', affiliateTag)
-    // Add tracking parameters
-    url.searchParams.set('linkCode', 'll1')
-    url.searchParams.set('ref_', 'as_li_ss_tl')
-    return url.toString()
-  }
+  const isComingSoon = product.comingSoon || !product.amazonUrl
 
   return (
     <article className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden border border-primary-100">
@@ -32,40 +25,55 @@ export default function ProductCard({
           priority={product.featured}
         />
 
-        {/* Premium badges */}
-        <div className="absolute top-4 left-4 flex flex-col gap-2">
-          {product.featured && (
-            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-primary-800 px-3 py-1.5 text-xs font-medium rounded-full shadow-sm">
-              <svg
-                className="w-3.5 h-3.5 text-green-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>Research-Backed Ingredients</span>
+        {/* Coming Soon badge */}
+        {isComingSoon && (
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span className="bg-white text-primary-800 px-4 py-2 rounded-full font-medium text-sm">
+              Coming Soon
             </span>
-          )}
-        </div>
+          </div>
+        )}
 
-        <div className="absolute top-4 right-4">
-          <span className="inline-flex items-center bg-primary-800/90 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-medium rounded-full">
-            Made in USA
-          </span>
-        </div>
+        {/* Premium badges */}
+        {!isComingSoon && (
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
+            {product.featured && (
+              <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-primary-800 px-3 py-1.5 text-xs font-medium rounded-full shadow-sm">
+                <svg
+                  className="w-3.5 h-3.5 text-green-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>Research-Backed</span>
+              </span>
+            )}
+          </div>
+        )}
+
+        {!isComingSoon && (
+          <div className="absolute top-4 right-4">
+            <span className="inline-flex items-center bg-primary-800/90 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-medium rounded-full">
+              Made in USA
+            </span>
+          </div>
+        )}
 
         {/* Gradient overlay at bottom */}
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-white/80 to-transparent pointer-events-none" />
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-xl font-medium text-primary-900 mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
-          {product.name}
-        </h3>
+        <Link href={`/product/${product.slug}`} className="hover:text-primary-700">
+          <h3 className="text-xl font-medium text-primary-900 mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
+            {product.name}
+          </h3>
+        </Link>
 
         <p className="text-body text-muted mb-4 line-clamp-2 flex-1">
           {product.shortDescription}
@@ -93,80 +101,104 @@ export default function ProductCard({
 
         {/* Rating and price */}
         <div className="flex items-center justify-between mb-6 pb-6 border-b border-primary-100">
-          <div className="flex items-center gap-2">
-            <div className="flex items-center">
-              {[...Array(5)].map((_, i) => {
-                const filled = i < Math.floor(product.rating)
-                const halfFilled =
-                  i === Math.floor(product.rating) && product.rating % 1 !== 0
+          {!isComingSoon && product.reviewCount > 0 ? (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => {
+                  const filled = i < Math.floor(product.rating)
+                  const halfFilled =
+                    i === Math.floor(product.rating) && product.rating % 1 !== 0
 
-                return (
-                  <div key={i} className="relative">
-                    {/* Background star (gray) */}
-                    <svg
-                      className="w-4 h-4 text-gray-300"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-
-                    {/* Filled star (yellow) */}
-                    {filled && (
+                  return (
+                    <div key={i} className="relative">
                       <svg
-                        className="w-4 h-4 text-yellow-500 absolute inset-0"
+                        className="w-4 h-4 text-gray-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
-                    )}
-
-                    {/* Half-filled star */}
-                    {halfFilled && (
-                      <svg
-                        className="w-4 h-4 text-yellow-500 absolute inset-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        style={{ clipPath: 'inset(0 50% 0 0)' }}
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    )}
-                  </div>
-                )
-              })}
+                      {filled && (
+                        <svg
+                          className="w-4 h-4 text-yellow-500 absolute inset-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      )}
+                      {halfFilled && (
+                        <svg
+                          className="w-4 h-4 text-yellow-500 absolute inset-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          style={{ clipPath: 'inset(0 50% 0 0)' }}
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+              <span className="text-sm text-muted">({product.reviewCount})</span>
             </div>
-            <span className="text-sm text-muted">({product.reviewCount})</span>
-          </div>
+          ) : (
+            <div className="text-sm text-muted">
+              {isComingSoon ? 'Coming Soon' : 'New Product'}
+            </div>
+          )}
           <div className="text-right">
             <span className="text-2xl font-light text-primary-900">
-              ${product.price}
+              ${product.price.toFixed(2)}
             </span>
           </div>
         </div>
 
-        <a
-          href={getAffiliateUrl(product.amazonUrl)}
-          target="_blank"
-          rel="noopener noreferrer sponsored nofollow"
-          className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-all duration-300 transform group-hover:scale-[1.02] mt-auto"
-        >
-          View on Amazon
-          <svg
-            className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </a>
+        {/* Action buttons */}
+        <div className="flex flex-col gap-2 mt-auto">
+          {isComingSoon ? (
+            <button
+              disabled
+              className="inline-flex items-center justify-center w-full px-6 py-3 bg-gray-300 text-gray-500 font-medium rounded-lg cursor-not-allowed"
+            >
+              Coming Soon
+            </button>
+          ) : (
+            <a
+              href={product.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#FF9900] text-white font-medium rounded-lg hover:bg-[#e88b00] transition-all duration-300 transform hover:scale-[1.02]"
+            >
+              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              Buy on Amazon
+            </a>
+          )}
+          {showViewDetails && (
+            <Link
+              href={`/product/${product.slug}`}
+              className="inline-flex items-center justify-center w-full px-6 py-3 bg-white text-primary-800 font-medium rounded-lg border border-primary-200 hover:bg-primary-50 transition-all duration-300"
+            >
+              View Details
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          )}
+        </div>
       </div>
     </article>
   )
