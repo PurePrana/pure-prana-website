@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -131,7 +131,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 // Phone validation regex (supports various formats)
 const PHONE_REGEX = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
 
-export default function WellnessQuizPage() {
+function WellnessQuizContent() {
   const searchParams = useSearchParams()
 
   const [currentStep, setCurrentStep] = useState(0)
@@ -979,5 +979,26 @@ export default function WellnessQuizPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+// Loading fallback for Suspense
+function QuizLoading() {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-primary-50 to-white flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-4 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin" />
+        <p className="text-primary-700">Loading quiz...</p>
+      </div>
+    </main>
+  )
+}
+
+// Default export with Suspense wrapper
+export default function WellnessQuizPage() {
+  return (
+    <Suspense fallback={<QuizLoading />}>
+      <WellnessQuizContent />
+    </Suspense>
   )
 }
