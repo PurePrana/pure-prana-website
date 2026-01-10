@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { getAllConcerns } from '@/data/concerns'
+import { getAllConcerns } from '@/lib/concerns'
 
 export default function Navigation() {
   const [isShopOpen, setIsShopOpen] = useState(false)

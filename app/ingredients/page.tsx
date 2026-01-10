@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { getAllIngredients, Ingredient } from '@/data/ingredients'
-import { getAllConcerns } from '@/data/concerns'
+import { getAllIngredients, Ingredient } from '@/lib/ingredients'
+import { getAllConcerns } from '@/lib/concerns'
 
 export default function IngredientsPage() {
   const allIngredients = getAllIngredients()

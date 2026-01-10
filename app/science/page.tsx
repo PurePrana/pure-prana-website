@@ -6,7 +6,7 @@ import {
   getResearchPapers,
   getAllIngredients,
   ResearchPaper,
-} from '@/data/researchPapers'
+} from '@/lib/researchPapers'
 
 function ResearchPaperCard({ paper }: { paper: ResearchPaper }) {
   const [isExpanded, setIsExpanded] = useState(false)

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ProductCard from '@/components/ProductCard'
 import { getProductsByConcern, getAllProducts } from '@/lib/products'
-import { getConcernBySlug, getAllConcerns } from '@/data/concerns'
+import { getConcernBySlug, getAllConcerns } from '@/lib/concerns'
 
 interface Props {
   params: { concern: string }

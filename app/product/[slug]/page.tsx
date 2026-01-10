@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import SupplementFacts from '@/components/SupplementFacts'
 import { getProductBySlug, getAllProducts } from '@/lib/products'
-import { getConcernBySlug } from '@/data/concerns'
+import { getConcernBySlug } from '@/lib/concerns'
 import {
   generateProductSchema,
   generateBreadcrumbSchema,

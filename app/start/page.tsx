@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import ProductCard from '@/components/ProductCard'
 import { getFeaturedProducts } from '@/lib/products'
-import { getAllConcerns } from '@/data/concerns'
+import { getAllConcerns } from '@/lib/concerns'
 
 // Spin wheel prizes configuration
 const WHEEL_PRIZES = [

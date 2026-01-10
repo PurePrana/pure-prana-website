@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { getAllProducts, getProductsByConcern } from '@/lib/products'
-import { getAllConcerns } from '@/data/concerns'
+import { getAllConcerns } from '@/lib/concerns'
 import { Product } from '@/lib/types'
 
 // Quiz question types

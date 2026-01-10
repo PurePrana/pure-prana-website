@@ -15,6 +15,7 @@ const mockProduct: Product = {
   rating: 4.5,
   reviewCount: 123,
   category: 'Test Category',
+  concerns: ['stress', 'energy'],
   tags: ['tag1', 'tag2'],
   benefits: ['Benefit 1', 'Benefit 2', 'Benefit 3'],
   usage: 'Test usage instructions',
@@ -83,13 +84,10 @@ describe('ProductCard Component', () => {
     )
   })
 
-  it('generates correct affiliate URL with custom tag', () => {
-    render(<ProductCard product={mockProduct} affiliateTag="customtag-21" />)
+  it('generates correct Amazon link', () => {
+    render(<ProductCard product={mockProduct} />)
     const buyButton = screen.getByRole('link', { name: /View on Amazon/i })
-    expect(buyButton).toHaveAttribute(
-      'href',
-      expect.stringContaining('tag=customtag-21')
-    )
+    expect(buyButton).toHaveAttribute('href', mockProduct.amazonUrl)
   })
 
   it('has correct link attributes for SEO and security', () => {

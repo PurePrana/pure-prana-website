@@ -159,9 +159,9 @@ class StorageService {
         leads[existingIndex] = {
           ...existing,
           ...lead,
-          interests: [
-            ...new Set([...(existing.interests || []), ...(lead.interests || [])]),
-          ],
+          interests: Array.from(
+            new Set([...(existing.interests || []), ...(lead.interests || [])])
+          ),
         }
       } else {
         leads.push(lead)
@@ -177,9 +177,9 @@ class StorageService {
         leads[existingIndex] = {
           ...existing,
           ...lead,
-          interests: [
-            ...new Set([...(existing.interests || []), ...(lead.interests || [])]),
-          ],
+          interests: Array.from(
+            new Set([...(existing.interests || []), ...(lead.interests || [])])
+          ),
         }
       } else {
         leads.push(lead)

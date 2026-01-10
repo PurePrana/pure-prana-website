@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import ProductCard from '@/components/ProductCard'
 import { getAllProducts } from '@/lib/products'
-import { getAllConcerns } from '@/data/concerns'
+import { getAllConcerns } from '@/lib/concerns'
 
 export const metadata: Metadata = {
   title: 'Shop Ayurvedic Supplements | Pure Prana',

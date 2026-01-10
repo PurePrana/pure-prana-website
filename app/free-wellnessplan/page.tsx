@@ -427,7 +427,7 @@ export default function FreeWellnessPlanPage() {
     const plan = getDoshaPlan()
     const concern = getConcernAddition()
     const allSlugs = [...(plan?.productSlugs || []), ...(concern?.productSlugs || [])]
-    const uniqueSlugs = [...new Set(allSlugs)]
+    const uniqueSlugs = Array.from(new Set(allSlugs))
     return allProducts.filter((p) => uniqueSlugs.includes(p.slug))
   }
 
@@ -826,7 +826,7 @@ export default function FreeWellnessPlanPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-amber-900">{product.name}</h3>
-                        <p className="text-sm text-gray-600 line-clamp-1">{product.tagline}</p>
+                        <p className="text-sm text-gray-600 line-clamp-1">{product.shortDescription}</p>
                         <p className="text-sm font-semibold text-amber-700">${product.price}</p>
                       </div>
                       <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
