@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { storage, UserLead } from '@/lib/storage'
+import { sendWelcomeEmail } from '@/lib/resend'
 
 // Simple rate limiting in memory
 const rateLimitMap = new Map<string, { count: number; timestamp: number }>()
@@ -95,6 +96,14 @@ export async function POST(request: NextRequest) {
     const isSubscribed = await storage.isSubscribed(normalizedEmail)
     if (!isSubscribed) {
       await storage.addNewsletterSubscriber(normalizedEmail)
+    }
+
+    // Send welcome email for new leads from Meta Ads
+    if (!existingLead && source.startsWith('meta-ads')) {
+      // Fire and forget - don't block the response
+      sendWelcomeEmail(normalizedEmail).catch((err) => {
+        console.error('Failed to send welcome email:', err)
+      })
     }
 
     // Generate discount code based on source

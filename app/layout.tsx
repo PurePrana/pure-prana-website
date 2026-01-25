@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display, Crimson_Text } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { MetaPixel } from '@/components/MetaPixel'
 import {
   generateOrganizationSchema,
   generateWebSiteSchema,
@@ -125,6 +126,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <MetaPixel />
         <Navigation />
         {children}
         <Footer />
