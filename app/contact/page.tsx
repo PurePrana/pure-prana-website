@@ -184,7 +184,19 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-lg font-medium text-primary-900 mb-2">
-                    Other Ways to Connect
+                    Company
+                  </h3>
+                  <p className="text-primary-700 font-medium">
+                    Himalayan Farms LLC
+                  </p>
+                  <p className="text-primary-600 text-sm">
+                    DBA Pure Prana
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-medium text-primary-900 mb-2">
+                    Contact Us
                   </h3>
                   <ul className="space-y-2 text-primary-700">
                     <li className="flex items-center gap-2">
@@ -201,7 +213,7 @@ export default function ContactPage() {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      support@pureprana.com
+                      hello@gopureprana.com
                     </li>
                     <li className="flex items-center gap-2">
                       <svg
