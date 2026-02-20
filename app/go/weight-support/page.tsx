@@ -2,30 +2,39 @@ import { WarmupPage } from '../../components/warmup-sections';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Weight Support — Garcinia, Green Tea & Berberine | Pure Prana',
-  description: 'Natural weight management with Garcinia Cambogia, Green Tea Extract & Berberine. Metabolism boost and appetite control.',
+  title: 'Metabolic & Weight Support — Garcinia, Green Tea & Berberine | Pure Prana',
+  description: 'Ayurvedic metabolic support with Garcinia, Berberine, Green Tea, Green Coffee Bean & Guggul. Natural energy & healthy metabolism.',
 };
 
 export default function WeightSupportPage() {
   return (
     <WarmupPage
-      name="Weight Support"
+      name="Metabolic & Weight Support"
       asin="B0G3KKQ53V"
-      headline="Support Your Weight Goals — Naturally, Not Drastically"
-      subhead="Garcinia Cambogia, Green Tea Extract & Berberine work together to boost metabolism, curb cravings, and support healthy blood sugar — so you can reach your goals sustainably."
-      rating={4.6}
-      reviewCount={16}
+      imageSlug="weight-support"
+      tagline="Support your metabolism the Ayurvedic way"
+      headline="Your Metabolism Needs Backup"
+      subhead="Garcinia + Berberine + Green Tea + Green Coffee Bean + Guggul — five plant-based ingredients that support healthy metabolism, digestion, and natural energy. No harsh stimulants."
+      rating={4.4}
+      reviewCount={17}
+      price="$29.95"
       benefits={[
-        { icon: '🔥', title: 'Rev Up Your Metabolism', desc: 'Green Tea Extract (EGCG) is clinically shown to increase thermogenesis and fat oxidation — helping your body burn more efficiently.' },
-        { icon: '🍽️', title: 'Natural Appetite Control', desc: 'Garcinia Cambogia contains HCA which helps reduce cravings and emotional eating by supporting serotonin levels.' },
-        { icon: '📉', title: 'Healthy Blood Sugar Balance', desc: 'Berberine is one of the most studied natural compounds for blood sugar regulation — comparable to some pharmaceuticals in clinical trials.' },
-        { icon: '⚡', title: 'Clean Energy, No Crashes', desc: 'Gentle, sustained energy from green tea\'s natural caffeine and L-theanine — no jitters, no afternoon slumps.' },
+        { icon: '🔥', title: 'Healthy Metabolic Function', desc: 'Garcinia and Guggul are traditional Ayurvedic herbs used for centuries to support healthy metabolic balance and lipid metabolism.' },
+        { icon: '⚡', title: 'Clean, Natural Energy', desc: 'Green Tea + Green Coffee Bean provide steady, sustained energy and mental clarity — without the crash of stimulant pills.' },
+        { icon: '🫃', title: 'Digestive Harmony', desc: 'Berberine supports healthy carbohydrate metabolism and digestive balance as part of your daily wellness routine.' },
+        { icon: '🛡️', title: 'Antioxidant Cell Protection', desc: 'Green Tea polyphenols and catechins help protect cells from oxidative stress and support overall cellular wellness.' },
+      ]}
+      ingredients={[
+        { name: 'Garcinia Cambogia', desc: 'Tropical fruit extract used in Ayurvedic tradition to support healthy appetite and metabolic balance.' },
+        { name: 'Berberine', desc: 'Powerful botanical used for over 2,500 years. Supports healthy blood sugar and carbohydrate metabolism.' },
+        { name: 'Green Tea + Green Coffee Bean', desc: 'Natural polyphenols for steady energy, mental clarity, and antioxidant protection.' },
+        { name: 'Guggul Resin', desc: 'Ancient Ayurvedic ingredient revered for supporting healthy lipid levels and metabolic function.' },
       ]}
       faqs={[
-        { q: 'How much weight can I expect to lose?', a: 'Results vary based on diet and lifestyle. Our supplement is designed to support your efforts — most customers report noticeable results within 4-8 weeks when combined with a balanced diet and regular activity.' },
-        { q: 'Does this contain a lot of caffeine?', a: 'Our green tea extract contains a moderate amount of natural caffeine (~50mg per serving). It\'s paired with L-theanine for smooth, jitter-free energy.' },
-        { q: 'Is berberine safe for long-term use?', a: 'Berberine has been used in traditional medicine for centuries and has extensive modern clinical research supporting its safety. As always, consult your healthcare provider if you have specific concerns.' },
-        { q: 'Can I take this with other supplements?', a: 'Yes, our formula is designed to complement a healthy supplement routine. If you\'re taking diabetes medication, consult your doctor first as berberine may enhance their effects.' },
+        { q: 'Will this make me jittery?', a: 'No. Our formula uses natural green tea and green coffee bean at balanced doses — you get clean energy without the jitters, crash, or racing heart.' },
+        { q: 'Do I need to diet and exercise too?', a: 'This supplement supports healthy metabolism as part of a balanced lifestyle. It works best alongside a nutritious diet and regular activity.' },
+        { q: 'How long until I notice something?', a: 'Many people notice improved energy and digestion within the first 1-2 weeks. Metabolic support benefits build over 4-8 weeks of consistent use.' },
+        { q: 'Is Berberine safe long-term?', a: 'Berberine has been used safely for thousands of years in traditional medicine. Our formula is made in a GMP-certified facility and third-party tested for purity.' },
       ]}
     />
   );

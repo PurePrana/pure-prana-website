@@ -2,30 +2,39 @@ import { WarmupPage } from '../../components/warmup-sections';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Elderberry Immunity — 10-Herb Immune Support | Pure Prana',
-  description: '10-herb Ayurvedic immune support with Elderberry, Turmeric, Echinacea and more. Year-round defense.',
+  title: 'Elderberry & Giloy — 10-Herb Immune Support | Pure Prana',
+  description: 'Ayurvedic immune defense with Black Elderberry, Giloy, Tulsi, Neem, Turmeric & Ginger. 10 herbs in one capsule.',
 };
 
 export default function ElderberryImmunityPage() {
   return (
     <WarmupPage
-      name="Elderberry Immunity"
+      name="Elderberry & Giloy Immunity"
       asin="B0G3KPT191"
-      headline="10 Powerful Herbs. One Unbreakable Immune Shield."
-      subhead="Elderberry, Turmeric, Echinacea and 7 more immune-boosting herbs working together to keep you protected year-round — not just during cold season."
+      imageSlug="elderberry-immunity"
+      tagline="10 immune-boosting herbs in one powerful capsule"
+      headline="Stop Getting Knocked Down Every Season"
+      subhead="Black Elderberry meets Giloy, Tulsi, Neem, Turmeric & Ginger — the most comprehensive Ayurvedic immune formula you can buy. 10 herbs. One capsule. Year-round defense."
       rating={4.4}
       reviewCount={24}
+      price="$29.95"
       benefits={[
-        { icon: '🛡️', title: 'Year-Round Immune Defense', desc: 'Elderberry is rich in anthocyanins and vitamin C — clinically shown to reduce the duration and severity of colds and flu.' },
-        { icon: '🔥', title: 'Fights Inflammation', desc: 'Turmeric and ginger work synergistically to reduce chronic inflammation that weakens your immune response.' },
-        { icon: '🌿', title: '10 Herbs, One Formula', desc: 'Instead of juggling multiple supplements, get a comprehensive immune stack in two daily capsules.' },
-        { icon: '⚡', title: 'Fast-Acting When You Need It', desc: 'Echinacea provides rapid immune activation when you feel something coming on. Take daily for prevention or double up when exposed.' },
+        { icon: '🛡️', title: '10-Herb Immune Powerhouse', desc: 'Not just elderberry — we combined Western immune science with Ayurvedic tradition. Giloy, Tulsi, Neem, Turmeric, Ginger, and more.' },
+        { icon: '🌡️', title: 'Seasonal Defense That Works', desc: 'Designed for those seasonal transitions when everyone around you is getting sick. Support your natural defenses before you need them.' },
+        { icon: '🫁', title: 'Respiratory & Breathing Support', desc: 'Elderberry + Tulsi + Ginger promote healthy respiratory function and comfortable breathing year-round.' },
+        { icon: '🧘', title: 'Stress-Resilient Immunity', desc: 'Tulsi (Holy Basil) is a powerful adaptogen — it strengthens immune function when you\'re stressed, traveling, or sleep-deprived.' },
+      ]}
+      ingredients={[
+        { name: 'Black Elderberry', desc: 'Rich in antioxidants and anthocyanins. The Western world\'s #1 immune berry.' },
+        { name: 'Giloy (Guduchi)', desc: 'Called "Amrita" (nectar of immortality) in Ayurveda. One of the most revered immune herbs in Indian medicine.' },
+        { name: 'Tulsi (Holy Basil)', desc: 'Sacred adaptogenic herb that supports immune resilience during stress and seasonal changes.' },
+        { name: 'Neem + Turmeric + Ginger', desc: 'Three Ayurvedic staples for natural anti-inflammatory and antioxidant support.' },
       ]}
       faqs={[
-        { q: 'Should I only take this when I\'m sick?', a: 'No — this formula is designed for daily use as preventive support. Consistent daily use builds a stronger baseline immune response. You can increase your dose when you feel something coming on.' },
-        { q: 'What are all 10 herbs?', a: 'Our comprehensive blend includes Elderberry, Turmeric, Echinacea, Ginger, Astragalus, Garlic, Oregano, Olive Leaf, Reishi Mushroom, and Vitamin C. Each chosen for complementary immune pathways.' },
-        { q: 'Is this safe for daily long-term use?', a: 'Yes. All ingredients are food-grade herbs with long histories of safe daily use. Manufactured in our GMP-certified, FDA-registered facility with third-party testing.' },
-        { q: 'Can kids take this?', a: 'This formula is designed for adults. Please consult your pediatrician for children\'s dosing recommendations.' },
+        { q: 'When should I start taking this?', a: 'Don\'t wait until you\'re already sick. Take daily for ongoing immune support, especially before cold and flu season, travel, or stressful periods.' },
+        { q: 'Can kids take this?', a: 'This formula is designed for adults. For children, please consult your pediatrician.' },
+        { q: 'Is this just another elderberry supplement?', a: 'Not even close. Most elderberry supplements are 1-2 ingredients. Ours combines 10 powerful herbs from both Western and Ayurvedic traditions for complete immune coverage.' },
+        { q: 'Can I take this year-round?', a: 'Absolutely. All ingredients are gentle enough for daily long-term use. Your immune system works 365 days a year — support it accordingly.' },
       ]}
     />
   );

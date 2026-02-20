@@ -11,21 +11,28 @@ export default function HormoneBalancePage() {
     <WarmupPage
       name="Hormone Balance"
       asin="B0DZ23LJGJ"
-      headline="Finally, Hormonal Balance — Without the Side Effects"
-      subhead="Our Ayurvedic blend of Shatavari & Ashwagandha helps women reclaim their cycle, ease PMS, and navigate menopause naturally."
+      imageSlug="hormone-balance"
+      tagline="For women who are done feeling at war with their own body"
+      headline="Your Hormones Shouldn't Control Your Life"
+      subhead="Shatavari + Ashwagandha — the Ayurvedic duo women have trusted for 3,000 years to ease PMS, smooth menopause, and restore calm energy."
       rating={4.6}
       reviewCount={47}
+      price="$29.95"
       benefits={[
-        { icon: '🌸', title: 'Eases PMS & Cramps', desc: 'Shatavari has been used for centuries to support the female reproductive system and reduce monthly discomfort.' },
-        { icon: '🧘‍♀️', title: 'Smooth Menopause Transition', desc: 'Ashwagandha helps manage cortisol and hot flashes so you can feel like yourself again.' },
-        { icon: '⚡', title: 'Balanced Energy All Day', desc: 'No more afternoon crashes. Adaptogenic herbs help stabilize your energy and mood naturally.' },
-        { icon: '💤', title: 'Better Sleep & Less Stress', desc: 'Calming botanicals promote restful sleep and reduce the anxiety that comes with hormonal shifts.' },
+        { icon: '🌸', title: 'Eases PMS & Monthly Discomfort', desc: 'Shatavari supports the female reproductive system — reducing cramps, bloating, and mood swings so your cycle doesn\'t derail your week.' },
+        { icon: '🔥', title: 'Calms Hot Flashes & Night Sweats', desc: 'Ashwagandha helps manage cortisol during perimenopause and menopause, so you can sleep through the night again.' },
+        { icon: '⚡', title: 'Steady Energy (No Crashes)', desc: 'Adaptogenic herbs stabilize your energy and mood throughout the day — no caffeine spikes, no 3pm slump.' },
+        { icon: '😌', title: 'Less Anxiety, Better Sleep', desc: 'Calming botanicals reduce the stress and racing thoughts that come with hormonal shifts. Wake up feeling rested.' },
+      ]}
+      ingredients={[
+        { name: 'Shatavari', desc: 'The #1 Ayurvedic herb for women\'s health. Supports reproductive balance across all life stages.' },
+        { name: 'Ashwagandha', desc: 'Clinically studied adaptogen that lowers cortisol by up to 30%. Reduces stress and supports hormonal balance.' },
       ]}
       faqs={[
-        { q: 'How long until I notice results?', a: 'Most women report improvements within 2-4 weeks of consistent daily use. Full benefits typically develop over 6-8 weeks as your body rebalances.' },
-        { q: 'Can I take this with birth control?', a: 'Our formula uses gentle, food-grade herbs. However, we always recommend consulting your healthcare provider when combining with any medication.' },
-        { q: 'Is this safe for perimenopause and menopause?', a: 'Absolutely. Our blend was specifically formulated to support women through all hormonal life stages, from cycle regulation to menopause relief.' },
-        { q: 'Are there any side effects?', a: 'Our formula is made with clean, natural ingredients in a GMP-certified facility. Side effects are rare. Start with one capsule daily if you have a sensitive stomach.' },
+        { q: 'How long until I feel a difference?', a: 'Most women notice improvements in mood and energy within 2-3 weeks. Full hormonal benefits typically develop over 6-8 weeks of consistent daily use.' },
+        { q: 'Can I take this with birth control?', a: 'Our formula uses gentle, food-grade herbs. We always recommend consulting your healthcare provider when combining with any medication.' },
+        { q: 'Is this safe during perimenopause?', a: 'Absolutely. This blend was formulated specifically to support women through all hormonal life stages — from cycle regulation to menopause relief.' },
+        { q: 'Any side effects?', a: 'Side effects are rare with our clean, natural ingredients made in a GMP-certified facility. Start with one capsule daily if you have a sensitive stomach.' },
       ]}
     />
   );
