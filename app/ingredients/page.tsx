@@ -18,13 +18,18 @@ export default function IngredientsPage() {
       const matchesSearch =
         searchQuery === '' ||
         ingredient.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        ingredient.sanskritName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        ingredient.scientificName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        ingredient.sanskritName
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        ingredient.scientificName
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
         ingredient.description.toLowerCase().includes(searchQuery.toLowerCase())
 
       // Filter by concern
       const matchesConcern =
-        selectedConcern === null || ingredient.concerns.includes(selectedConcern)
+        selectedConcern === null ||
+        ingredient.concerns.includes(selectedConcern)
 
       return matchesSearch && matchesConcern
     })
@@ -58,8 +63,8 @@ export default function IngredientsPage() {
             </h1>
             <p className="text-lg md:text-xl text-primary-100 leading-relaxed">
               Explore the sacred herbs and botanicals that power our formulas.
-              Each ingredient is carefully selected based on traditional Ayurvedic
-              texts and validated by modern scientific research.
+              Each ingredient is carefully selected based on traditional
+              Ayurvedic texts and validated by modern scientific research.
             </p>
           </div>
         </div>
@@ -96,7 +101,12 @@ export default function IngredientsPage() {
                   onClick={() => setSearchQuery('')}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 text-primary-400 hover:text-primary-600"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -143,7 +153,8 @@ export default function IngredientsPage() {
       <section className="py-4 bg-primary-50/30">
         <div className="container mx-auto px-4">
           <p className="text-center text-primary-600">
-            Showing {filteredIngredients.length} of {allIngredients.length} ingredients
+            Showing {filteredIngredients.length} of {allIngredients.length}{' '}
+            ingredients
             {selectedConcern && (
               <span className="ml-2">
                 for{' '}
@@ -196,7 +207,8 @@ export default function IngredientsPage() {
               The Science of Ayurvedic Herbs
             </h2>
             <p className="text-lg text-primary-700">
-              Our ingredients are selected based on both traditional wisdom and modern research
+              Our ingredients are selected based on both traditional wisdom and
+              modern research
             </p>
           </div>
 
@@ -205,10 +217,12 @@ export default function IngredientsPage() {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">📜</span>
               </div>
-              <h3 className="font-medium text-primary-900 mb-2">Traditional Texts</h3>
+              <h3 className="font-medium text-primary-900 mb-2">
+                Traditional Texts
+              </h3>
               <p className="text-sm text-primary-600">
-                Referenced in ancient texts like Charaka Samhita and Sushruta Samhita,
-                with documented use spanning over 3,000 years
+                Referenced in ancient texts like Charaka Samhita and Sushruta
+                Samhita, with documented use spanning over 3,000 years
               </p>
             </div>
 
@@ -216,7 +230,9 @@ export default function IngredientsPage() {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">🔬</span>
               </div>
-              <h3 className="font-medium text-primary-900 mb-2">Clinical Research</h3>
+              <h3 className="font-medium text-primary-900 mb-2">
+                Clinical Research
+              </h3>
               <p className="text-sm text-primary-600">
                 Validated through peer-reviewed studies published in respected
                 scientific journals and clinical trials
@@ -227,7 +243,9 @@ export default function IngredientsPage() {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">✅</span>
               </div>
-              <h3 className="font-medium text-primary-900 mb-2">Quality Assured</h3>
+              <h3 className="font-medium text-primary-900 mb-2">
+                Quality Assured
+              </h3>
               <p className="text-sm text-primary-600">
                 Sourced from trusted suppliers and tested for purity, potency,
                 and safety in FDA-registered facilities
@@ -331,7 +349,10 @@ function IngredientCard({ ingredient }: { ingredient: Ingredient }) {
             </h4>
             <ul className="space-y-1">
               {ingredient.traditionalUses.map((use, index) => (
-                <li key={index} className="text-sm text-primary-700 flex items-start gap-2">
+                <li
+                  key={index}
+                  className="text-sm text-primary-700 flex items-start gap-2"
+                >
                   <span className="text-primary-400 mt-1">•</span>
                   <span>{use}</span>
                 </li>
@@ -341,11 +362,15 @@ function IngredientCard({ ingredient }: { ingredient: Ingredient }) {
             <div className="mt-4 grid grid-cols-2 gap-4 text-xs">
               <div>
                 <span className="text-primary-500">Origin:</span>
-                <span className="ml-1 text-primary-700">{ingredient.origin}</span>
+                <span className="ml-1 text-primary-700">
+                  {ingredient.origin}
+                </span>
               </div>
               <div>
                 <span className="text-primary-500">Part used:</span>
-                <span className="ml-1 text-primary-700">{ingredient.partUsed}</span>
+                <span className="ml-1 text-primary-700">
+                  {ingredient.partUsed}
+                </span>
               </div>
             </div>
           </div>
@@ -365,8 +390,15 @@ function IngredientCard({ ingredient }: { ingredient: Ingredient }) {
                 href={`/product/${productSlug}`}
                 className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-primary-200 text-primary-700 text-xs rounded-full hover:bg-primary-100 hover:border-primary-300 transition-colors"
               >
-                <span className="capitalize">{productSlug.replace(/-/g, ' ')}</span>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="capitalize">
+                  {productSlug.replace(/-/g, ' ')}
+                </span>
+                <svg
+                  className="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

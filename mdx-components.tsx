@@ -229,7 +229,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       items: Array<{ question: string; answer: string }>
     }) => {
       return (
-        <div className="my-8 space-y-4" itemScope itemType="https://schema.org/FAQPage">
+        <div
+          className="my-8 space-y-4"
+          itemScope
+          itemType="https://schema.org/FAQPage"
+        >
           <h2 className="text-2xl font-display text-primary-900 mb-6">
             Frequently Asked Questions
           </h2>
@@ -241,7 +245,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
               itemType="https://schema.org/Question"
               className="bg-white rounded-lg border border-primary-200 overflow-hidden"
             >
-              <h3 className="p-4 bg-primary-50 font-medium text-primary-900" itemProp="name">
+              <h3
+                className="p-4 bg-primary-50 font-medium text-primary-900"
+                itemProp="name"
+              >
                 {item.question}
               </h3>
               <div
@@ -288,7 +295,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           </h3>
           <ul className="space-y-2">
             {points.map((point, index) => (
-              <li key={index} className="flex items-start gap-3 text-primary-700">
+              <li
+                key={index}
+                className="flex items-start gap-3 text-primary-700"
+              >
                 <span className="flex-shrink-0 w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center text-sm font-medium text-primary-700">
                   {index + 1}
                 </span>
@@ -310,8 +320,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }) => {
       return (
         <div className="my-8 p-6 bg-primary-50 rounded-xl border-l-4 border-primary-500">
-          <p className="text-sm uppercase tracking-wider text-primary-600 mb-2">Quick Answer</p>
-          <h3 className="text-lg font-medium text-primary-900 mb-3">{question}</h3>
+          <p className="text-sm uppercase tracking-wider text-primary-600 mb-2">
+            Quick Answer
+          </p>
+          <h3 className="text-lg font-medium text-primary-900 mb-3">
+            {question}
+          </h3>
           <p className="text-primary-700 leading-relaxed">{answer}</p>
         </div>
       )

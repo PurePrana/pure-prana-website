@@ -197,8 +197,15 @@ describe('SEO Utilities', () => {
 
   describe('generateFAQSchema', () => {
     const mockFAQs = [
-      { question: 'What is Ayurveda?', answer: 'Ayurveda is an ancient system of medicine.' },
-      { question: 'Are supplements safe?', answer: 'Quality supplements from reputable sources are generally safe.' },
+      {
+        question: 'What is Ayurveda?',
+        answer: 'Ayurveda is an ancient system of medicine.',
+      },
+      {
+        question: 'Are supplements safe?',
+        answer:
+          'Quality supplements from reputable sources are generally safe.',
+      },
     ]
 
     it('should generate valid FAQ schema', () => {
@@ -275,7 +282,11 @@ describe('SEO Utilities', () => {
     })
 
     it('should use provided image', () => {
-      const meta = generateSocialMeta('Test', 'Description', '/images/custom.jpg')
+      const meta = generateSocialMeta(
+        'Test',
+        'Description',
+        '/images/custom.jpg'
+      )
 
       expect(meta.openGraph.images[0].url).toContain('custom.jpg')
     })

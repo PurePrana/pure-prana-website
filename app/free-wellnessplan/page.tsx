@@ -9,11 +9,24 @@ const AYURVEDIC_QUESTIONS = [
   {
     id: 'body_frame',
     question: 'How would you describe your body frame?',
-    ayurvedicContext: 'This helps determine your Prakriti (natural constitution)',
+    ayurvedicContext:
+      'This helps determine your Prakriti (natural constitution)',
     options: [
-      { value: 'vata', label: 'Thin, light, tend to lose weight easily', dosha: 'vata' },
-      { value: 'pitta', label: 'Medium build, muscular, moderate weight', dosha: 'pitta' },
-      { value: 'kapha', label: 'Larger frame, gain weight easily, sturdy', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Thin, light, tend to lose weight easily',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Medium build, muscular, moderate weight',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Larger frame, gain weight easily, sturdy',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -21,9 +34,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'What best describes your skin?',
     ayurvedicContext: 'Skin reflects internal balance and dosha',
     options: [
-      { value: 'vata', label: 'Dry, rough, cool to touch, prone to cracking', dosha: 'vata' },
-      { value: 'pitta', label: 'Warm, oily T-zone, prone to redness/acne', dosha: 'pitta' },
-      { value: 'kapha', label: 'Thick, oily, smooth, cool and moist', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Dry, rough, cool to touch, prone to cracking',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Warm, oily T-zone, prone to redness/acne',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Thick, oily, smooth, cool and moist',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -31,9 +56,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'How is your digestion (Agni)?',
     ayurvedicContext: 'Agni (digestive fire) is central to Ayurvedic health',
     options: [
-      { value: 'vata', label: 'Irregular - sometimes good, sometimes poor, gas/bloating', dosha: 'vata' },
-      { value: 'pitta', label: 'Strong - can eat anything, get hungry often, acid reflux', dosha: 'pitta' },
-      { value: 'kapha', label: 'Slow - heavy feeling after eating, rarely very hungry', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Irregular - sometimes good, sometimes poor, gas/bloating',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Strong - can eat anything, get hungry often, acid reflux',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Slow - heavy feeling after eating, rarely very hungry',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -41,9 +78,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'How do you typically sleep?',
     ayurvedicContext: 'Sleep patterns reveal dosha imbalance',
     options: [
-      { value: 'vata', label: 'Light sleeper, wake often, hard to fall asleep', dosha: 'vata' },
-      { value: 'pitta', label: 'Moderate sleep, wake feeling hot, vivid dreams', dosha: 'pitta' },
-      { value: 'kapha', label: 'Deep, heavy sleep, hard to wake up, sleep long', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Light sleeper, wake often, hard to fall asleep',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Moderate sleep, wake feeling hot, vivid dreams',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Deep, heavy sleep, hard to wake up, sleep long',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -51,9 +100,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'When stressed, how do you typically react?',
     ayurvedicContext: 'Emotional patterns indicate dosha tendencies',
     options: [
-      { value: 'vata', label: 'Anxious, worried, fearful, restless mind', dosha: 'vata' },
-      { value: 'pitta', label: 'Irritable, angry, critical, impatient', dosha: 'pitta' },
-      { value: 'kapha', label: 'Withdrawn, sad, unmotivated, attached', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Anxious, worried, fearful, restless mind',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Irritable, angry, critical, impatient',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Withdrawn, sad, unmotivated, attached',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -61,9 +122,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'How is your energy throughout the day?',
     ayurvedicContext: 'Energy flow reflects Prana and dosha balance',
     options: [
-      { value: 'vata', label: 'Bursts of energy, tire quickly, variable', dosha: 'vata' },
-      { value: 'pitta', label: 'Strong, focused energy that can lead to burnout', dosha: 'pitta' },
-      { value: 'kapha', label: 'Steady but slow, takes time to get going', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Bursts of energy, tire quickly, variable',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Strong, focused energy that can lead to burnout',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Steady but slow, takes time to get going',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -71,9 +144,21 @@ const AYURVEDIC_QUESTIONS = [
     question: 'What climate do you prefer?',
     ayurvedicContext: 'Climate preference indicates dosha balance needs',
     options: [
-      { value: 'vata', label: 'Warm, humid - I dislike cold and wind', dosha: 'vata' },
-      { value: 'pitta', label: 'Cool, well-ventilated - I overheat easily', dosha: 'pitta' },
-      { value: 'kapha', label: 'Warm, dry - I dislike cold, damp weather', dosha: 'kapha' },
+      {
+        value: 'vata',
+        label: 'Warm, humid - I dislike cold and wind',
+        dosha: 'vata',
+      },
+      {
+        value: 'pitta',
+        label: 'Cool, well-ventilated - I overheat easily',
+        dosha: 'pitta',
+      },
+      {
+        value: 'kapha',
+        label: 'Warm, dry - I dislike cold, damp weather',
+        dosha: 'kapha',
+      },
     ],
   },
   {
@@ -81,14 +166,46 @@ const AYURVEDIC_QUESTIONS = [
     question: 'What is your primary health concern right now?',
     ayurvedicContext: 'This helps identify your Vikriti (current imbalance)',
     options: [
-      { value: 'energy', label: 'Low energy, fatigue, lack of vitality', concern: 'energy' },
-      { value: 'stress', label: 'Stress, anxiety, difficulty relaxing', concern: 'stress' },
-      { value: 'digestion', label: 'Digestive issues, bloating, irregular', concern: 'digestion' },
-      { value: 'sleep', label: 'Sleep problems, insomnia, poor rest', concern: 'sleep' },
-      { value: 'immunity', label: 'Weak immunity, frequent illness', concern: 'immunity' },
-      { value: 'focus', label: 'Poor focus, memory, mental fog', concern: 'focus' },
-      { value: 'joints', label: 'Joint pain, stiffness, mobility', concern: 'joints' },
-      { value: 'weight', label: 'Weight management, metabolism', concern: 'weight' },
+      {
+        value: 'energy',
+        label: 'Low energy, fatigue, lack of vitality',
+        concern: 'energy',
+      },
+      {
+        value: 'stress',
+        label: 'Stress, anxiety, difficulty relaxing',
+        concern: 'stress',
+      },
+      {
+        value: 'digestion',
+        label: 'Digestive issues, bloating, irregular',
+        concern: 'digestion',
+      },
+      {
+        value: 'sleep',
+        label: 'Sleep problems, insomnia, poor rest',
+        concern: 'sleep',
+      },
+      {
+        value: 'immunity',
+        label: 'Weak immunity, frequent illness',
+        concern: 'immunity',
+      },
+      {
+        value: 'focus',
+        label: 'Poor focus, memory, mental fog',
+        concern: 'focus',
+      },
+      {
+        value: 'joints',
+        label: 'Joint pain, stiffness, mobility',
+        concern: 'joints',
+      },
+      {
+        value: 'weight',
+        label: 'Weight management, metabolism',
+        concern: 'weight',
+      },
     ],
   },
 ]
@@ -98,7 +215,8 @@ const DOSHA_PLANS = {
   vata: {
     dosha: 'Vata',
     element: 'Air + Space',
-    characteristics: 'Creative, quick-thinking, energetic when balanced. Prone to anxiety, dryness, and irregularity when imbalanced.',
+    characteristics:
+      'Creative, quick-thinking, energetic when balanced. Prone to anxiety, dryness, and irregularity when imbalanced.',
     balancingPrinciples: [
       'Favor warm, cooked, moist foods',
       'Establish regular daily routines',
@@ -125,7 +243,7 @@ const DOSHA_PLANS = {
       'Warm, cooked foods with healthy oils/ghee',
       'Root vegetables, rice, wheat, warm soups',
       'Avoid: Raw foods, cold drinks, dried fruits',
-      'Eat at regular times - don\'t skip meals',
+      "Eat at regular times - don't skip meals",
     ],
     herbsAndSupplements: [
       'Ashwagandha - Calms Vata, builds strength',
@@ -145,7 +263,8 @@ const DOSHA_PLANS = {
   pitta: {
     dosha: 'Pitta',
     element: 'Fire + Water',
-    characteristics: 'Intelligent, focused, driven when balanced. Prone to irritability, inflammation, and overheating when imbalanced.',
+    characteristics:
+      'Intelligent, focused, driven when balanced. Prone to irritability, inflammation, and overheating when imbalanced.',
     balancingPrinciples: [
       'Favor cooling, calming foods',
       'Avoid excessive heat and competition',
@@ -192,7 +311,8 @@ const DOSHA_PLANS = {
   kapha: {
     dosha: 'Kapha',
     element: 'Earth + Water',
-    characteristics: 'Calm, nurturing, stable when balanced. Prone to lethargy, weight gain, and congestion when imbalanced.',
+    characteristics:
+      'Calm, nurturing, stable when balanced. Prone to lethargy, weight gain, and congestion when imbalanced.',
     balancingPrinciples: [
       'Favor light, warm, stimulating foods',
       'Stay active and embrace change',
@@ -201,7 +321,7 @@ const DOSHA_PLANS = {
       'Use stimulating dry massage (Garshana)',
     ],
     morningRoutine: [
-      'Wake early (before 6 AM) - don\'t oversleep',
+      "Wake early (before 6 AM) - don't oversleep",
       'Warm water with lemon and honey',
       'Dry brushing (Garshana) to stimulate',
       'Vigorous exercise - this is important for Kapha',
@@ -239,7 +359,10 @@ const DOSHA_PLANS = {
 }
 
 // Concern-specific additions
-const CONCERN_ADDITIONS: Record<string, { title: string; recommendations: string[]; productSlugs: string[] }> = {
+const CONCERN_ADDITIONS: Record<
+  string,
+  { title: string; recommendations: string[]; productSlugs: string[] }
+> = {
   energy: {
     title: 'Energy & Vitality',
     recommendations: [
@@ -334,11 +457,17 @@ export default function FreeWellnessPlanPage() {
   const [step, setStep] = useState<'capture' | 'quiz' | 'plan'>('capture')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [doshaScores, setDoshaScores] = useState({ vata: 0, pitta: 0, kapha: 0 })
+  const [doshaScores, setDoshaScores] = useState({
+    vata: 0,
+    pitta: 0,
+    kapha: 0,
+  })
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [primaryDosha, setPrimaryDosha] = useState<'vata' | 'pitta' | 'kapha'>('vata')
+  const [primaryDosha, setPrimaryDosha] = useState<'vata' | 'pitta' | 'kapha'>(
+    'vata'
+  )
   const [primaryConcern, setPrimaryConcern] = useState('')
 
   const allProducts = getAllProducts()
@@ -382,7 +511,9 @@ export default function FreeWellnessPlanPage() {
     // Add last answer's dosha if applicable
     const lastQ = AYURVEDIC_QUESTIONS[AYURVEDIC_QUESTIONS.length - 1]
     if (lastQ.options[0] && 'dosha' in lastQ.options[0]) {
-      const selectedOption = lastQ.options.find((o) => o.value === finalAnswers[lastQ.id])
+      const selectedOption = lastQ.options.find(
+        (o) => o.value === finalAnswers[lastQ.id]
+      )
       if (selectedOption && 'dosha' in selectedOption) {
         finalScores[selectedOption.dosha as keyof typeof finalScores]++
       }
@@ -426,7 +557,10 @@ export default function FreeWellnessPlanPage() {
   const getRecommendedProducts = () => {
     const plan = getDoshaPlan()
     const concern = getConcernAddition()
-    const allSlugs = [...(plan?.productSlugs || []), ...(concern?.productSlugs || [])]
+    const allSlugs = [
+      ...(plan?.productSlugs || []),
+      ...(concern?.productSlugs || []),
+    ]
     const uniqueSlugs = Array.from(new Set(allSlugs))
     return allProducts.filter((p) => uniqueSlugs.includes(p.slug))
   }
@@ -436,8 +570,12 @@ export default function FreeWellnessPlanPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-amber-800 to-amber-900 text-white py-4 px-4">
         <div className="max-w-lg mx-auto flex items-center justify-between">
-          <Link href="/" className="text-xl font-display">Pure Prana</Link>
-          <span className="text-sm text-amber-200">Ayurvedic Wellness Plan</span>
+          <Link href="/" className="text-xl font-display">
+            Pure Prana
+          </Link>
+          <span className="text-sm text-amber-200">
+            Ayurvedic Wellness Plan
+          </span>
         </div>
       </header>
 
@@ -455,8 +593,9 @@ export default function FreeWellnessPlanPage() {
                 Your Free Ayurvedic Wellness Plan
               </h1>
               <p className="text-gray-600 leading-relaxed">
-                Namaste! Discover your unique Prakriti (constitution) and receive a
-                personalized wellness plan based on 5,000 years of Ayurvedic wisdom.
+                Namaste! Discover your unique Prakriti (constitution) and
+                receive a personalized wellness plan based on 5,000 years of
+                Ayurvedic wisdom.
               </p>
             </div>
 
@@ -469,23 +608,33 @@ export default function FreeWellnessPlanPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="text-amber-600">🧘</span>
-                  <span className="text-gray-700">Your Dosha type (Vata, Pitta, or Kapha)</span>
+                  <span className="text-gray-700">
+                    Your Dosha type (Vata, Pitta, or Kapha)
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-amber-600">🌅</span>
-                  <span className="text-gray-700">Personalized morning & evening Dinacharya (routines)</span>
+                  <span className="text-gray-700">
+                    Personalized morning & evening Dinacharya (routines)
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-amber-600">🥗</span>
-                  <span className="text-gray-700">Dietary guidelines for your constitution</span>
+                  <span className="text-gray-700">
+                    Dietary guidelines for your constitution
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-amber-600">🌿</span>
-                  <span className="text-gray-700">Recommended Ayurvedic herbs and supplements</span>
+                  <span className="text-gray-700">
+                    Recommended Ayurvedic herbs and supplements
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-amber-600">🎁</span>
-                  <span className="text-gray-700"><strong>15% discount code</strong> for your wellness journey</span>
+                  <span className="text-gray-700">
+                    <strong>15% discount code</strong> for your wellness journey
+                  </span>
                 </li>
               </ul>
             </div>
@@ -537,14 +686,30 @@ export default function FreeWellnessPlanPage() {
               </p>
               <div className="flex justify-center gap-6 text-sm text-amber-700">
                 <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   No spam
                 </span>
                 <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   Free forever
                 </span>
@@ -561,13 +726,22 @@ export default function FreeWellnessPlanPage() {
             {/* Progress */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Question {currentQuestion + 1} of {AYURVEDIC_QUESTIONS.length}</span>
-                <span>{Math.round(((currentQuestion + 1) / AYURVEDIC_QUESTIONS.length) * 100)}%</span>
+                <span>
+                  Question {currentQuestion + 1} of {AYURVEDIC_QUESTIONS.length}
+                </span>
+                <span>
+                  {Math.round(
+                    ((currentQuestion + 1) / AYURVEDIC_QUESTIONS.length) * 100
+                  )}
+                  %
+                </span>
               </div>
               <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-full transition-all duration-500"
-                  style={{ width: `${((currentQuestion + 1) / AYURVEDIC_QUESTIONS.length) * 100}%` }}
+                  style={{
+                    width: `${((currentQuestion + 1) / AYURVEDIC_QUESTIONS.length) * 100}%`,
+                  }}
                 />
               </div>
             </div>
@@ -585,11 +759,13 @@ export default function FreeWellnessPlanPage() {
                 {AYURVEDIC_QUESTIONS[currentQuestion].options.map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => handleAnswer(
-                      AYURVEDIC_QUESTIONS[currentQuestion].id,
-                      option.value,
-                      'dosha' in option ? option.dosha : undefined
-                    )}
+                    onClick={() =>
+                      handleAnswer(
+                        AYURVEDIC_QUESTIONS[currentQuestion].id,
+                        option.value,
+                        'dosha' in option ? option.dosha : undefined
+                      )
+                    }
                     className="w-full p-4 text-left bg-amber-50 hover:bg-amber-100 border-2 border-amber-100 hover:border-amber-400 rounded-xl transition-all"
                   >
                     <span className="text-gray-800">{option.label}</span>
@@ -604,8 +780,18 @@ export default function FreeWellnessPlanPage() {
                 onClick={() => setCurrentQuestion(currentQuestion - 1)}
                 className="text-amber-700 hover:text-amber-800 text-sm font-medium flex items-center gap-1"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
                 Previous question
               </button>
@@ -616,7 +802,9 @@ export default function FreeWellnessPlanPage() {
               <div className="fixed inset-0 bg-amber-900/50 flex items-center justify-center z-50">
                 <div className="bg-white rounded-2xl p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 border-4 border-amber-200 border-t-amber-600 rounded-full animate-spin" />
-                  <p className="text-amber-900 font-medium">Creating your personalized plan...</p>
+                  <p className="text-amber-900 font-medium">
+                    Creating your personalized plan...
+                  </p>
                 </div>
               </div>
             )}
@@ -635,8 +823,12 @@ export default function FreeWellnessPlanPage() {
                   <span className="text-2xl">🎁</span>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-green-800">Your exclusive discount:</p>
-                  <p className="text-xl font-mono font-bold text-green-700">WELLNESS15</p>
+                  <p className="text-sm text-green-800">
+                    Your exclusive discount:
+                  </p>
+                  <p className="text-xl font-mono font-bold text-green-700">
+                    WELLNESS15
+                  </p>
                 </div>
                 <button
                   onClick={() => {
@@ -653,7 +845,9 @@ export default function FreeWellnessPlanPage() {
             {/* Dosha Result */}
             <div className="bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl p-6 shadow-lg border border-amber-300 mb-6">
               <div className="text-center">
-                <p className="text-amber-700 text-sm mb-2">Namaste {name}, your primary Dosha is</p>
+                <p className="text-amber-700 text-sm mb-2">
+                  Namaste {name}, your primary Dosha is
+                </p>
                 <h1 className="text-4xl font-display text-amber-900 mb-2">
                   {getDoshaPlan().dosha}
                 </h1>
@@ -668,16 +862,23 @@ export default function FreeWellnessPlanPage() {
 
             {/* Dosha Scores */}
             <div className="bg-white rounded-xl p-4 shadow-md border border-amber-100 mb-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-3">Your Dosha Balance:</h3>
+              <h3 className="text-sm font-medium text-gray-600 mb-3">
+                Your Dosha Balance:
+              </h3>
               <div className="space-y-2">
                 {Object.entries(doshaScores).map(([dosha, score]) => (
                   <div key={dosha} className="flex items-center gap-3">
-                    <span className="w-16 text-sm capitalize text-gray-700">{dosha}</span>
+                    <span className="w-16 text-sm capitalize text-gray-700">
+                      {dosha}
+                    </span>
                     <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full ${
-                          dosha === 'vata' ? 'bg-blue-400' :
-                          dosha === 'pitta' ? 'bg-red-400' : 'bg-green-400'
+                          dosha === 'vata'
+                            ? 'bg-blue-400'
+                            : dosha === 'pitta'
+                              ? 'bg-red-400'
+                              : 'bg-green-400'
                         }`}
                         style={{ width: `${(score / 7) * 100}%` }}
                       />
@@ -696,8 +897,16 @@ export default function FreeWellnessPlanPage() {
               <ul className="space-y-2">
                 {getDoshaPlan().balancingPrinciples.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-700">
-                    <svg className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {item}
                   </li>
@@ -762,8 +971,16 @@ export default function FreeWellnessPlanPage() {
               <ul className="space-y-2">
                 {getDoshaPlan().herbsAndSupplements.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-700">
-                    <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {item}
                   </li>
@@ -779,8 +996,16 @@ export default function FreeWellnessPlanPage() {
               <ul className="space-y-2">
                 {getDoshaPlan().lifestyle.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-700">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {item}
                   </li>
@@ -796,9 +1021,20 @@ export default function FreeWellnessPlanPage() {
                 </h2>
                 <ul className="space-y-2">
                   {getConcernAddition().recommendations.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-700">
-                      <svg className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-gray-700"
+                    >
+                      <svg
+                        className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       {item}
                     </li>
@@ -825,12 +1061,28 @@ export default function FreeWellnessPlanPage() {
                         <span className="text-3xl">🌿</span>
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-amber-900">{product.name}</h3>
-                        <p className="text-sm text-gray-600 line-clamp-1">{product.shortDescription}</p>
-                        <p className="text-sm font-semibold text-amber-700">${product.price}</p>
+                        <h3 className="font-semibold text-amber-900">
+                          {product.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 line-clamp-1">
+                          {product.shortDescription}
+                        </p>
+                        <p className="text-sm font-semibold text-amber-700">
+                          ${product.price}
+                        </p>
                       </div>
-                      <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-5 h-5 text-amber-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </Link>
                   ))}
@@ -871,14 +1123,21 @@ export default function FreeWellnessPlanPage() {
       <footer className="py-8 px-4 bg-amber-900 text-white mt-8">
         <div className="max-w-lg mx-auto text-center">
           <p className="text-amber-300 text-sm mb-4">
-            &quot;When diet is wrong, medicine is of no use. When diet is correct, medicine is of no need.&quot;
+            &quot;When diet is wrong, medicine is of no use. When diet is
+            correct, medicine is of no need.&quot;
             <br />
             <span className="text-amber-400 italic">— Ayurvedic Proverb</span>
           </p>
           <div className="flex justify-center gap-6 text-sm mb-6">
-            <Link href="/shop" className="text-amber-200 hover:text-white">Shop</Link>
-            <Link href="/blog" className="text-amber-200 hover:text-white">Blog</Link>
-            <Link href="/contact" className="text-amber-200 hover:text-white">Contact</Link>
+            <Link href="/shop" className="text-amber-200 hover:text-white">
+              Shop
+            </Link>
+            <Link href="/blog" className="text-amber-200 hover:text-white">
+              Blog
+            </Link>
+            <Link href="/contact" className="text-amber-200 hover:text-white">
+              Contact
+            </Link>
           </div>
           <p className="text-xs text-amber-400">
             © {new Date().getFullYear()} Pure Prana. All rights reserved.

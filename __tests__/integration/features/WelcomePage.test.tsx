@@ -50,7 +50,9 @@ describe('Welcome Page', () => {
   it('should render welcome message', () => {
     render(<WelcomePage />)
 
-    expect(screen.getByText('Welcome to the Pure Prana Family')).toBeInTheDocument()
+    expect(
+      screen.getByText('Welcome to the Pure Prana Family')
+    ).toBeInTheDocument()
   })
 
   it('should render thank you badge', () => {
@@ -62,7 +64,9 @@ describe('Welcome Page', () => {
   it('should render getting started guide', () => {
     render(<WelcomePage />)
 
-    expect(screen.getByText('Getting Started with Your Supplement')).toBeInTheDocument()
+    expect(
+      screen.getByText('Getting Started with Your Supplement')
+    ).toBeInTheDocument()
     expect(screen.getByText('Start Slow')).toBeInTheDocument()
     expect(screen.getByText('Be Consistent')).toBeInTheDocument()
     expect(screen.getByText('Track Your Progress')).toBeInTheDocument()
@@ -73,7 +77,9 @@ describe('Welcome Page', () => {
 
     expect(screen.getByText('Exclusive Resources for You')).toBeInTheDocument()
     expect(screen.getByText('Research & Insights Blog')).toBeInTheDocument()
-    expect(screen.getByText('The Science Behind Our Formulas')).toBeInTheDocument()
+    expect(
+      screen.getByText('The Science Behind Our Formulas')
+    ).toBeInTheDocument()
     expect(screen.getByText('Ingredient Guide')).toBeInTheDocument()
     expect(screen.getByText('Wellness Quiz')).toBeInTheDocument()
   })
@@ -88,7 +94,9 @@ describe('Welcome Page', () => {
   it('should render product collection section', () => {
     render(<WelcomePage />)
 
-    expect(screen.getByText('Explore Our Complete Collection')).toBeInTheDocument()
+    expect(
+      screen.getByText('Explore Our Complete Collection')
+    ).toBeInTheDocument()
     expect(screen.getByText('Test Product 1')).toBeInTheDocument()
     expect(screen.getByText('Test Product 2')).toBeInTheDocument()
   })
@@ -103,7 +111,9 @@ describe('Welcome Page', () => {
   it('should render contact section', () => {
     render(<WelcomePage />)
 
-    expect(screen.getByText("Questions? We're Here to Help")).toBeInTheDocument()
+    expect(
+      screen.getByText("Questions? We're Here to Help")
+    ).toBeInTheDocument()
     expect(screen.getByText('Contact Us')).toBeInTheDocument()
     expect(screen.getByText('Leave a Review')).toBeInTheDocument()
   })

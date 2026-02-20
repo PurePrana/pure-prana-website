@@ -25,8 +25,9 @@ export default function ShopPage() {
               Shop Our Collection
             </h1>
             <p className="text-lg md:text-xl text-primary-100 leading-relaxed">
-              Premium Ayurvedic supplements crafted with research-backed ingredients.
-              Each formula is designed to support your wellness journey naturally.
+              Premium Ayurvedic supplements crafted with research-backed
+              ingredients. Each formula is designed to support your wellness
+              journey naturally.
             </p>
           </div>
         </div>
@@ -75,19 +76,27 @@ export default function ShopPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-light text-primary-900 mb-2">100%</div>
+              <div className="text-3xl font-light text-primary-900 mb-2">
+                100%
+              </div>
               <div className="text-sm text-muted">Natural Ingredients</div>
             </div>
             <div>
-              <div className="text-3xl font-light text-primary-900 mb-2">GMP</div>
+              <div className="text-3xl font-light text-primary-900 mb-2">
+                GMP
+              </div>
               <div className="text-sm text-muted">Certified Facility</div>
             </div>
             <div>
-              <div className="text-3xl font-light text-primary-900 mb-2">USA</div>
+              <div className="text-3xl font-light text-primary-900 mb-2">
+                USA
+              </div>
               <div className="text-sm text-muted">Made in America</div>
             </div>
             <div>
-              <div className="text-3xl font-light text-primary-900 mb-2">FDA</div>
+              <div className="text-3xl font-light text-primary-900 mb-2">
+                FDA
+              </div>
               <div className="text-sm text-muted">Registered Facility</div>
             </div>
           </div>

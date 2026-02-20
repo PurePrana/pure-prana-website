@@ -10,7 +10,9 @@ function StarRating() {
     <div className="flex items-center gap-2">
       <div className="flex">
         {[1, 2, 3, 4, 5].map((i) => (
-          <span key={i} className="text-yellow-400 text-lg">★</span>
+          <span key={i} className="text-yellow-400 text-lg">
+            ★
+          </span>
         ))}
       </div>
       <span className="text-sm text-gray-600">4.6 / 5 (47 reviews)</span>
@@ -28,7 +30,10 @@ function TrustBadges() {
   return (
     <div className="grid grid-cols-4 gap-2 py-6">
       {badges.map((b) => (
-        <div key={b.label} className="flex flex-col items-center text-center gap-1">
+        <div
+          key={b.label}
+          className="flex flex-col items-center text-center gap-1"
+        >
           <span className="text-2xl">{b.icon}</span>
           <span className="text-xs text-gray-600 font-medium">{b.label}</span>
         </div>
@@ -45,15 +50,15 @@ function FAQ() {
     },
     {
       q: 'Why Ayurvedic herbs instead of other supplements?',
-      a: 'Ayurvedic herbs like Shatavari and Ashwagandha are adaptogens — they don\'t force your hormones in one direction. They help your body find its own balance, which is exactly what you need after years of synthetic override.',
+      a: "Ayurvedic herbs like Shatavari and Ashwagandha are adaptogens — they don't force your hormones in one direction. They help your body find its own balance, which is exactly what you need after years of synthetic override.",
     },
     {
-      q: 'Is this safe if I\'m planning to get pregnant eventually?',
+      q: "Is this safe if I'm planning to get pregnant eventually?",
       a: 'These herbs have been traditionally used to support fertility and reproductive health. That said, always loop in your healthcare provider when planning conception.',
     },
     {
-      q: 'What if I\'ve been off the pill for months and still feel off?',
-      a: 'That\'s common — some women\'s hormones take 6-12 months to fully recalibrate. Starting herbal support at any point can help. It\'s never too late to give your body the right tools.',
+      q: "What if I've been off the pill for months and still feel off?",
+      a: "That's common — some women's hormones take 6-12 months to fully recalibrate. Starting herbal support at any point can help. It's never too late to give your body the right tools.",
     },
   ]
 
@@ -62,7 +67,10 @@ function FAQ() {
   return (
     <div className="space-y-3">
       {faqs.map((f, i) => (
-        <div key={i} className="border border-pink-100 rounded-xl overflow-hidden">
+        <div
+          key={i}
+          className="border border-pink-100 rounded-xl overflow-hidden"
+        >
           <button
             onClick={() => setOpen(open === i ? null : i)}
             className="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center"
@@ -71,7 +79,9 @@ function FAQ() {
             <span className="text-pink-400 ml-2">{open === i ? '−' : '+'}</span>
           </button>
           {open === i && (
-            <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">{f.a}</div>
+            <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">
+              {f.a}
+            </div>
           )}
         </div>
       ))}
@@ -85,7 +95,9 @@ function StickyCTA() {
       <div className="max-w-lg mx-auto flex items-center justify-between">
         <div>
           <p className="font-bold text-gray-900 text-sm">Hormonal Balance</p>
-          <p className="text-pink-600 font-semibold text-sm">$29.95 · 60 capsules</p>
+          <p className="text-pink-600 font-semibold text-sm">
+            $29.95 · 60 capsules
+          </p>
         </div>
         <a
           href={AMAZON_URL}
@@ -110,10 +122,13 @@ export default function PostBCv2() {
             Ayurvedic Post-BC Recovery
           </p>
           <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900 mb-4">
-            Post-Pill Hormone Chaos?<br />There&apos;s an Ayurvedic Fix.
+            Post-Pill Hormone Chaos?
+            <br />
+            There&apos;s an Ayurvedic Fix.
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            6 clinically-studied herbs that help your body recalibrate after hormonal birth control — naturally.
+            6 clinically-studied herbs that help your body recalibrate after
+            hormonal birth control — naturally.
           </p>
           <div className="flex justify-center mb-4">
             <Image
@@ -133,18 +148,41 @@ export default function PostBCv2() {
       {/* The Problem */}
       <section className="px-5 py-10 bg-gray-50">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">What Birth Control Did to Your Body</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">
+            What Birth Control Did to Your Body
+          </h2>
           <div className="space-y-4">
             {[
-              { icon: '🚫', title: 'Shut down your HPO axis', desc: 'The pill suppressed communication between your brain and ovaries. When you stop, that system doesn\'t just snap back.' },
-              { icon: '📉', title: 'Depleted key nutrients', desc: 'BC is linked to lower levels of B vitamins, zinc, magnesium, and selenium — all critical for hormone production.' },
-              { icon: '🔄', title: 'Disrupted your gut microbiome', desc: 'Synthetic estrogen alters gut bacteria, affecting estrogen metabolism and creating a rebound effect when you quit.' },
-              { icon: '⚡', title: 'Suppressed natural hormone production', desc: 'Your body stopped making its own hormonal rhythm. Now it has to rebuild from scratch.' },
+              {
+                icon: '🚫',
+                title: 'Shut down your HPO axis',
+                desc: "The pill suppressed communication between your brain and ovaries. When you stop, that system doesn't just snap back.",
+              },
+              {
+                icon: '📉',
+                title: 'Depleted key nutrients',
+                desc: 'BC is linked to lower levels of B vitamins, zinc, magnesium, and selenium — all critical for hormone production.',
+              },
+              {
+                icon: '🔄',
+                title: 'Disrupted your gut microbiome',
+                desc: 'Synthetic estrogen alters gut bacteria, affecting estrogen metabolism and creating a rebound effect when you quit.',
+              },
+              {
+                icon: '⚡',
+                title: 'Suppressed natural hormone production',
+                desc: 'Your body stopped making its own hormonal rhythm. Now it has to rebuild from scratch.',
+              },
             ].map((item) => (
-              <div key={item.title} className="bg-white rounded-xl p-5 shadow-sm flex gap-4 items-start">
+              <div
+                key={item.title}
+                className="bg-white rounded-xl p-5 shadow-sm flex gap-4 items-start"
+              >
                 <span className="text-2xl">{item.icon}</span>
                 <div>
-                  <h3 className="font-bold text-gray-900 text-sm">{item.title}</h3>
+                  <h3 className="font-bold text-gray-900 text-sm">
+                    {item.title}
+                  </h3>
                   <p className="text-gray-600 text-sm">{item.desc}</p>
                 </div>
               </div>
@@ -156,15 +194,19 @@ export default function PostBCv2() {
       {/* The Fix — Ingredients */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2">What These Herbs Do Instead</h2>
-          <p className="text-gray-500 text-center mb-8">Each ingredient targets a specific part of post-BC recovery.</p>
+          <h2 className="text-2xl font-bold text-center mb-2">
+            What These Herbs Do Instead
+          </h2>
+          <p className="text-gray-500 text-center mb-8">
+            Each ingredient targets a specific part of post-BC recovery.
+          </p>
           <div className="space-y-5">
             {[
               {
                 name: 'Shatavari',
                 dose: '3000mg equiv.',
                 role: 'The Hormone Harmonizer',
-                desc: 'The #1 herb in Ayurveda for women\'s health. Supports estrogen balance, ovarian function, and cervical mucus production. Helps restore what the pill suppressed.',
+                desc: "The #1 herb in Ayurveda for women's health. Supports estrogen balance, ovarian function, and cervical mucus production. Helps restore what the pill suppressed.",
                 color: 'bg-pink-50 border-pink-200',
               },
               {
@@ -203,13 +245,22 @@ export default function PostBCv2() {
                 color: 'bg-green-50 border-green-200',
               },
             ].map((herb) => (
-              <div key={herb.name} className={`rounded-xl p-5 border ${herb.color}`}>
+              <div
+                key={herb.name}
+                className={`rounded-xl p-5 border ${herb.color}`}
+              >
                 <div className="flex justify-between items-start mb-1">
                   <h3 className="font-bold text-gray-900">{herb.name}</h3>
-                  <span className="text-xs bg-white px-2 py-1 rounded-full text-gray-500 font-medium">{herb.dose}</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded-full text-gray-500 font-medium">
+                    {herb.dose}
+                  </span>
                 </div>
-                <p className="text-pink-600 text-sm font-semibold mb-1">{herb.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{herb.desc}</p>
+                <p className="text-pink-600 text-sm font-semibold mb-1">
+                  {herb.role}
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {herb.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -219,10 +270,14 @@ export default function PostBCv2() {
       {/* Comparison */}
       <section className="bg-pink-50 px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">BC vs. Ayurvedic Herbs</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">
+            BC vs. Ayurvedic Herbs
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-gray-100 rounded-xl p-4">
-              <h3 className="font-bold text-gray-400 text-sm mb-3 text-center">❌ What BC Did</h3>
+              <h3 className="font-bold text-gray-400 text-sm mb-3 text-center">
+                ❌ What BC Did
+              </h3>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li>Suppressed ovulation</li>
                 <li>Synthetic estrogen override</li>
@@ -233,7 +288,9 @@ export default function PostBCv2() {
               </ul>
             </div>
             <div className="bg-white rounded-xl p-4 shadow-sm border border-pink-100">
-              <h3 className="font-bold text-pink-600 text-sm mb-3 text-center">✅ What These Herbs Do</h3>
+              <h3 className="font-bold text-pink-600 text-sm mb-3 text-center">
+                ✅ What These Herbs Do
+              </h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li>Support natural ovulation</li>
                 <li>Balance your own estrogen</li>
@@ -250,8 +307,12 @@ export default function PostBCv2() {
       {/* Symptoms checklist */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2">Post-BC Symptoms This Targets</h2>
-          <p className="text-gray-500 text-center text-sm mb-6">Check off what you&apos;re experiencing:</p>
+          <h2 className="text-2xl font-bold text-center mb-2">
+            Post-BC Symptoms This Targets
+          </h2>
+          <p className="text-gray-500 text-center text-sm mb-6">
+            Check off what you&apos;re experiencing:
+          </p>
           <div className="grid grid-cols-2 gap-2">
             {[
               'Irregular periods',
@@ -265,7 +326,10 @@ export default function PostBCv2() {
               'Bloating',
               'Low libido',
             ].map((symptom) => (
-              <div key={symptom} className="flex items-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5">
+              <div
+                key={symptom}
+                className="flex items-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5"
+              >
                 <span className="text-pink-400">☐</span>
                 <span className="text-sm text-gray-700">{symptom}</span>
               </div>
@@ -280,8 +344,12 @@ export default function PostBCv2() {
       {/* Product CTA */}
       <section className="bg-gradient-to-b from-white to-pink-50 px-5 py-10">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-2">Pure Prana Hormonal Balance</h2>
-          <p className="text-gray-500 mb-4">6 targeted Ayurvedic herbs · 60 capsules · 30-day supply</p>
+          <h2 className="text-2xl font-bold mb-2">
+            Pure Prana Hormonal Balance
+          </h2>
+          <p className="text-gray-500 mb-4">
+            6 targeted Ayurvedic herbs · 60 capsules · 30-day supply
+          </p>
           <div className="flex justify-center mb-4">
             <Image
               src="/images/products/hormone-balance.jpg"
@@ -301,14 +369,18 @@ export default function PostBCv2() {
           >
             Get on Amazon — $29.95 →
           </a>
-          <p className="text-xs text-gray-400 mt-3">Free shipping with Prime · 30-day Amazon guarantee</p>
+          <p className="text-xs text-gray-400 mt-3">
+            Free shipping with Prime · 30-day Amazon guarantee
+          </p>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">
+            Frequently Asked Questions
+          </h2>
           <FAQ />
         </div>
       </section>
@@ -316,9 +388,12 @@ export default function PostBCv2() {
       {/* Final CTA */}
       <section className="bg-pink-50 px-5 py-12">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3">Your Body Knows How to Heal.</h2>
+          <h2 className="text-2xl font-bold mb-3">
+            Your Body Knows How to Heal.
+          </h2>
           <p className="text-gray-600 mb-6">
-            It just needs the right inputs. 6 herbs. Thousands of years of evidence. One capsule a day.
+            It just needs the right inputs. 6 herbs. Thousands of years of
+            evidence. One capsule a day.
           </p>
           <a
             href={AMAZON_URL}

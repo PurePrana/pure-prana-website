@@ -101,7 +101,10 @@ describe('ProductLink Component', () => {
 
       const amazonLink = screen.getByText('Buy on Amazon')
       expect(amazonLink).toBeInTheDocument()
-      expect(amazonLink.closest('a')).toHaveAttribute('href', mockProduct.amazonUrl)
+      expect(amazonLink.closest('a')).toHaveAttribute(
+        'href',
+        mockProduct.amazonUrl
+      )
       expect(amazonLink.closest('a')).toHaveAttribute('target', '_blank')
     })
 

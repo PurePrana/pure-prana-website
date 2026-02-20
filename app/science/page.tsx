@@ -88,7 +88,10 @@ function ResearchPaperCard({ paper }: { paper: ResearchPaper }) {
           <div className="mt-3 pl-4 border-l-2 border-primary-200">
             <ul className="space-y-2">
               {paper.keyFindings.map((finding, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-primary-700">
+                <li
+                  key={index}
+                  className="flex items-start gap-2 text-sm text-primary-700"
+                >
                   <svg
                     className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5"
                     fill="currentColor"
@@ -116,7 +119,12 @@ function ResearchPaperCard({ paper }: { paper: ResearchPaper }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-800 transition-colors"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -132,7 +140,12 @@ function ResearchPaperCard({ paper }: { paper: ResearchPaper }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-800 transition-colors"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -178,9 +191,10 @@ export default function SciencePage() {
               Science-Backed Formulas
             </h1>
             <p className="text-lg md:text-xl text-primary-100 leading-relaxed mb-8">
-              Every Pure Prana product is rooted in rigorous scientific research.
-              Explore the peer-reviewed studies that validate our traditional
-              Ayurvedic ingredients and their modern health benefits.
+              Every Pure Prana product is rooted in rigorous scientific
+              research. Explore the peer-reviewed studies that validate our
+              traditional Ayurvedic ingredients and their modern health
+              benefits.
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link
@@ -208,13 +222,17 @@ export default function SciencePage() {
               <div className="text-3xl md:text-4xl font-light text-primary-900 mb-2 group-hover:text-brand-700 transition-colors">
                 50+
               </div>
-              <div className="text-sm text-muted">Clinical Studies Reviewed</div>
+              <div className="text-sm text-muted">
+                Clinical Studies Reviewed
+              </div>
             </div>
             <div className="group">
               <div className="text-3xl md:text-4xl font-light text-primary-900 mb-2 group-hover:text-brand-700 transition-colors">
                 15+
               </div>
-              <div className="text-sm text-muted">Research-Backed Ingredients</div>
+              <div className="text-sm text-muted">
+                Research-Backed Ingredients
+              </div>
             </div>
             <div className="group">
               <div className="text-3xl md:text-4xl font-light text-primary-900 mb-2 group-hover:text-brand-700 transition-colors">
@@ -226,7 +244,9 @@ export default function SciencePage() {
               <div className="text-3xl md:text-4xl font-light text-primary-900 mb-2 group-hover:text-brand-700 transition-colors">
                 5,000+
               </div>
-              <div className="text-sm text-muted">Years of Ayurvedic Wisdom</div>
+              <div className="text-sm text-muted">
+                Years of Ayurvedic Wisdom
+              </div>
             </div>
           </div>
         </div>
@@ -270,9 +290,9 @@ export default function SciencePage() {
                 Literature Review
               </h3>
               <p className="text-muted leading-relaxed">
-                We analyze thousands of peer-reviewed studies, meta-analyses, and
-                systematic reviews to identify ingredients with the strongest
-                scientific evidence.
+                We analyze thousands of peer-reviewed studies, meta-analyses,
+                and systematic reviews to identify ingredients with the
+                strongest scientific evidence.
               </p>
             </div>
 

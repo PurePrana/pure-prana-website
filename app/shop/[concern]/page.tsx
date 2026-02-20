@@ -96,7 +96,8 @@ export default function ConcernPage({ params }: Props) {
             <>
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-display text-primary-900">
-                  {products.length} Product{products.length !== 1 ? 's' : ''} for {concern.name}
+                  {products.length} Product{products.length !== 1 ? 's' : ''}{' '}
+                  for {concern.name}
                 </h2>
               </div>
 
@@ -113,7 +114,8 @@ export default function ConcernPage({ params }: Props) {
                 Coming Soon
               </h2>
               <p className="text-muted mb-8">
-                We&apos;re working on products for {concern.name.toLowerCase()}. Check back soon!
+                We&apos;re working on products for {concern.name.toLowerCase()}.
+                Check back soon!
               </p>
               <Link
                 href="/shop"

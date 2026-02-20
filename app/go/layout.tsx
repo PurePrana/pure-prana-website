@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
+import type { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Pure Prana Ayurveda — Premium Ayurvedic Supplements',
-  description: 'Clinically-inspired Ayurvedic supplements trusted by 50,000+ customers. GMP-Certified, FDA-registered facility.',
-};
+  description:
+    'Clinically-inspired Ayurvedic supplements trusted by 50,000+ customers. GMP-Certified, FDA-registered facility.',
+}
 
 // Replace with your actual Meta Pixel ID
-const META_PIXEL_ID = 'YOUR_PIXEL_ID';
+const META_PIXEL_ID = 'YOUR_PIXEL_ID'
 
 export default function GoLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -37,5 +38,5 @@ export default function GoLayout({ children }: { children: React.ReactNode }) {
       </noscript>
       {children}
     </>
-  );
+  )
 }

@@ -54,7 +54,9 @@ export default function MensVitalityGuidePage() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-primary-700 leading-relaxed mb-8 max-w-2xl mx-auto">
-            <span className="font-semibold">Shilajit. Ashwagandha. Gokshura. Safed Musli.</span>
+            <span className="font-semibold">
+              Shilajit. Ashwagandha. Gokshura. Safed Musli.
+            </span>
             <br />
             Discover what modern science says about these time-tested herbs for
             men&apos;s vitality, energy, and strength.
@@ -106,8 +108,9 @@ export default function MensVitalityGuidePage() {
                 Shilajit
               </h3>
               <p className="text-primary-700">
-                The &quot;destroyer of weakness&quot; - a mineral-rich resin from the
-                Himalayas prized for 3,000+ years for energy and vitality.
+                The &quot;destroyer of weakness&quot; - a mineral-rich resin
+                from the Himalayas prized for 3,000+ years for energy and
+                vitality.
               </p>
             </div>
 
@@ -116,8 +119,8 @@ export default function MensVitalityGuidePage() {
                 Ashwagandha
               </h3>
               <p className="text-primary-700">
-                The &quot;strength of a stallion&quot; - an adaptogen that helps the body
-                manage stress while supporting strength and stamina.
+                The &quot;strength of a stallion&quot; - an adaptogen that helps
+                the body manage stress while supporting strength and stamina.
               </p>
             </div>
 
@@ -136,8 +139,8 @@ export default function MensVitalityGuidePage() {
                 Safed Musli
               </h3>
               <p className="text-primary-700">
-                The &quot;white gold&quot; of Ayurveda - a rare herb used for centuries to
-                support stamina, strength, and overall vitality.
+                The &quot;white gold&quot; of Ayurveda - a rare herb used for
+                centuries to support stamina, strength, and overall vitality.
               </p>
             </div>
           </div>
@@ -151,7 +154,8 @@ export default function MensVitalityGuidePage() {
             Get Your Free Guide Now
           </h2>
           <p className="text-primary-200 mb-8 text-lg">
-            Join thousands of men who are discovering the power of Ayurvedic herbs.
+            Join thousands of men who are discovering the power of Ayurvedic
+            herbs.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
@@ -189,9 +193,10 @@ export default function MensVitalityGuidePage() {
       <section className="py-8 px-4 bg-primary-50">
         <div className="max-w-2xl mx-auto text-center text-sm text-primary-600">
           <p>
-            Pure Prana is committed to bringing you the highest quality Ayurvedic
-            supplements. Our products are made in FDA-registered facilities in
-            the USA using authentic ingredients sourced from trusted suppliers.
+            Pure Prana is committed to bringing you the highest quality
+            Ayurvedic supplements. Our products are made in FDA-registered
+            facilities in the USA using authentic ingredients sourced from
+            trusted suppliers.
           </p>
         </div>
       </section>

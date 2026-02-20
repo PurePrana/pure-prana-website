@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState } from 'react'
 
-const AMAZON_LINK = 'https://www.amazon.com/dp/B0DZ23LJGJ';
+const AMAZON_LINK = 'https://www.amazon.com/dp/B0DZ23LJGJ'
 
 /* ─── FAQ Data ─── */
 const faqs = [
@@ -12,8 +12,8 @@ const faqs = [
     a: 'Most supplements hide behind "proprietary blends" so you never know what you\'re actually getting. We show every herb, every dosage, every extraction ratio. Six specific Ayurvedic herbs — not a kitchen-sink multivitamin. Each one chosen for a reason, dosed at clinically meaningful levels.',
   },
   {
-    q: 'I\'ve wasted money on supplements before. Why would this work?',
-    a: 'Fair question. Most hormone supplements give you one trendy ingredient at a low dose. This formula uses 6 herbs that have been used together in Ayurveda for thousands of years — Shatavari and Ashwagandha at potent 10:1 and 20:1 extracts (3000mg equivalent each). It\'s the synergy and the dosage that matter.',
+    q: "I've wasted money on supplements before. Why would this work?",
+    a: "Fair question. Most hormone supplements give you one trendy ingredient at a low dose. This formula uses 6 herbs that have been used together in Ayurveda for thousands of years — Shatavari and Ashwagandha at potent 10:1 and 20:1 extracts (3000mg equivalent each). It's the synergy and the dosage that matter.",
   },
   {
     q: 'How long before I notice anything?',
@@ -21,12 +21,12 @@ const faqs = [
   },
   {
     q: 'Is this safe? Any side effects?',
-    a: 'All herbs are food-grade, vegan, non-GMO, and 3rd party tested for purity. Manufactured in a GMP-certified facility in the USA. That said, always check with your doctor if you\'re on medication.',
+    a: "All herbs are food-grade, vegan, non-GMO, and 3rd party tested for purity. Manufactured in a GMP-certified facility in the USA. That said, always check with your doctor if you're on medication.",
   },
-];
+]
 
 function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   return (
     <div className="border-b border-green-900/20">
       <button
@@ -34,22 +34,62 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="w-full flex justify-between items-center py-4 text-left"
       >
         <span className="font-medium text-gray-800">{q}</span>
-        <span className="text-amber-600 text-xl ml-4 shrink-0">{open ? '−' : '+'}</span>
+        <span className="text-amber-600 text-xl ml-4 shrink-0">
+          {open ? '−' : '+'}
+        </span>
       </button>
-      {open && <p className="pb-4 text-gray-600 text-sm leading-relaxed">{a}</p>}
+      {open && (
+        <p className="pb-4 text-gray-600 text-sm leading-relaxed">{a}</p>
+      )}
     </div>
-  );
+  )
 }
 
 /* ─── Supplement Facts ─── */
 const ingredients = [
-  { name: 'Shatavari Extract', amount: '300mg', ratio: '10:1', equiv: '3,000mg', role: 'Hormone regulation & reproductive health' },
-  { name: 'Ashwagandha Extract', amount: '150mg', ratio: '20:1', equiv: '3,000mg', role: 'Cortisol control & stress adaptation' },
-  { name: 'Tribulus Terrestris', amount: '100mg', ratio: '10:1', equiv: '500mg', role: 'Libido & vitality support' },
-  { name: 'Ashoka Extract', amount: '50mg', ratio: '10:1', equiv: '500mg', role: 'Menstrual comfort & uterine health' },
-  { name: 'Lodhra Extract', amount: '10mg', ratio: '10:1', equiv: '100mg', role: 'Hormonal balance & cycle regularity' },
-  { name: 'Guduchi', amount: '10mg', ratio: '—', equiv: '10mg', role: 'Immune support & detoxification' },
-];
+  {
+    name: 'Shatavari Extract',
+    amount: '300mg',
+    ratio: '10:1',
+    equiv: '3,000mg',
+    role: 'Hormone regulation & reproductive health',
+  },
+  {
+    name: 'Ashwagandha Extract',
+    amount: '150mg',
+    ratio: '20:1',
+    equiv: '3,000mg',
+    role: 'Cortisol control & stress adaptation',
+  },
+  {
+    name: 'Tribulus Terrestris',
+    amount: '100mg',
+    ratio: '10:1',
+    equiv: '500mg',
+    role: 'Libido & vitality support',
+  },
+  {
+    name: 'Ashoka Extract',
+    amount: '50mg',
+    ratio: '10:1',
+    equiv: '500mg',
+    role: 'Menstrual comfort & uterine health',
+  },
+  {
+    name: 'Lodhra Extract',
+    amount: '10mg',
+    ratio: '10:1',
+    equiv: '100mg',
+    role: 'Hormonal balance & cycle regularity',
+  },
+  {
+    name: 'Guduchi',
+    amount: '10mg',
+    ratio: '—',
+    equiv: '10mg',
+    role: 'Immune support & detoxification',
+  },
+]
 
 export default function AyurvedicV1Page() {
   return (
@@ -64,7 +104,8 @@ export default function AyurvedicV1Page() {
           <span className="text-amber-400"> You Haven&apos;t Tried This.</span>
         </h1>
         <p className="text-green-200 text-base max-w-sm mx-auto mb-8">
-          This isn&apos;t another random supplement. This is 5,000 years of Ayurvedic medicine in one capsule.
+          This isn&apos;t another random supplement. This is 5,000 years of
+          Ayurvedic medicine in one capsule.
         </p>
         <div className="relative w-52 h-52 mx-auto mb-6">
           <Image
@@ -78,7 +119,12 @@ export default function AyurvedicV1Page() {
         {/* Rating */}
         <div className="flex items-center justify-center gap-1 mb-2">
           {[...Array(5)].map((_, i) => (
-            <span key={i} className={`text-lg ${i < 4 ? 'text-amber-400' : 'text-amber-400/50'}`}>★</span>
+            <span
+              key={i}
+              className={`text-lg ${i < 4 ? 'text-amber-400' : 'text-amber-400/50'}`}
+            >
+              ★
+            </span>
           ))}
           <span className="text-green-200 text-sm ml-2">4.6 · 47 reviews</span>
         </div>
@@ -96,7 +142,10 @@ export default function AyurvedicV1Page() {
             '"Maca, evening primrose, multivitamins... I\'ve tried them all."',
             '"I just want something that actually works."',
           ].map((quote, i) => (
-            <div key={i} className="bg-white rounded-lg p-4 border border-green-100 shadow-sm">
+            <div
+              key={i}
+              className="bg-white rounded-lg p-4 border border-green-100 shadow-sm"
+            >
               <p className="text-gray-700 text-sm italic">{quote}</p>
             </div>
           ))}
@@ -113,7 +162,8 @@ export default function AyurvedicV1Page() {
             We get your skepticism.
           </h2>
           <p className="text-gray-600 text-sm text-center mb-8">
-            Here&apos;s exactly what&apos;s inside — no proprietary blends, no hiding.
+            Here&apos;s exactly what&apos;s inside — no proprietary blends, no
+            hiding.
           </p>
 
           <div className="space-y-1">
@@ -125,11 +175,22 @@ export default function AyurvedicV1Page() {
               <div className="col-span-4 text-right">Equiv.</div>
             </div>
             {ingredients.map((ing, i) => (
-              <div key={i} className={`grid grid-cols-12 gap-2 text-sm px-3 py-3 rounded ${i % 2 === 0 ? 'bg-green-50' : ''}`}>
-                <div className="col-span-4 font-medium text-gray-900">{ing.name}</div>
-                <div className="col-span-2 text-center text-gray-600">{ing.amount}</div>
-                <div className="col-span-2 text-center text-gray-600">{ing.ratio}</div>
-                <div className="col-span-4 text-right font-semibold text-green-800">{ing.equiv}</div>
+              <div
+                key={i}
+                className={`grid grid-cols-12 gap-2 text-sm px-3 py-3 rounded ${i % 2 === 0 ? 'bg-green-50' : ''}`}
+              >
+                <div className="col-span-4 font-medium text-gray-900">
+                  {ing.name}
+                </div>
+                <div className="col-span-2 text-center text-gray-600">
+                  {ing.amount}
+                </div>
+                <div className="col-span-2 text-center text-gray-600">
+                  {ing.ratio}
+                </div>
+                <div className="col-span-4 text-right font-semibold text-green-800">
+                  {ing.equiv}
+                </div>
               </div>
             ))}
           </div>
@@ -147,15 +208,33 @@ export default function AyurvedicV1Page() {
         </h2>
         <div className="space-y-4">
           {[
-            { icon: '❌', label: 'Single-herb supplements', desc: 'One ingredient can\'t address a complex hormonal system.' },
-            { icon: '❌', label: '"Proprietary blends"', desc: 'Fancy way of saying "we won\'t tell you the dosage."' },
-            { icon: '❌', label: 'Low-dose multivitamins', desc: 'A sprinkle of everything, enough of nothing.' },
-            { icon: '❌', label: 'Trendy ingredients, no tradition', desc: 'Marketing-driven formulas that change every year.' },
+            {
+              icon: '❌',
+              label: 'Single-herb supplements',
+              desc: "One ingredient can't address a complex hormonal system.",
+            },
+            {
+              icon: '❌',
+              label: '"Proprietary blends"',
+              desc: 'Fancy way of saying "we won\'t tell you the dosage."',
+            },
+            {
+              icon: '❌',
+              label: 'Low-dose multivitamins',
+              desc: 'A sprinkle of everything, enough of nothing.',
+            },
+            {
+              icon: '❌',
+              label: 'Trendy ingredients, no tradition',
+              desc: 'Marketing-driven formulas that change every year.',
+            },
           ].map((item, i) => (
             <div key={i} className="flex gap-3 items-start">
               <span className="text-lg shrink-0">{item.icon}</span>
               <div>
-                <p className="font-semibold text-gray-900 text-sm">{item.label}</p>
+                <p className="font-semibold text-gray-900 text-sm">
+                  {item.label}
+                </p>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
             </div>
@@ -163,10 +242,15 @@ export default function AyurvedicV1Page() {
         </div>
 
         <div className="mt-8 bg-green-900 rounded-xl p-6 text-center">
-          <p className="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-2">This formula</p>
-          <p className="text-white text-lg font-bold mb-2">6 herbs. Real dosages. 5,000 years of use.</p>
+          <p className="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-2">
+            This formula
+          </p>
+          <p className="text-white text-lg font-bold mb-2">
+            6 herbs. Real dosages. 5,000 years of use.
+          </p>
           <p className="text-green-200 text-sm">
-            Ayurveda doesn&apos;t guess — it uses synergistic combinations refined over millennia.
+            Ayurveda doesn&apos;t guess — it uses synergistic combinations
+            refined over millennia.
           </p>
         </div>
       </section>
@@ -182,7 +266,9 @@ export default function AyurvedicV1Page() {
           ].map((badge, i) => (
             <div key={i} className="flex flex-col items-center gap-1">
               <span className="text-2xl">{badge.icon}</span>
-              <span className="text-xs font-medium text-gray-700">{badge.label}</span>
+              <span className="text-xs font-medium text-gray-700">
+                {badge.label}
+              </span>
             </div>
           ))}
         </div>
@@ -236,5 +322,5 @@ export default function AyurvedicV1Page() {
         </div>
       </div>
     </div>
-  );
+  )
 }

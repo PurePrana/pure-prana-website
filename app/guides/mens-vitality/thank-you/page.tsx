@@ -52,7 +52,11 @@ function EmailIcon() {
 
 function StarIcon() {
   return (
-    <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+    <svg
+      className="w-5 h-5 text-yellow-400"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
     </svg>
   )
@@ -73,8 +77,8 @@ export default function ThankYouPage() {
           </h1>
 
           <p className="text-lg text-primary-700 mb-8">
-            Check your email inbox in the next few minutes. If you don&apos;t see it,
-            check your spam or promotions folder.
+            Check your email inbox in the next few minutes. If you don&apos;t
+            see it, check your spam or promotions folder.
           </p>
 
           <div className="inline-flex items-center gap-3 px-6 py-4 bg-primary-100 rounded-xl text-primary-800">
@@ -97,8 +101,8 @@ export default function ThankYouPage() {
             </h2>
 
             <p className="text-primary-700 text-center mb-6">
-              Thousands of men are already using these 4 herbs together. See what
-              they&apos;re saying:
+              Thousands of men are already using these 4 herbs together. See
+              what they&apos;re saying:
             </p>
 
             {/* Product Preview */}
@@ -139,10 +143,13 @@ export default function ThankYouPage() {
                   <StarIcon />
                 </div>
                 <p className="text-primary-800 text-sm italic">
-                  &quot;I&apos;ve tried many supplements but this blend actually works.
-                  More energy throughout the day and better focus at work.&quot;
+                  &quot;I&apos;ve tried many supplements but this blend actually
+                  works. More energy throughout the day and better focus at
+                  work.&quot;
                 </p>
-                <p className="text-primary-500 text-xs mt-2">— Verified Buyer</p>
+                <p className="text-primary-500 text-xs mt-2">
+                  — Verified Buyer
+                </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -154,10 +161,12 @@ export default function ThankYouPage() {
                   <StarIcon />
                 </div>
                 <p className="text-primary-800 text-sm italic">
-                  &quot;Quality ingredients you can trust. As someone who grew up with
-                  Ayurveda, I can tell this is the real deal.&quot;
+                  &quot;Quality ingredients you can trust. As someone who grew
+                  up with Ayurveda, I can tell this is the real deal.&quot;
                 </p>
-                <p className="text-primary-500 text-xs mt-2">— Verified Buyer</p>
+                <p className="text-primary-500 text-xs mt-2">
+                  — Verified Buyer
+                </p>
               </div>
             </div>
 
@@ -205,7 +214,9 @@ export default function ThankYouPage() {
                 1
               </div>
               <div>
-                <h3 className="font-semibold text-primary-900">Today: Your Complete Guide</h3>
+                <h3 className="font-semibold text-primary-900">
+                  Today: Your Complete Guide
+                </h3>
                 <p className="text-primary-600 text-sm">
                   The 4 Ayurvedic herbs breakdown with science and studies
                 </p>
@@ -217,9 +228,12 @@ export default function ThankYouPage() {
                 2
               </div>
               <div>
-                <h3 className="font-semibold text-primary-900">Day 2: Deep Dive on Shilajit</h3>
+                <h3 className="font-semibold text-primary-900">
+                  Day 2: Deep Dive on Shilajit
+                </h3>
                 <p className="text-primary-600 text-sm">
-                  The &quot;destroyer of weakness&quot; and why it&apos;s called that
+                  The &quot;destroyer of weakness&quot; and why it&apos;s called
+                  that
                 </p>
               </div>
             </div>
@@ -229,7 +243,9 @@ export default function ThankYouPage() {
                 3
               </div>
               <div>
-                <h3 className="font-semibold text-primary-900">Day 4: Gokshura & Safed Musli</h3>
+                <h3 className="font-semibold text-primary-900">
+                  Day 4: Gokshura & Safed Musli
+                </h3>
                 <p className="text-primary-600 text-sm">
                   The vitality duo and traditional uses
                 </p>
@@ -241,7 +257,9 @@ export default function ThankYouPage() {
                 4
               </div>
               <div>
-                <h3 className="font-semibold text-primary-900">Day 6: Ashwagandha Science</h3>
+                <h3 className="font-semibold text-primary-900">
+                  Day 6: Ashwagandha Science
+                </h3>
                 <p className="text-primary-600 text-sm">
                   Modern research on the ancient adaptogen
                 </p>

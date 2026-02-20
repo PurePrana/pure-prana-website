@@ -335,7 +335,11 @@ export const ingredients: Ingredient[] = [
       'Warming and invigorating',
     ],
     concerns: ['joint-support', 'immunity', 'heart-health'],
-    relatedProducts: ['elderberry-giloy', 'arjuna-hawthorn', 'boswellia-turmeric'],
+    relatedProducts: [
+      'elderberry-giloy',
+      'arjuna-hawthorn',
+      'boswellia-turmeric',
+    ],
     origin: 'Southeast Asia, India',
     partUsed: 'Rhizome (root)',
   },
@@ -362,7 +366,14 @@ export const ingredients: Ingredient[] = [
       'Antioxidant properties',
     ],
     concerns: ['weight-support', 'immunity'],
-    relatedProducts: ['bacopa-ashwagandha', 'arjuna-hawthorn', 'elderberry-giloy', 'glutathione-collagen', 'green-tea-garcinia', 'boswellia-turmeric'],
+    relatedProducts: [
+      'bacopa-ashwagandha',
+      'arjuna-hawthorn',
+      'elderberry-giloy',
+      'glutathione-collagen',
+      'green-tea-garcinia',
+      'boswellia-turmeric',
+    ],
     origin: 'India (Malabar Coast)',
     partUsed: 'Fruit (peppercorn)',
   },
@@ -373,7 +384,9 @@ export function getIngredientBySlug(slug: string) {
 }
 
 export function getIngredientsByConcern(concern: string) {
-  return ingredients.filter((ingredient) => ingredient.concerns.includes(concern))
+  return ingredients.filter((ingredient) =>
+    ingredient.concerns.includes(concern)
+  )
 }
 
 export function getAllIngredients() {
@@ -388,6 +401,8 @@ export function searchIngredients(query: string) {
       ingredient.sanskritName.toLowerCase().includes(lowercaseQuery) ||
       ingredient.scientificName.toLowerCase().includes(lowercaseQuery) ||
       ingredient.description.toLowerCase().includes(lowercaseQuery) ||
-      ingredient.benefits.some((benefit) => benefit.toLowerCase().includes(lowercaseQuery))
+      ingredient.benefits.some((benefit) =>
+        benefit.toLowerCase().includes(lowercaseQuery)
+      )
   )
 }

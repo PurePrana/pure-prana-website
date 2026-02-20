@@ -42,7 +42,13 @@ const VALID_PRIMARY_CONCERNS = [
 ]
 const VALID_ENERGY_LEVELS = ['very-low', 'low', 'moderate', 'high', 'very-high']
 const VALID_SLEEP_QUALITY = ['poor', 'fair', 'good', 'excellent']
-const VALID_STRESS_HANDLING = ['very-poorly', 'poorly', 'okay', 'well', 'very-well']
+const VALID_STRESS_HANDLING = [
+  'very-poorly',
+  'poorly',
+  'okay',
+  'well',
+  'very-well',
+]
 const VALID_SOURCES: QuizResponse['source'][] = [
   'quiz',
   'qr-landing',

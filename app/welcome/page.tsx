@@ -54,9 +54,9 @@ export default function WelcomePage() {
           </h1>
 
           <p className="text-xl text-primary-700 mb-8 leading-relaxed max-w-2xl mx-auto">
-            You&apos;ve taken an important step on your wellness journey. We&apos;re
-            here to support you every step of the way with resources, guidance,
-            and a community that cares.
+            You&apos;ve taken an important step on your wellness journey.
+            We&apos;re here to support you every step of the way with resources,
+            guidance, and a community that cares.
           </p>
         </div>
       </section>

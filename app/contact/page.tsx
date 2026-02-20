@@ -189,9 +189,7 @@ export default function ContactPage() {
                   <p className="text-primary-700 font-medium">
                     Himalayan Farms LLC
                   </p>
-                  <p className="text-primary-600 text-sm">
-                    DBA Pure Prana
-                  </p>
+                  <p className="text-primary-600 text-sm">DBA Pure Prana</p>
                 </div>
 
                 <div>

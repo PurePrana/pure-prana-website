@@ -134,7 +134,9 @@ class StorageService {
   async getQuizResponseByEmail(email: string): Promise<QuizResponse | null> {
     const responses = await this.getQuizResponses()
     const normalizedEmail = email.toLowerCase().trim()
-    return responses.find((r) => r.email.toLowerCase() === normalizedEmail) || null
+    return (
+      responses.find((r) => r.email.toLowerCase() === normalizedEmail) || null
+    )
   }
 
   // User Leads

@@ -92,7 +92,11 @@ const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'easily-overwhelmed', label: 'Easily overwhelmed', icon: '😰' },
       { value: 'sometimes-struggle', label: 'Sometimes struggle', icon: '😓' },
-      { value: 'generally-cope-well', label: 'Generally cope well', icon: '🙂' },
+      {
+        value: 'generally-cope-well',
+        label: 'Generally cope well',
+        icon: '🙂',
+      },
       { value: 'very-resilient', label: 'Very resilient', icon: '💪' },
     ],
   },
@@ -156,7 +160,13 @@ function WellnessQuizContent() {
   // Track UTM parameters from URL
   useEffect(() => {
     const params: UTMParams = {}
-    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+    const utmKeys = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_term',
+      'utm_content',
+    ]
 
     utmKeys.forEach((key) => {
       const value = searchParams.get(key)
@@ -180,7 +190,10 @@ function WellnessQuizContent() {
     setAnswers((prev) => {
       const currentGoals = prev.wellnessGoals
       if (currentGoals.includes(value)) {
-        return { ...prev, wellnessGoals: currentGoals.filter((g) => g !== value) }
+        return {
+          ...prev,
+          wellnessGoals: currentGoals.filter((g) => g !== value),
+        }
       } else {
         return { ...prev, wellnessGoals: [...currentGoals, value] }
       }
@@ -280,13 +293,17 @@ function WellnessQuizContent() {
     ) {
       // Ashwagandha-based products are good for stress
       const stressProducts = allProducts.filter(
-        (p) => p.tags.includes('ashwagandha') || p.concerns.includes('hormonal-balance')
+        (p) =>
+          p.tags.includes('ashwagandha') ||
+          p.concerns.includes('hormonal-balance')
       )
       stressProducts.forEach((p) => recommendedSet.add(p))
     }
 
     // Convert Set to array and filter out coming soon products
-    const recommended = Array.from(recommendedSet).filter((p) => !p.comingSoon && p.amazonUrl)
+    const recommended = Array.from(recommendedSet).filter(
+      (p) => !p.comingSoon && p.amazonUrl
+    )
 
     // Sort by relevance (featured first, then by review count)
     return recommended
@@ -390,7 +407,9 @@ function WellnessQuizContent() {
           {/* Header */}
           <div className="text-center mb-8">
             <Link href="/" className="inline-block mb-6">
-              <span className="font-display text-2xl text-primary-800">Pure Prana</span>
+              <span className="font-display text-2xl text-primary-800">
+                Pure Prana
+              </span>
             </Link>
           </div>
 
@@ -399,36 +418,68 @@ function WellnessQuizContent() {
             {/* Discount Banner */}
             <div className="bg-gradient-to-r from-brand-600 to-primary-600 px-6 py-4 text-center">
               <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-4 py-1.5 mb-2">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                  />
                 </svg>
-                <span className="text-white font-medium text-sm">Special Offer</span>
+                <span className="text-white font-medium text-sm">
+                  Special Offer
+                </span>
               </div>
-              <h2 className="text-white text-2xl font-display mb-1">Get 10% Off Your First Order</h2>
+              <h2 className="text-white text-2xl font-display mb-1">
+                Get 10% Off Your First Order
+              </h2>
               <p className="text-white/90 text-sm">
-                Use code <span className="font-mono font-bold bg-white/20 px-2 py-0.5 rounded">WELCOME10</span> at checkout
+                Use code{' '}
+                <span className="font-mono font-bold bg-white/20 px-2 py-0.5 rounded">
+                  WELCOME10
+                </span>{' '}
+                at checkout
               </p>
             </div>
 
             <div className="p-6 md:p-8">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-8 h-8 text-primary-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-display text-xl text-primary-900 mb-2">
                   Get Your Personalized Results
                 </h3>
                 <p className="text-muted text-sm">
-                  Enter your email to unlock your custom wellness recommendations and exclusive discount.
+                  Enter your email to unlock your custom wellness
+                  recommendations and exclusive discount.
                 </p>
               </div>
 
               <form onSubmit={handleEmailSubmit} className="space-y-4">
                 {/* Email Field (Required) */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-primary-800 mb-1.5">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-primary-800 mb-1.5"
+                  >
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -443,18 +494,26 @@ function WellnessQuizContent() {
                     }}
                     placeholder="your@email.com"
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      formErrors.email ? 'border-red-400 focus:ring-red-500' : 'border-primary-300 focus:ring-primary-500'
+                      formErrors.email
+                        ? 'border-red-400 focus:ring-red-500'
+                        : 'border-primary-300 focus:ring-primary-500'
                     } focus:outline-none focus:ring-2 focus:border-transparent transition-colors`}
                   />
                   {formErrors.email && (
-                    <p className="mt-1.5 text-sm text-red-600">{formErrors.email}</p>
+                    <p className="mt-1.5 text-sm text-red-600">
+                      {formErrors.email}
+                    </p>
                   )}
                 </div>
 
                 {/* Name Field (Optional) */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-primary-800 mb-1.5">
-                    Name <span className="text-muted font-normal">(optional)</span>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-primary-800 mb-1.5"
+                  >
+                    Name{' '}
+                    <span className="text-muted font-normal">(optional)</span>
                   </label>
                   <input
                     type="text"
@@ -468,8 +527,12 @@ function WellnessQuizContent() {
 
                 {/* Phone Field (Optional) */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-primary-800 mb-1.5">
-                    Phone <span className="text-muted font-normal">(optional)</span>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-primary-800 mb-1.5"
+                  >
+                    Phone{' '}
+                    <span className="text-muted font-normal">(optional)</span>
                   </label>
                   <input
                     type="tel"
@@ -483,11 +546,15 @@ function WellnessQuizContent() {
                     }}
                     placeholder="(123) 456-7890"
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      formErrors.phone ? 'border-red-400 focus:ring-red-500' : 'border-primary-300 focus:ring-primary-500'
+                      formErrors.phone
+                        ? 'border-red-400 focus:ring-red-500'
+                        : 'border-primary-300 focus:ring-primary-500'
                     } focus:outline-none focus:ring-2 focus:border-transparent transition-colors`}
                   />
                   {formErrors.phone && (
-                    <p className="mt-1.5 text-sm text-red-600">{formErrors.phone}</p>
+                    <p className="mt-1.5 text-sm text-red-600">
+                      {formErrors.phone}
+                    </p>
                   )}
                 </div>
 
@@ -501,7 +568,8 @@ function WellnessQuizContent() {
                     className="mt-1 w-4 h-4 text-primary-600 border-primary-300 rounded focus:ring-primary-500"
                   />
                   <label htmlFor="marketing" className="text-sm text-muted">
-                    Send me wellness tips, Ayurvedic insights, and exclusive offers. You can unsubscribe anytime.
+                    Send me wellness tips, Ayurvedic insights, and exclusive
+                    offers. You can unsubscribe anytime.
                   </label>
                 </div>
 
@@ -520,17 +588,43 @@ function WellnessQuizContent() {
                 >
                   {isSubmitting ? (
                     <>
-                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       <span>Getting Your Results...</span>
                     </>
                   ) : (
                     <>
                       <span>Unlock My Results</span>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
                       </svg>
                     </>
                   )}
@@ -541,20 +635,50 @@ function WellnessQuizContent() {
               <div className="mt-6 pt-6 border-t border-primary-100">
                 <div className="flex flex-wrap justify-center gap-6 text-xs text-muted">
                   <div className="flex items-center gap-1.5">
-                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <svg
+                      className="w-4 h-4 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
                     </svg>
                     <span>100% Secure</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    <svg
+                      className="w-4 h-4 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
                     </svg>
                     <span>Privacy Protected</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <svg
+                      className="w-4 h-4 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
                     <span>No Spam Ever</span>
                   </div>
@@ -567,8 +691,18 @@ function WellnessQuizContent() {
                   onClick={handleBackFromEmailCapture}
                   className="text-sm text-muted hover:text-primary-700 transition-colors flex items-center gap-1"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                   Back to Quiz
                 </button>
@@ -590,7 +724,9 @@ function WellnessQuizContent() {
   if (showResults) {
     const recommendedProducts = getRecommendedProducts()
     const concerns = getAllConcerns()
-    const primaryConcern = concerns.find((c) => c.slug === answers.healthConcern)
+    const primaryConcern = concerns.find(
+      (c) => c.slug === answers.healthConcern
+    )
 
     return (
       <main className="min-h-screen bg-gradient-to-b from-primary-50 to-white py-12 px-4">
@@ -616,8 +752,8 @@ function WellnessQuizContent() {
               Your Personalized Wellness Plan
             </h1>
             <p className="text-lg text-muted max-w-2xl mx-auto">
-              Based on your responses, we have curated a selection of Ayurvedic supplements
-              tailored to your unique wellness journey.
+              Based on your responses, we have curated a selection of Ayurvedic
+              supplements tailored to your unique wellness journey.
             </p>
           </div>
 
@@ -625,23 +761,33 @@ function WellnessQuizContent() {
           {email && (
             <div className="bg-gradient-to-r from-brand-50 to-primary-50 border border-brand-200 rounded-xl px-6 py-4 mb-8 text-center animate-fade-in">
               <p className="text-primary-800">
-                Your personalized recommendations have been sent to <strong>{email}</strong>.
-                Use code <span className="font-mono font-bold text-brand-700 bg-white px-2 py-0.5 rounded">WELCOME10</span> for 10% off!
+                Your personalized recommendations have been sent to{' '}
+                <strong>{email}</strong>. Use code{' '}
+                <span className="font-mono font-bold text-brand-700 bg-white px-2 py-0.5 rounded">
+                  WELCOME10
+                </span>{' '}
+                for 10% off!
               </p>
             </div>
           )}
 
           {/* Wellness Profile Summary */}
           <div className="bg-white rounded-2xl border border-primary-200 p-6 mb-8 animate-fade-in">
-            <h2 className="font-display text-xl text-primary-900 mb-4">Your Wellness Profile</h2>
+            <h2 className="font-display text-xl text-primary-900 mb-4">
+              Your Wellness Profile
+            </h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <span className="text-lg">{primaryConcern?.icon || '🎯'}</span>
+                  <span className="text-lg">
+                    {primaryConcern?.icon || '🎯'}
+                  </span>
                 </div>
                 <div>
                   <p className="text-sm text-muted">Primary Focus</p>
-                  <p className="font-medium text-primary-900">{primaryConcern?.name || 'Overall Wellness'}</p>
+                  <p className="font-medium text-primary-900">
+                    {primaryConcern?.name || 'Overall Wellness'}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -650,7 +796,9 @@ function WellnessQuizContent() {
                 </div>
                 <div>
                   <p className="text-sm text-muted">Energy Level</p>
-                  <p className="font-medium text-primary-900 capitalize">{answers.energyLevel}</p>
+                  <p className="font-medium text-primary-900 capitalize">
+                    {answers.energyLevel}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -659,7 +807,9 @@ function WellnessQuizContent() {
                 </div>
                 <div>
                   <p className="text-sm text-muted">Sleep Quality</p>
-                  <p className="font-medium text-primary-900 capitalize">{answers.sleepQuality}</p>
+                  <p className="font-medium text-primary-900 capitalize">
+                    {answers.sleepQuality}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -692,7 +842,10 @@ function WellnessQuizContent() {
           </div>
 
           {/* Recommended Products */}
-          <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div
+            className="mb-12 animate-fade-in"
+            style={{ animationDelay: '0.1s' }}
+          >
             <h2 className="font-display text-2xl text-primary-900 mb-6 text-center">
               Recommended For You
             </h2>
@@ -713,7 +866,9 @@ function WellnessQuizContent() {
                       />
                     </div>
                     <div className="p-5">
-                      <h3 className="font-medium text-lg text-primary-900 mb-2">{product.name}</h3>
+                      <h3 className="font-medium text-lg text-primary-900 mb-2">
+                        {product.name}
+                      </h3>
                       <p className="text-sm text-muted mb-3 line-clamp-2">
                         {product.shortDescription}
                       </p>
@@ -759,7 +914,8 @@ function WellnessQuizContent() {
             ) : (
               <div className="text-center py-8 bg-white rounded-2xl border border-primary-200">
                 <p className="text-muted">
-                  We are working on products tailored to your needs. Check out our full collection!
+                  We are working on products tailored to your needs. Check out
+                  our full collection!
                 </p>
                 <Link
                   href="/shop"
@@ -827,7 +983,9 @@ function WellnessQuizContent() {
         {/* Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-6">
-            <span className="font-display text-2xl text-primary-800">Pure Prana</span>
+            <span className="font-display text-2xl text-primary-800">
+              Pure Prana
+            </span>
           </Link>
           <h1 className="font-display text-3xl md:text-4xl text-primary-900 mb-3">
             Wellness Quiz
@@ -843,7 +1001,9 @@ function WellnessQuizContent() {
             <span className="text-sm text-muted">
               Question {currentStep + 1} of {quizQuestions.length}
             </span>
-            <span className="text-sm font-medium text-primary-700">{Math.round(progress)}%</span>
+            <span className="text-sm font-medium text-primary-700">
+              {Math.round(progress)}%
+            </span>
           </div>
           <div className="h-2 bg-primary-100 rounded-full overflow-hidden">
             <div
@@ -860,12 +1020,16 @@ function WellnessQuizContent() {
           </h2>
 
           {currentQuestion.type === 'multiple' && (
-            <p className="text-sm text-muted text-center mb-6">Select all that apply</p>
+            <p className="text-sm text-muted text-center mb-6">
+              Select all that apply
+            </p>
           )}
 
           <div
             className={`grid gap-3 ${
-              currentQuestion.options.length <= 4 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-4'
+              currentQuestion.options.length <= 4
+                ? 'grid-cols-1 md:grid-cols-2'
+                : 'grid-cols-2 md:grid-cols-4'
             }`}
           >
             {currentQuestion.options.map((option) => {
@@ -889,7 +1053,9 @@ function WellnessQuizContent() {
                       : 'border-primary-200 bg-white hover:border-primary-300 hover:bg-primary-50/50'
                   }`}
                 >
-                  {option.icon && <span className="text-2xl mb-2">{option.icon}</span>}
+                  {option.icon && (
+                    <span className="text-2xl mb-2">{option.icon}</span>
+                  )}
                   <span
                     className={`text-sm font-medium text-center ${
                       isSelected ? 'text-primary-800' : 'text-primary-700'
@@ -973,7 +1139,10 @@ function WellnessQuizContent() {
 
         {/* Skip option */}
         <div className="text-center mt-6">
-          <Link href="/shop" className="text-sm text-muted hover:text-primary-700 transition-colors">
+          <Link
+            href="/shop"
+            className="text-sm text-muted hover:text-primary-700 transition-colors"
+          >
             Skip quiz and browse all products
           </Link>
         </div>

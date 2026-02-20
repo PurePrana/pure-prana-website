@@ -173,8 +173,8 @@ export default async function Home() {
                 <p className="text-body text-primary-700">
                   All Pure Prana products are manufactured in GMP-certified
                   facilities, ensuring pharmaceutical-grade quality standards
-                  and complete supply chain transparency. Third-party tested
-                  for purity and potency.
+                  and complete supply chain transparency. Third-party tested for
+                  purity and potency.
                 </p>
               </div>
             </div>

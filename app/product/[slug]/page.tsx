@@ -79,7 +79,9 @@ export default function ProductPage({ params }: Props) {
   }
 
   const isComingSoon = product.comingSoon || !product.amazonUrl
-  const concern = product.concerns[0] ? getConcernBySlug(product.concerns[0]) : null
+  const concern = product.concerns[0]
+    ? getConcernBySlug(product.concerns[0])
+    : null
 
   // Generate structured data for SEO/AEO
   const productSchema = generateProductSchema(product)
@@ -118,7 +120,10 @@ export default function ProductPage({ params }: Props) {
             <span>/</span>
             {concern && (
               <>
-                <Link href={`/shop/${concern.slug}`} className="hover:text-primary-700">
+                <Link
+                  href={`/shop/${concern.slug}`}
+                  className="hover:text-primary-700"
+                >
                   {concern.name}
                 </Link>
                 <span>/</span>
@@ -157,8 +162,16 @@ export default function ProductPage({ params }: Props) {
                     <>
                       <div className="absolute top-4 left-4">
                         <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-primary-800 px-3 py-1.5 text-sm font-medium rounded-full shadow-sm">
-                          <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          <svg
+                            className="w-4 h-4 text-green-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                           Research-Backed
                         </span>
@@ -225,12 +238,22 @@ export default function ProductPage({ params }: Props) {
 
               {/* Benefits */}
               <div className="mb-8">
-                <h3 className="font-medium text-primary-900 mb-4">Key Benefits</h3>
+                <h3 className="font-medium text-primary-900 mb-4">
+                  Key Benefits
+                </h3>
                 <div className="space-y-3">
                   {product.benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <svg
+                        className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span className="text-primary-700">{benefit}</span>
                     </div>
@@ -254,8 +277,12 @@ export default function ProductPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center px-8 py-4 bg-[#FF9900] text-white font-medium rounded-lg hover:bg-[#e88b00] transition-all text-lg"
                   >
-                    <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    <svg
+                      className="w-6 h-6 mr-2"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                     </svg>
                     Buy on Amazon
                   </a>
@@ -264,7 +291,9 @@ export default function ProductPage({ params }: Props) {
 
               {/* Usage */}
               <div className="bg-primary-50 rounded-xl p-6 mb-8">
-                <h3 className="font-medium text-primary-900 mb-2">How to Use</h3>
+                <h3 className="font-medium text-primary-900 mb-2">
+                  How to Use
+                </h3>
                 <p className="text-muted">{product.usage}</p>
               </div>
 
@@ -300,7 +329,10 @@ export default function ProductPage({ params }: Props) {
               Supplement Facts
             </h2>
             <div className="flex justify-center">
-              <SupplementFacts facts={product.supplementFacts} productName={product.name} />
+              <SupplementFacts
+                facts={product.supplementFacts}
+                productName={product.name}
+              />
             </div>
           </div>
         </section>
@@ -313,8 +345,18 @@ export default function ProductPage({ params }: Props) {
             href="/shop"
             className="inline-flex items-center text-primary-700 hover:text-primary-900 transition-colors"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
             Back to All Products
           </Link>

@@ -5,7 +5,10 @@ interface SupplementFactsProps {
   productName: string
 }
 
-export default function SupplementFacts({ facts, productName }: SupplementFactsProps) {
+export default function SupplementFacts({
+  facts,
+  productName,
+}: SupplementFactsProps) {
   return (
     <div className="bg-white border-2 border-black rounded-lg overflow-hidden max-w-md">
       {/* Header */}
@@ -69,9 +72,9 @@ export default function SupplementFacts({ facts, productName }: SupplementFactsP
       <div className="border-t border-gray-300 p-3 text-xs bg-yellow-50">
         <p className="font-bold mb-1">Caution:</p>
         <p className="text-gray-600">
-          Consult your healthcare provider before use if you are pregnant, nursing,
-          taking medication, or have a medical condition. Keep out of reach of children.
-          Store in a cool, dry place.
+          Consult your healthcare provider before use if you are pregnant,
+          nursing, taking medication, or have a medical condition. Keep out of
+          reach of children. Store in a cool, dry place.
         </p>
       </div>
     </div>

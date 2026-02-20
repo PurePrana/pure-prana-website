@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState } from 'react'
 
-const AMAZON_LINK = 'https://www.amazon.com/dp/B0DZ23LJGJ';
+const AMAZON_LINK = 'https://www.amazon.com/dp/B0DZ23LJGJ'
 
 /* ─── Herb Data ─── */
 const herbs = [
@@ -12,21 +12,21 @@ const herbs = [
     dose: '3,000mg equiv. (300mg, 10:1)',
     icon: '🌿',
     role: 'The Queen of Herbs',
-    desc: 'Used for centuries in Ayurveda specifically for women\'s reproductive health. Shatavari supports estrogen balance, soothes the reproductive system, and helps your body adapt to hormonal transitions — whether that\'s PMS, perimenopause, or menopause.',
+    desc: "Used for centuries in Ayurveda specifically for women's reproductive health. Shatavari supports estrogen balance, soothes the reproductive system, and helps your body adapt to hormonal transitions — whether that's PMS, perimenopause, or menopause.",
   },
   {
     name: 'Ashwagandha',
     dose: '3,000mg equiv. (150mg, 20:1)',
     icon: '🧘',
     role: 'The Stress Adapter',
-    desc: 'Your hormones don\'t exist in isolation — cortisol (your stress hormone) directly disrupts estrogen, progesterone, and thyroid function. Ashwagandha is the most studied adaptogen in Ayurveda, helping regulate cortisol so your other hormones can do their jobs.',
+    desc: "Your hormones don't exist in isolation — cortisol (your stress hormone) directly disrupts estrogen, progesterone, and thyroid function. Ashwagandha is the most studied adaptogen in Ayurveda, helping regulate cortisol so your other hormones can do their jobs.",
   },
   {
     name: 'Tribulus Terrestris',
     dose: '500mg equiv. (100mg, 10:1)',
     icon: '⚡',
     role: 'The Vitality Herb',
-    desc: 'Supports healthy libido and energy levels that often decline with hormonal imbalance. Works synergistically with Shatavari to address the full spectrum of women\'s vitality.',
+    desc: "Supports healthy libido and energy levels that often decline with hormonal imbalance. Works synergistically with Shatavari to address the full spectrum of women's vitality.",
   },
   {
     name: 'Ashoka',
@@ -49,12 +49,12 @@ const herbs = [
     role: 'The Immune Protector',
     desc: 'Known as "Amrita" (the root of immortality) in Ayurveda. Supports immune function and detoxification, creating a clean internal environment where hormones can function optimally.',
   },
-];
+]
 
 const faqs = [
   {
     q: 'What makes Ayurvedic formulas different from Western supplements?',
-    a: 'Western supplements typically isolate a single compound. Ayurveda uses synergistic combinations — herbs that enhance each other\'s effects. Shatavari + Ashwagandha together address both the reproductive and stress-response systems simultaneously. That\'s why single-herb supplements often disappoint.',
+    a: "Western supplements typically isolate a single compound. Ayurveda uses synergistic combinations — herbs that enhance each other's effects. Shatavari + Ashwagandha together address both the reproductive and stress-response systems simultaneously. That's why single-herb supplements often disappoint.",
   },
   {
     q: 'Is there actual science behind Ayurveda?',
@@ -68,10 +68,10 @@ const faqs = [
     q: 'How long does it take to work?',
     a: 'Adaptogens build in your system over time. Most women notice mood and energy improvements in 2–3 weeks. Deeper hormonal shifts (cycle regularity, hot flash reduction) typically take 6–8 weeks. One capsule daily — consistency is key.',
   },
-];
+]
 
 function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   return (
     <div className="border-b border-green-900/20">
       <button
@@ -79,11 +79,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="w-full flex justify-between items-center py-4 text-left"
       >
         <span className="font-medium text-gray-800">{q}</span>
-        <span className="text-amber-600 text-xl ml-4 shrink-0">{open ? '−' : '+'}</span>
+        <span className="text-amber-600 text-xl ml-4 shrink-0">
+          {open ? '−' : '+'}
+        </span>
       </button>
-      {open && <p className="pb-4 text-gray-600 text-sm leading-relaxed">{a}</p>}
+      {open && (
+        <p className="pb-4 text-gray-600 text-sm leading-relaxed">{a}</p>
+      )}
     </div>
-  );
+  )
 }
 
 export default function AyurvedicV2Page() {
@@ -99,7 +103,8 @@ export default function AyurvedicV2Page() {
           <span className="text-amber-400"> Ayurveda Treats the System.</span>
         </h1>
         <p className="text-green-200 text-base max-w-sm mx-auto mb-8">
-          Most supplements give you one herb. We give you six that work together.
+          Most supplements give you one herb. We give you six that work
+          together.
         </p>
         <div className="relative w-52 h-52 mx-auto mb-6">
           <Image
@@ -112,7 +117,12 @@ export default function AyurvedicV2Page() {
         </div>
         <div className="flex items-center justify-center gap-1 mb-2">
           {[...Array(5)].map((_, i) => (
-            <span key={i} className={`text-lg ${i < 4 ? 'text-amber-400' : 'text-amber-400/50'}`}>★</span>
+            <span
+              key={i}
+              className={`text-lg ${i < 4 ? 'text-amber-400' : 'text-amber-400/50'}`}
+            >
+              ★
+            </span>
           ))}
           <span className="text-green-200 text-sm ml-2">4.6 · 47 reviews</span>
         </div>
@@ -124,18 +134,43 @@ export default function AyurvedicV2Page() {
           Why single-ingredient supplements keep failing you
         </h2>
         <p className="text-gray-600 text-sm text-center mb-8 max-w-sm mx-auto">
-          Your hormonal system is a web of interconnected signals. Throwing one ingredient at it is like fixing an orchestra by tuning one instrument.
+          Your hormonal system is a web of interconnected signals. Throwing one
+          ingredient at it is like fixing an orchestra by tuning one instrument.
         </p>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { icon: '💊', label: 'Maca', issue: 'Stimulates energy but doesn\'t address cortisol or cycle regulation' },
-            { icon: '💊', label: 'Evening Primrose', issue: 'Provides GLA fatty acids but doesn\'t touch stress hormones' },
-            { icon: '💊', label: 'Multivitamins', issue: 'Tiny doses of 30+ nutrients — not enough of anything' },
-            { icon: '💊', label: 'Vitex / Chasteberry', issue: 'Works on one pathway but ignores adrenal & immune factors' },
+            {
+              icon: '💊',
+              label: 'Maca',
+              issue:
+                "Stimulates energy but doesn't address cortisol or cycle regulation",
+            },
+            {
+              icon: '💊',
+              label: 'Evening Primrose',
+              issue:
+                "Provides GLA fatty acids but doesn't touch stress hormones",
+            },
+            {
+              icon: '💊',
+              label: 'Multivitamins',
+              issue: 'Tiny doses of 30+ nutrients — not enough of anything',
+            },
+            {
+              icon: '💊',
+              label: 'Vitex / Chasteberry',
+              issue:
+                'Works on one pathway but ignores adrenal & immune factors',
+            },
           ].map((item, i) => (
-            <div key={i} className="bg-white rounded-lg p-3 border border-red-100 shadow-sm">
+            <div
+              key={i}
+              className="bg-white rounded-lg p-3 border border-red-100 shadow-sm"
+            >
               <span className="text-lg">{item.icon}</span>
-              <p className="font-semibold text-sm text-gray-900 mt-1">{item.label}</p>
+              <p className="font-semibold text-sm text-gray-900 mt-1">
+                {item.label}
+              </p>
               <p className="text-xs text-gray-500 mt-1">{item.issue}</p>
             </div>
           ))}
@@ -145,22 +180,33 @@ export default function AyurvedicV2Page() {
       {/* The Ayurvedic Approach */}
       <section className="bg-green-900 px-4 py-10 text-center">
         <div className="max-w-lg mx-auto">
-          <p className="text-amber-400 text-xs font-semibold tracking-widest uppercase mb-3">The Ayurvedic approach</p>
+          <p className="text-amber-400 text-xs font-semibold tracking-widest uppercase mb-3">
+            The Ayurvedic approach
+          </p>
           <h2 className="text-white text-xl font-bold mb-3">
             Treat the system, not the symptom
           </h2>
           <p className="text-green-200 text-sm max-w-sm mx-auto mb-6">
-            Ayurveda doesn&apos;t isolate — it orchestrates. Each herb in this formula targets a different part of your hormonal ecosystem. Together, they create balance that no single ingredient can achieve alone.
+            Ayurveda doesn&apos;t isolate — it orchestrates. Each herb in this
+            formula targets a different part of your hormonal ecosystem.
+            Together, they create balance that no single ingredient can achieve
+            alone.
           </p>
           <div className="grid grid-cols-3 gap-4 text-center">
             {[
               { icon: '🧘', label: 'Stress Response', desc: 'Ashwagandha' },
-              { icon: '🌿', label: 'Reproductive Health', desc: 'Shatavari + Ashoka' },
+              {
+                icon: '🌿',
+                label: 'Reproductive Health',
+                desc: 'Shatavari + Ashoka',
+              },
               { icon: '🛡️', label: 'Immune & Detox', desc: 'Guduchi + Lodhra' },
             ].map((pillar, i) => (
               <div key={i}>
                 <span className="text-3xl">{pillar.icon}</span>
-                <p className="text-amber-400 text-xs font-semibold mt-2">{pillar.label}</p>
+                <p className="text-amber-400 text-xs font-semibold mt-2">
+                  {pillar.label}
+                </p>
                 <p className="text-green-300 text-xs mt-1">{pillar.desc}</p>
               </div>
             ))}
@@ -178,19 +224,30 @@ export default function AyurvedicV2Page() {
         </p>
         <div className="space-y-4">
           {herbs.map((herb, i) => (
-            <div key={i} className="bg-white rounded-xl border border-green-100 shadow-sm overflow-hidden">
+            <div
+              key={i}
+              className="bg-white rounded-xl border border-green-100 shadow-sm overflow-hidden"
+            >
               <div className="bg-green-50 px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{herb.icon}</span>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm">{herb.name}</p>
-                    <p className="text-amber-700 text-xs font-medium">{herb.role}</p>
+                    <p className="font-bold text-gray-900 text-sm">
+                      {herb.name}
+                    </p>
+                    <p className="text-amber-700 text-xs font-medium">
+                      {herb.role}
+                    </p>
                   </div>
                 </div>
-                <span className="text-xs font-mono text-green-800 bg-green-100 px-2 py-1 rounded">{herb.dose}</span>
+                <span className="text-xs font-mono text-green-800 bg-green-100 px-2 py-1 rounded">
+                  {herb.dose}
+                </span>
               </div>
               <div className="px-4 py-3">
-                <p className="text-gray-600 text-sm leading-relaxed">{herb.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {herb.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -208,7 +265,9 @@ export default function AyurvedicV2Page() {
           ].map((badge, i) => (
             <div key={i} className="flex flex-col items-center gap-1">
               <span className="text-2xl">{badge.icon}</span>
-              <span className="text-xs font-medium text-gray-700">{badge.label}</span>
+              <span className="text-xs font-medium text-gray-700">
+                {badge.label}
+              </span>
             </div>
           ))}
         </div>
@@ -228,7 +287,9 @@ export default function AyurvedicV2Page() {
 
       {/* Final CTA */}
       <section className="px-4 py-10 text-center max-w-lg mx-auto">
-        <p className="text-gray-900 font-bold text-lg mb-2">Ready to try the system approach?</p>
+        <p className="text-gray-900 font-bold text-lg mb-2">
+          Ready to try the system approach?
+        </p>
         <p className="text-gray-600 text-sm mb-6">
           60 capsules · 2-month supply · $29.95
         </p>
@@ -263,5 +324,5 @@ export default function AyurvedicV2Page() {
         </div>
       </div>
     </div>
-  );
+  )
 }

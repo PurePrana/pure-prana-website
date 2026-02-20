@@ -14,7 +14,7 @@ export async function sendWelcomeEmail(to: string): Promise<boolean> {
     await resend.emails.send({
       from: 'Pure Prana <hello@pureprana.com>',
       to,
-      subject: "Your 4 Ayurvedic Herbs Guide is Here",
+      subject: 'Your 4 Ayurvedic Herbs Guide is Here',
       html: getWelcomeEmailHtml(),
     })
     return true

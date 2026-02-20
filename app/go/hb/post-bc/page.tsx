@@ -10,7 +10,9 @@ function StarRating() {
     <div className="flex items-center gap-2">
       <div className="flex">
         {[1, 2, 3, 4].map((i) => (
-          <span key={i} className="text-yellow-400 text-lg">★</span>
+          <span key={i} className="text-yellow-400 text-lg">
+            ★
+          </span>
         ))}
         <span className="text-yellow-400 text-lg">★</span>
       </div>
@@ -29,7 +31,10 @@ function TrustBadges() {
   return (
     <div className="grid grid-cols-4 gap-2 py-6">
       {badges.map((b) => (
-        <div key={b.label} className="flex flex-col items-center text-center gap-1">
+        <div
+          key={b.label}
+          className="flex flex-col items-center text-center gap-1"
+        >
           <span className="text-2xl">{b.icon}</span>
           <span className="text-xs text-gray-600 font-medium">{b.label}</span>
         </div>
@@ -42,11 +47,11 @@ function FAQ() {
   const faqs = [
     {
       q: 'How long does it take for hormones to balance after quitting birth control?',
-      a: 'It varies — some women see changes in 4-6 weeks, others take 3-6 months. Ayurvedic herbs like Shatavari and Ashwagandha work with your body\'s natural rhythm, supporting gradual rebalancing rather than forcing a quick fix.',
+      a: "It varies — some women see changes in 4-6 weeks, others take 3-6 months. Ayurvedic herbs like Shatavari and Ashwagandha work with your body's natural rhythm, supporting gradual rebalancing rather than forcing a quick fix.",
     },
     {
-      q: 'Is this safe to take if I\'m trying to conceive?',
-      a: 'These are traditional Ayurvedic herbs used for centuries to support women\'s reproductive health. However, always consult your healthcare provider before starting any supplement, especially if you\'re actively trying to conceive.',
+      q: "Is this safe to take if I'm trying to conceive?",
+      a: "These are traditional Ayurvedic herbs used for centuries to support women's reproductive health. However, always consult your healthcare provider before starting any supplement, especially if you're actively trying to conceive.",
     },
     {
       q: 'Will this help with post-pill acne and mood swings?',
@@ -54,7 +59,7 @@ function FAQ() {
     },
     {
       q: 'Can I take this alongside other supplements?',
-      a: 'Generally yes — these are plant-based ingredients with a long history of safe use. If you\'re on medication or other supplements, check with your doctor to rule out interactions.',
+      a: "Generally yes — these are plant-based ingredients with a long history of safe use. If you're on medication or other supplements, check with your doctor to rule out interactions.",
     },
   ]
 
@@ -63,7 +68,10 @@ function FAQ() {
   return (
     <div className="space-y-3">
       {faqs.map((f, i) => (
-        <div key={i} className="border border-pink-100 rounded-xl overflow-hidden">
+        <div
+          key={i}
+          className="border border-pink-100 rounded-xl overflow-hidden"
+        >
           <button
             onClick={() => setOpen(open === i ? null : i)}
             className="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center"
@@ -72,7 +80,9 @@ function FAQ() {
             <span className="text-pink-400 ml-2">{open === i ? '−' : '+'}</span>
           </button>
           {open === i && (
-            <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">{f.a}</div>
+            <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">
+              {f.a}
+            </div>
           )}
         </div>
       ))}
@@ -86,7 +96,9 @@ function StickyCTA() {
       <div className="max-w-lg mx-auto flex items-center justify-between">
         <div>
           <p className="font-bold text-gray-900 text-sm">Hormonal Balance</p>
-          <p className="text-pink-600 font-semibold text-sm">$29.95 · 60 capsules</p>
+          <p className="text-pink-600 font-semibold text-sm">
+            $29.95 · 60 capsules
+          </p>
         </div>
         <a
           href={AMAZON_URL}
@@ -111,11 +123,14 @@ export default function PostBCv1() {
             For Women Coming Off Birth Control
           </p>
           <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900 mb-4">
-            You Quit the Pill.<br />Your Body Lost the Plot.
+            You Quit the Pill.
+            <br />
+            Your Body Lost the Plot.
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Irregular periods. Surprise acne. Mood swings that came out of nowhere.
-            You stopped hormonal birth control to feel <em>more</em> like yourself — but your body had other plans.
+            Irregular periods. Surprise acne. Mood swings that came out of
+            nowhere. You stopped hormonal birth control to feel <em>more</em>{' '}
+            like yourself — but your body had other plans.
           </p>
           <div className="flex justify-center mb-6">
             <Image
@@ -134,21 +149,36 @@ export default function PostBCv1() {
       {/* The story */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold mb-4 text-center">Sound familiar?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Sound familiar?
+          </h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">&ldquo;I quit the pill 6 months ago and my hormones went completely insane. Periods every two weeks, acne I never had as a teenager, and I cry at everything.&rdquo;</p>
-              <p className="text-sm text-pink-600 mt-2 font-medium">— Sound like you?</p>
+              <p className="italic">
+                &ldquo;I quit the pill 6 months ago and my hormones went
+                completely insane. Periods every two weeks, acne I never had as
+                a teenager, and I cry at everything.&rdquo;
+              </p>
+              <p className="text-sm text-pink-600 mt-2 font-medium">
+                — Sound like you?
+              </p>
             </div>
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">&ldquo;I was on BC for 2 cycles at 16. Stopped. Now at 18, my hormones are far more intense than they ever were.&rdquo;</p>
+              <p className="italic">
+                &ldquo;I was on BC for 2 cycles at 16. Stopped. Now at 18, my
+                hormones are far more intense than they ever were.&rdquo;
+              </p>
             </div>
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">&ldquo;Period every 14-17 days. Heavy bleeding. Fatigue. I just want my body back.&rdquo;</p>
+              <p className="italic">
+                &ldquo;Period every 14-17 days. Heavy bleeding. Fatigue. I just
+                want my body back.&rdquo;
+              </p>
             </div>
           </div>
           <p className="text-center text-gray-600 mt-6">
-            You&apos;re not broken. Your body is just trying to remember how to run the show on its own.
+            You&apos;re not broken. Your body is just trying to remember how to
+            run the show on its own.
             <br />
             <strong>It just needs the right support.</strong>
           </p>
@@ -158,12 +188,19 @@ export default function PostBCv1() {
       {/* The shift */}
       <section className="bg-pink-50 px-5 py-10">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3">Not More Pharma. Plant Wisdom.</h2>
+          <h2 className="text-2xl font-bold mb-3">
+            Not More Pharma. Plant Wisdom.
+          </h2>
           <p className="text-gray-600 mb-6">
-            You didn&apos;t quit synthetic hormones to take more synthetic stuff. You want something that works <em>with</em> your body — not against it.
+            You didn&apos;t quit synthetic hormones to take more synthetic
+            stuff. You want something that works <em>with</em> your body — not
+            against it.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Ayurveda has spent <strong>thousands of years</strong> helping women through exactly this. Herbs like Shatavari, Ashwagandha, and Ashoka have been used by generations of women to restore hormonal rhythm naturally.
+            Ayurveda has spent <strong>thousands of years</strong> helping women
+            through exactly this. Herbs like Shatavari, Ashwagandha, and Ashoka
+            have been used by generations of women to restore hormonal rhythm
+            naturally.
           </p>
         </div>
       </section>
@@ -171,14 +208,36 @@ export default function PostBCv1() {
       {/* Benefits */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-8">What Women Notice</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">
+            What Women Notice
+          </h2>
           <div className="space-y-5">
             {[
-              { icon: '🩸', title: 'Periods That Make Sense Again', desc: 'Support a regular cycle your body can actually predict — no more surprise periods every 2 weeks.' },
-              { icon: '✨', title: 'Skin That Clears Up', desc: 'Post-pill acne is hormonal. These herbs help address the root cause, not just the surface.' },
-              { icon: '🧠', title: 'Mood Stability Returns', desc: 'Ashwagandha is a powerful adaptogen — it helps your nervous system stop overreacting to everything.' },
-              { icon: '⚡', title: 'Energy Without the Crash', desc: 'When your hormones find their rhythm, your energy follows. No caffeine required.' },
-              { icon: '💪', title: 'Feeling Like Yourself Again', desc: 'Remember who you were before the pill? She\'s still there. Your body just needs help finding her.' },
+              {
+                icon: '🩸',
+                title: 'Periods That Make Sense Again',
+                desc: 'Support a regular cycle your body can actually predict — no more surprise periods every 2 weeks.',
+              },
+              {
+                icon: '✨',
+                title: 'Skin That Clears Up',
+                desc: 'Post-pill acne is hormonal. These herbs help address the root cause, not just the surface.',
+              },
+              {
+                icon: '🧠',
+                title: 'Mood Stability Returns',
+                desc: 'Ashwagandha is a powerful adaptogen — it helps your nervous system stop overreacting to everything.',
+              },
+              {
+                icon: '⚡',
+                title: 'Energy Without the Crash',
+                desc: 'When your hormones find their rhythm, your energy follows. No caffeine required.',
+              },
+              {
+                icon: '💪',
+                title: 'Feeling Like Yourself Again',
+                desc: "Remember who you were before the pill? She's still there. Your body just needs help finding her.",
+              },
             ].map((b) => (
               <div key={b.title} className="flex gap-4 items-start">
                 <span className="text-3xl">{b.icon}</span>
@@ -195,8 +254,12 @@ export default function PostBCv1() {
       {/* Product showcase */}
       <section className="bg-gradient-to-b from-white to-pink-50 px-5 py-10">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-2">Pure Prana Hormonal Balance</h2>
-          <p className="text-gray-500 mb-4">6 Ayurvedic herbs. One daily ritual.</p>
+          <h2 className="text-2xl font-bold mb-2">
+            Pure Prana Hormonal Balance
+          </h2>
+          <p className="text-gray-500 mb-4">
+            6 Ayurvedic herbs. One daily ritual.
+          </p>
           <div className="flex justify-center mb-4">
             <Image
               src="/images/products/hormone-balance.jpg"
@@ -230,16 +293,37 @@ export default function PostBCv1() {
       {/* Testimonial vibe */}
       <section className="px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">The Vibe From Women Like You</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">
+            The Vibe From Women Like You
+          </h2>
           <div className="space-y-4">
             {[
-              { text: 'I was so skeptical but my period came on day 28 for the first time in a year. I actually cried.', name: 'K.M.', age: '24' },
-              { text: 'My chin acne started clearing up by week 3. I\'d tried everything else.', name: 'R.S.', age: '21' },
-              { text: 'I finally feel like my body is mine again. Less anxious, more even. My partner noticed too.', name: 'A.T.', age: '27' },
+              {
+                text: 'I was so skeptical but my period came on day 28 for the first time in a year. I actually cried.',
+                name: 'K.M.',
+                age: '24',
+              },
+              {
+                text: "My chin acne started clearing up by week 3. I'd tried everything else.",
+                name: 'R.S.',
+                age: '21',
+              },
+              {
+                text: 'I finally feel like my body is mine again. Less anxious, more even. My partner noticed too.',
+                name: 'A.T.',
+                age: '27',
+              },
             ].map((t) => (
-              <div key={t.name} className="bg-white border border-pink-100 rounded-xl p-5 shadow-sm">
-                <p className="text-gray-700 italic mb-2">&ldquo;{t.text}&rdquo;</p>
-                <p className="text-sm text-pink-600 font-medium">— {t.name}, age {t.age}</p>
+              <div
+                key={t.name}
+                className="bg-white border border-pink-100 rounded-xl p-5 shadow-sm"
+              >
+                <p className="text-gray-700 italic mb-2">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <p className="text-sm text-pink-600 font-medium">
+                  — {t.name}, age {t.age}
+                </p>
               </div>
             ))}
           </div>
@@ -249,7 +333,9 @@ export default function PostBCv1() {
       {/* FAQ */}
       <section className="bg-pink-50 px-5 py-10">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">Common Questions</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">
+            Common Questions
+          </h2>
           <FAQ />
         </div>
       </section>
@@ -257,9 +343,12 @@ export default function PostBCv1() {
       {/* Final CTA */}
       <section className="px-5 py-12">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3">Ready to Get Your Body Back?</h2>
+          <h2 className="text-2xl font-bold mb-3">
+            Ready to Get Your Body Back?
+          </h2>
           <p className="text-gray-600 mb-6">
-            Your body already knows how to balance itself. It just needs the right plant allies.
+            Your body already knows how to balance itself. It just needs the
+            right plant allies.
           </p>
           <a
             href={AMAZON_URL}
@@ -269,7 +358,9 @@ export default function PostBCv1() {
           >
             Get Hormonal Balance on Amazon →
           </a>
-          <p className="text-sm text-gray-400 mt-3">$29.95 · 60 capsules · Free Prime shipping</p>
+          <p className="text-sm text-gray-400 mt-3">
+            $29.95 · 60 capsules · Free Prime shipping
+          </p>
         </div>
       </section>
 

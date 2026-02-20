@@ -12,7 +12,8 @@ export const concerns: Concern[] = [
     id: '1',
     name: 'Memory & Focus',
     slug: 'memory-focus',
-    description: 'Support cognitive function, mental clarity, and concentration',
+    description:
+      'Support cognitive function, mental clarity, and concentration',
     icon: '🧠',
     color: 'bg-purple-100 text-purple-800',
   },
