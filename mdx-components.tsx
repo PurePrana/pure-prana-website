@@ -163,7 +163,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       productIds: string[]
       title?: string
     }) => {
-      const recommendedProducts = productIds
+      const recommendedProducts = (productIds || [])
         .map((id) => products.find((p) => p.id === id))
         .filter(Boolean)
       if (recommendedProducts.length === 0) return null
