@@ -137,14 +137,14 @@ export default function PostBCv1() {
           <h2 className="text-2xl font-bold mb-4 text-center">Sound familiar?</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">"I quit the pill 6 months ago and my hormones went completely insane. Periods every two weeks, acne I never had as a teenager, and I cry at everything."</p>
+              <p className="italic">&ldquo;I quit the pill 6 months ago and my hormones went completely insane. Periods every two weeks, acne I never had as a teenager, and I cry at everything.&rdquo;</p>
               <p className="text-sm text-pink-600 mt-2 font-medium">— Sound like you?</p>
             </div>
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">"I was on BC for 2 cycles at 16. Stopped. Now at 18, my hormones are far more intense than they ever were."</p>
+              <p className="italic">&ldquo;I was on BC for 2 cycles at 16. Stopped. Now at 18, my hormones are far more intense than they ever were.&rdquo;</p>
             </div>
             <div className="bg-pink-50 rounded-xl p-5 border-l-4 border-pink-300">
-              <p className="italic">"Period every 14-17 days. Heavy bleeding. Fatigue. I just want my body back."</p>
+              <p className="italic">&ldquo;Period every 14-17 days. Heavy bleeding. Fatigue. I just want my body back.&rdquo;</p>
             </div>
           </div>
           <p className="text-center text-gray-600 mt-6">

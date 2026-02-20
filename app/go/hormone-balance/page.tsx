@@ -65,7 +65,7 @@ export default function HormoneBalancePage() {
         </div>
         <p className="text-pink-600 text-xs font-semibold uppercase tracking-wider mb-2">Ayurvedic Formula for Women</p>
         <h1 className="text-3xl font-bold mb-3 leading-tight text-gray-900">
-          Your Cycle Shouldn't<br />Run Your Life.
+          Your Cycle Shouldn&apos;t<br />Run Your Life.
         </h1>
         <p className="text-gray-600 text-base mb-6 leading-relaxed">
           6 Ayurvedic herbs that help with PMS, cramps, mood swings, and the hormonal chaos of perimenopause — without synthetic hormones.
@@ -98,7 +98,7 @@ export default function HormoneBalancePage() {
             ))}
           </div>
           <p className="text-center text-gray-500 text-sm mt-6 italic">
-            These aren't things you just "deal with." Your body is asking for support.
+            These aren&apos;t things you just &ldquo;deal with.&rdquo; Your body is asking for support.
           </p>
         </div>
       </section>
