@@ -35,6 +35,27 @@ export function MetaPixel() {
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${PIXEL_ID}');
           fbq('track', 'PageView');
+
+          // Auto-track: ViewContent on /go/ warmup pages
+          if(window.location.pathname.startsWith('/go/')){
+            fbq('track','ViewContent',{
+              content_name: document.title,
+              content_category: window.location.pathname
+            });
+          }
+
+          // Auto-track: InitiateCheckout on Amazon link clicks
+          document.addEventListener('click',function(e){
+            var a = e.target.closest ? e.target.closest('a[href*="amazon.com"]') : null;
+            if(a){
+              fbq('track','InitiateCheckout',{
+                content_name: 'Hormonal Balance',
+                value: 29.95,
+                currency: 'USD',
+                content_category: window.location.pathname
+              });
+            }
+          });
         `}
       </Script>
       <noscript>
