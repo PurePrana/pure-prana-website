@@ -5,6 +5,13 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const AMAZON_URL = 'https://www.amazon.com/dp/B0DZ23LJGJ?maas=maas_adg_api_582148481881009074_macro_2_358&ref_=aa_maas&tag=maas&aa_campaignid={{campaign.id}}&aa_adgroupid={{adset.id}}&aa_creativeid={{ad.id}}'
+function handleAmazonClick() {
+  if (typeof window !== 'undefined' && (window as any).fbq) {
+    (window as any).fbq('track', 'InitiateCheckout')
+  }
+  window.open(AMAZON_URL, '_blank', 'noopener,noreferrer')
+}
+
 
 const faqs = [
   {

@@ -5,6 +5,13 @@ import { useState } from 'react'
 
 const AMAZON_URL = 'https://www.amazon.com/dp/B0DZ23LJGJ?maas=maas_adg_api_582148481881009074_macro_2_358&ref_=aa_maas&tag=maas&aa_campaignid={{campaign.id}}&aa_adgroupid={{adset.id}}&aa_creativeid={{ad.id}}'
 
+function handleAmazonClick() {
+  if (typeof window !== 'undefined' && (window as any).fbq) {
+    (window as any).fbq('track', 'InitiateCheckout')
+  }
+  window.open(AMAZON_URL, '_blank', 'noopener,noreferrer')
+}
+
 function StarRating() {
   return (
     <div className="flex items-center gap-2">
@@ -100,14 +107,12 @@ function StickyCTA() {
             $29.95 · 60 capsules
           </p>
         </div>
-        <a
-          href={AMAZON_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={handleAmazonClick}
           className="bg-pink-600 hover:bg-pink-700 text-white font-bold px-5 py-2.5 rounded-full text-sm transition-colors"
         >
           Get on Amazon →
-        </a>
+        </button>
       </div>
     </div>
   )
@@ -279,14 +284,12 @@ export default function PostBCv1() {
             <p>🌿 Guduchi — Immune & detox support</p>
           </div>
           <TrustBadges />
-          <a
-            href={AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleAmazonClick}
             className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold px-8 py-3 rounded-full transition-colors text-lg"
           >
             Get on Amazon — $29.95 →
-          </a>
+          </button>
         </div>
       </section>
 
@@ -350,14 +353,12 @@ export default function PostBCv1() {
             Your body already knows how to balance itself. It just needs the
             right plant allies.
           </p>
-          <a
-            href={AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleAmazonClick}
             className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold px-8 py-4 rounded-full transition-colors text-lg shadow-lg"
           >
             Get Hormonal Balance on Amazon →
-          </a>
+          </button>
           <p className="text-sm text-gray-400 mt-3">
             $29.95 · 60 capsules · Free Prime shipping
           </p>
